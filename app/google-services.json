@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "494529078470",
+    "project_id": "findjobproject-4f932",
+    "storage_bucket": "findjobproject-4f932.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494529078470:android:8e9668b631d1c50f3ea3c7",
+        "android_client_info": {
+          "package_name": "com.sce.findjobproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494529078470-shdbcmjnnkg3bd57imndf703295cgia4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sce.findjobproject",
+            "certificate_hash": "d067ef9d551717cabcb0554aafe9366595295c5c"
+          }
+        },
+        {
+          "client_id": "494529078470-0dvquaekhka84dn2e7sjsvoauoo6smhk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCljZK9_nA8I22S49AnY1o6nZtH68pqTT8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "494529078470-0dvquaekhka84dn2e7sjsvoauoo6smhk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

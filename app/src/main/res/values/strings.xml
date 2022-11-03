@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FIndJobProject</string>
+    <string name="default_web_client_id2">project-494529078470</string>
+    <string name="Google_id" translatable="false">494529078470-0dvquaekhka84dn2e7sjsvoauoo6smhk.apps.googleusercontent.com</string>
 </resources>
