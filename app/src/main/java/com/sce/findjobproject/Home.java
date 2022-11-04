@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -23,12 +22,23 @@ public class Home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home2);
+        setContentView(R.layout.activity_home);
         signOut=findViewById(R.id.SignOut);
 
         exitUser();
 
     }
+
+
+   // void EnterButtons(){ //added by or, this function will be relevant when we will have the layouts for the profile and the about
+
+       // btnProfile.setOnClickListener(view -> startActivity(new Intent(Home.this, Profile.class)));
+
+      //  btnAbout.setOnClickListener(view -> startActivity(new Intent(Home.this, About.class)));
+
+   // }
+
+
 
     void exitUser(){
 

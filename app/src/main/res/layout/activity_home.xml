@@ -13,9 +13,13 @@
         android:text="Its Home" />
 
     <Button
+        android:id="@+id/SignOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/SignOut"
+        android:layout_marginTop="150dp"
         android:layout_centerHorizontal="true"
-        android:text="Sign Out"/>
+        android:text="Sign Out" />
+
+
+    <include layout="@layout/navbar"/>
 </RelativeLayout>
