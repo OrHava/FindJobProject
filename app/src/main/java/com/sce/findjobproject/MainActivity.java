@@ -43,8 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     // [START declare_auth]
     private FirebaseAuth mAuth;
-    // [END declare_auth]
-    public static int WhichUser=1;
+    // [END declare_auth]    public static int WhichUser=1;
     private GoogleSignInClient mGoogleSignInClient;
 
 
