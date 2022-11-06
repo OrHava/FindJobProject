@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Its Home" />
+        android:text="Its Home text" />
 
     <Button
         android:id="@+id/SignOut"
