@@ -1,5 +1,4 @@
 package com.sce.findjobproject;
-
 import static com.google.firebase.auth.FirebaseAuth.getInstance;
 
 import androidx.appcompat.app.AppCompatActivity;

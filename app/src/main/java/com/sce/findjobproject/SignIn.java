@@ -203,7 +203,7 @@ public class SignIn extends AppCompatActivity {
         });
 
         signIn.setOnClickListener(view -> {
-           // startActivity(new Intent(SignIn.this, SignUp.class));
+            startActivity(new Intent(SignIn.this, SignUp.class));
 
         });
 
