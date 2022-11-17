@@ -23,9 +23,9 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        signOut=findViewById(R.id.SignOut);
+      //  signOut=findViewById(R.id.SignOut);
 
-        exitUser();
+      //  exitUser();
 
     }
 
@@ -58,7 +58,7 @@ public class Home extends AppCompatActivity {
                             // firebase sign out
                             getInstance().signOut();
 
-                            Intent intent = new Intent(Home.this, MainActivity.class);
+                            Intent intent = new Intent(Home.this, SignIn.class);
                             startActivity(intent);
                             finish();
 
