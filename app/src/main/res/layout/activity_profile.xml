@@ -7,6 +7,15 @@
     android:background="#E4ECEC"
     tools:context=".Profile">
 
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
     <RelativeLayout
         android:id="@+id/LayoutProfile"
         android:layout_width="350dp"
@@ -295,6 +304,214 @@
             android:textStyle="bold" />
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/LayoutPostJob"
+        android:layout_width="500dp"
+        android:layout_height="700dp"
+        android:layout_below="@+id/LayoutCv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/background_with_shadow">
+
+
+        <ImageView
+            android:id="@+id/imageLinePostJob"
+            android:layout_width="40dp"
+            android:layout_height="1500dp"
+            android:layout_marginStart="-25dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginBottom="22dp"
+            android:layout_toEndOf="@+id/imagePostJob"
+            android:contentDescription="imageLinePostJob"
+            android:scaleType="fitXY"
+            android:src="@drawable/line"
+            app:tint="#2196F3"
+            tools:ignore="HardcodedText" />
+
+        <ImageView
+            android:id="@+id/imagePostJob"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:contentDescription="imagePostJob"
+            android:src="@drawable/add"
+            app:tint="#A7AAAC"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/txtUpJob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/publish_a_job"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/edtCompany"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtUpJob"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="9dp"
+            android:autofillHints="@string/company_name"
+
+            android:backgroundTint="@color/black"
+            android:hint="@string/company_name"
+            android:inputType="text"
+            android:shadowColor="@color/black"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/txtCompany"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtUpJob"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/company_name"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/SpinJobsType1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtCompany"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="@color/black"
+
+            android:gravity="center"
+            android:hint="@string/job_type"
+            android:minHeight="48dp"
+            android:padding="12dp"
+            android:shadowColor="@color/black"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            app:drawableEndCompat="@drawable/ic_arrow" />
+
+
+        <TextView
+            android:id="@+id/row_item_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtCompany"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/job_type"
+            android:textColor="@color/black"
+
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/placeOfJob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_item_textview"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/location_of_job"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/SpinJobsLocation1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_item_textview"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="@color/black"
+            android:gravity="center"
+            android:hint="@string/location_of_job"
+            android:minHeight="48dp"
+            android:shadowColor="@color/black"
+
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            app:drawableEndCompat="@drawable/ic_arrow" />
+
+        <TextView
+            android:id="@+id/JobDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/placeOfJob"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/job_description"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/NestedScrollView1"
+            android:layout_width="230dp"
+            android:layout_height="300dp"
+            android:layout_below="@+id/placeOfJob"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="5dp"
+            android:gravity="top">
+
+            <EditText
+                android:id="@+id/edtJobDescription"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:autofillHints="@string/job_description"
+                android:backgroundTint="@color/black"
+                android:gravity="top"
+                android:hint="@string/job_description"
+                android:inputType="textMultiLine"
+                android:shadowColor="@color/black"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+
+        </androidx.core.widget.NestedScrollView>
+
+        <Button
+            android:id="@+id/BtnUpJobDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/NestedScrollView1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:backgroundTint="#FF5722"
+            android:text="@string/submit_work"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/BtnUpJobApplied"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/BtnUpJobDesc"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:backgroundTint="#FF5722"
+            android:text="@string/all_job_applied_cv_s"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+
+    </RelativeLayout>
+
     <ImageView
         android:id="@+id/profile_exit_user"
         android:layout_width="80dp"
@@ -303,6 +520,13 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="30dp"
         app:srcCompat="@drawable/exit_user" />
+
+        </RelativeLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
 
     <include layout="@layout/navbar"/>
 
