@@ -10,13 +10,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -83,8 +92,10 @@ public class Home extends AppCompatActivity  implements AdapterView.OnItemSelect
         listItemJobLocations=getResources().getStringArray(R.array.jobs_location);
         listItemJobTypes=getResources().getStringArray(R.array.jobs_types);
         user= FirebaseAuth.getInstance().getCurrentUser();
+        SearchHelperManager();
         EnterButtons();
         CheckWhichUser();
+        SpinnerFuncAdvance();
 
 
     }
@@ -236,6 +247,41 @@ public class Home extends AppCompatActivity  implements AdapterView.OnItemSelect
         });
 
     }
+
+    private void SearchHelperManager(){
+        if(user!=null ) {
+            String userId = user.getUid();
+            databaseReference = FirebaseDatabase.getInstance().getReference("Managers");
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+
+                @SuppressLint("SetTextI18n")
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
+                        if (Objects.requireNonNull(postsnapshot.getValue()).toString().equals(userId)) {
+                            count2++;
+                        }
+
+
+                    }
+                    if(count2>0){
+                        WhichUser=3;
+                        CheckWhichUser();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    // Failed to read value
+
+                }
+            });
+
+
+
+        }
+
+    }
     public void DeletePostAdmin(int index){
         AtomicBoolean DeletePostOrNot = new AtomicBoolean(false);
         if(WhichUser ==3){
@@ -272,6 +318,435 @@ public class Home extends AppCompatActivity  implements AdapterView.OnItemSelect
 
 
 
+
+
+    void EnterButtons(){
+
+        btnProfile.setOnClickListener(view -> startActivity(new Intent(Home.this, Profile.class)));
+
+        btnAbout.setOnClickListener(view -> startActivity(new Intent(Home.this, About.class)));
+
+    }
+
+
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        // On selecting a spinner item
+        //String item = parent.getItemAtPosition(position).toString();
+
+
+
+        // Showing selected spinner item
+        //Toast.makeText(parent.getContext(), getString(R.string.Selected) + item, Toast.LENGTH_LONG).show();
+
+    }
+
+    public void onNothingSelected(AdapterView<?> arg0) {
+        // TODO Auto-generated method stub
+
+    }
+
+    public void ShareButton(int index) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Look at the job opportunities at FindJob, "+JobInfo.get(index) );
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
+
+    }
+
+    public void ReportButton(int index) {
+
+
+        final String[] Reasons = {
+                getString(R.string.discrimination), getString(R.string.violence_content), getString(R.string.wrong_information), getString(R.string.disturbing_or_offensive),
+                getString(R.string.violation_of_intellectual_property_or_other_law),getString(R.string.other),getString(R.string.exit)
+        };
+        AlertDialog.Builder builder = new AlertDialog.Builder(Home.this);
+        builder.setTitle(R.string.choose_reason_of_report_post);
+        builder.setItems(Reasons, new DialogInterface.OnClickListener() {@
+                Override
+        public void onClick(DialogInterface dialog, int which) {
+            if ( getString(R.string.discrimination).equals(Reasons[which])) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef3 = database.getReference("reports").child(CompanyId[index]);
+                myRef3.getRef().setValue("1");
+                dialog.dismiss();
+                Toast.makeText(Home.this, R.string.post_report_successfully, Toast.LENGTH_SHORT).show();
+            } else if (getString(R.string.violence_content).equals(Reasons[which])) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef3 = database.getReference("reports").child(CompanyId[index]);
+                myRef3.getRef().setValue("2");
+                Toast.makeText(Home.this, R.string.post_report_successfully, Toast.LENGTH_SHORT).show();
+            } else if (getString(R.string.wrong_information).equals(Reasons[which])) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef3 = database.getReference("reports").child(CompanyId[index]);
+                myRef3.getRef().setValue("3");
+                Toast.makeText(Home.this, R.string.post_report_successfully, Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+            else if(getString(R.string.disturbing_or_offensive).equals(Reasons[which])){
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef3 = database.getReference("reports").child(CompanyId[index]);
+                myRef3.getRef().setValue("4");
+                Toast.makeText(Home.this, R.string.post_report_successfully, Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+            else if (getString(R.string.violation_of_intellectual_property_or_other_law).equals(Reasons[which])){
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef3 = database.getReference("reports").child(CompanyId[index]);
+                myRef3.getRef().setValue("5");
+                Toast.makeText(Home.this, R.string.post_report_successfully, Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+            else if(getString(R.string.other).equals(Reasons[which])){
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef3 = database.getReference("reports").child(CompanyId[index]);
+                myRef3.getRef().setValue("6");
+                Toast.makeText(Home.this, R.string.post_report_successfully, Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+            else if(getString(R.string.exit).equals(Reasons[which])){
+                dialog.dismiss();
+            }
+
+        }
+        });
+        builder.show();
+
+
+
+
+
+    }
+    private void checkIfUserHaveCV(){
+
+        if(user!=null ) {
+            String userId = user.getUid();
+            databaseReference = FirebaseDatabase.getInstance().getReference("Uploads").child(userId).child("Uploads");
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+
+                @SuppressLint("SetTextI18n")
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    haveCvOrNo= dataSnapshot.exists();
+
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    // Failed to read value
+
+                }
+            });
+
+        }
+
+    }
+    private void SpinnerFuncAdvance() {
+
+
+
+        SpinJobsLocation.setOnClickListener(view -> {
+            dialog2= new Dialog((Home.this));
+            dialog2.setContentView(R.layout.dialog_searchable_spinner);
+
+            dialog2.getWindow().setLayout(650,800);
+
+            dialog2.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+            dialog2.show();
+
+            EditText editText= dialog2.findViewById(R.id.edit_text);
+            ListView listView=dialog2.findViewById(R.id.list_view);
+
+
+            ArrayAdapter<String> adapter= new ArrayAdapter<String>(Home.this,
+                    android.R.layout.simple_list_item_1,
+                    listItemJobLocations){
+
+
+                @Override
+                public View getView(int position, View convertView, ViewGroup parent) {
+
+                    View view = super.getView(position, convertView, parent);
+                    TextView text = view.findViewById(android.R.id.text1);
+                    text.setTextColor(Color.BLACK);
+
+
+                    return view;
+                }
+
+
+            };
+
+            listView.setAdapter(adapter);
+
+            editText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    adapter.getFilter().filter(charSequence);
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
+
+            listView.setOnItemClickListener((adapterView, view1, i, l) -> {
+                SpinJobsLocation.setText(adapter.getItem(i));
+                for(int j = 0; i<listItemJobLocations.length-1;j++){
+                    if(listItemJobLocations[j].equals(adapter.getItem(i))){
+                        SpinJobsLocation1Index=j;
+                        break;
+                    }
+                }
+                dialog2.dismiss();
+            });
+
+        });
+
+        SpinJobsType.setOnClickListener(view -> {
+            dialog= new Dialog((Home.this));
+            dialog.setContentView(R.layout.dialog_searchable_spinner);
+
+            dialog.getWindow().setLayout(650,800);
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+            dialog.show();
+
+            EditText editText= dialog.findViewById(R.id.edit_text);
+            ListView listView=dialog.findViewById(R.id.list_view);
+
+
+            ArrayAdapter<String> adapter= new ArrayAdapter<String>(Home.this,
+                    android.R.layout.simple_list_item_1,
+                    listItemJobTypes) {
+
+
+                @Override
+                public View getView(int position, View convertView, ViewGroup parent) {
+
+                    View view = super.getView(position, convertView, parent);
+                    TextView text = view.findViewById(android.R.id.text1);
+                    text.setTextColor(Color.BLACK);
+
+
+                    return view;
+                }
+            };
+
+            listView.setAdapter(adapter);
+
+            editText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    adapter.getFilter().filter(charSequence);
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
+
+            listView.setOnItemClickListener((adapterView, view12, i, l) -> {
+                SpinJobsType.setText(adapter.getItem(i));
+
+                for(int j = 0; i<listItemJobTypes.length-1;j++){
+                    if(listItemJobTypes[j].equals(adapter.getItem(i))){
+                        SpinJobsType1Index=j;
+                        break;
+                    }
+                }
+                dialog.dismiss();
+            });
+
+        });
+    }
+    private void SearchHelper(){
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("usersJobs");
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot postsnapshot: dataSnapshot.getChildren()){
+
+                    if(Objects.equals(postsnapshot.child("SpinJobsLocation11Index").getValue(Integer.class), SpinJobsLocation1Index) && Objects.requireNonNull(postsnapshot.child("SpinJobsType11Index").getValue(Integer.class)).equals(SpinJobsType1Index)){
+                        CompanyId[i]=postsnapshot.getKey();
+                        i++;
+
+                    }
+
+
+
+
+                }
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Failed to read value
+
+            }
+        });
+
+
+
+
+    }
+
+
+    private void Search() {
+
+
+
+        BtnSearch.setOnClickListener(view -> {
+            if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+                return;
+            }
+            mLastClickTime = SystemClock.elapsedRealtime();
+
+            amountofJobs=0;
+            i=0;
+            ArrayList<Contact> contacts=new ArrayList<>();
+            JobTypeSearch=SpinJobsType.getText().toString();
+            LocationTypeSearch=SpinJobsLocation.getText().toString();
+            searchAnim.playAnimation();
+            if(user!=null) {
+
+                databaseReference = FirebaseDatabase.getInstance().getReference("usersJobs");
+                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+
+                    @SuppressLint("SetTextI18n")
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot postsnapshot: dataSnapshot.getChildren()){
+
+                            if(Objects.equals(postsnapshot.child("SpinJobsLocation11Index").getValue(Integer.class), SpinJobsLocation1Index) && Objects.requireNonNull(postsnapshot.child("SpinJobsType11Index").getValue(Integer.class)).equals(SpinJobsType1Index)){
+                                String CompanyName= postsnapshot.child("Company").getValue(String.class);
+                                String Date= postsnapshot.child("Date").getValue(String.class);
+                                String JobDescription= postsnapshot.child("JobDescription").getValue(String.class);
+                                contacts.add(new Contact(CompanyName,JobTypeSearch,JobDescription,LocationTypeSearch, Date));
+                                JobInfo.add(contacts.get(amountofJobs).toString());
+                                amountofJobs++;
+
+
+
+                                ContactsRecViewAdapter adapter= new ContactsRecViewAdapter(Home.this);
+                                adapter.setContacts(contacts);
+                                contactsRecView.setAdapter(adapter);
+
+                                contactsRecView.setLayoutManager(new LinearLayoutManager(Home.this));
+
+                            }
+
+
+
+
+                        }
+                        CompanyId=new String[amountofJobs];
+
+                        searchAnim.cancelAnimation();
+                        if( amountofJobs==0){
+                            Toast.makeText(Home.this,""+ getString(R.string.Job_Not_Found), Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            txtWhichUser.setText(getString(R.string.We_Found)+amountofJobs+ getString(R.string.JobsThatSuitYou));
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        // Failed to read value
+
+                    }
+                });
+
+
+
+
+
+
+                SearchHelper();
+
+            }
+
+
+
+
+        });
+
+    }
+
+
+    void SendCvFunc(int position){
+        count=0;
+        if(user!=null ) {
+            String userId = user.getUid();
+            databaseReference = FirebaseDatabase.getInstance().getReference("usersJobs").child(CompanyId[position]).child("cvIds");
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+
+                @SuppressLint("SetTextI18n")
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
+
+                        if (Objects.requireNonNull(postsnapshot.getValue()).toString().equals(userId)) {
+                            count++;
+                        }
+
+
+                    }
+                    if( count ==0 && !haveCvOrNo){
+                        Toast.makeText(Home.this, R.string.You_dont_have_a_cv_to_send, Toast.LENGTH_SHORT).show();
+                    }
+                    else if(count == 0) {
+                        String userId = user.getUid();
+                        databaseReference = FirebaseDatabase.getInstance().getReference("usersJobs").child(CompanyId[position]).child("cvIds").push();
+                        databaseReference.setValue(userId);
+                        Toast.makeText(Home.this, R.string.Cv_sent_successfully2, Toast.LENGTH_SHORT).show();
+
+                    }
+                    else if(count>0) {
+                        Toast.makeText(Home.this, R.string.Cv_already_sent, Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    // Failed to read value
+
+                }
+            });
+        }
+        else {
+            Toast.makeText(Home.this, "Error", Toast.LENGTH_SHORT).show();
+        }
+
+
+
+
+    }
     public static int CheckWhichUserForRecView() {
         if(WhichUser==1){
             return 1;
@@ -285,6 +760,12 @@ public class Home extends AppCompatActivity  implements AdapterView.OnItemSelect
         }
         return 0;
     }
+
+
+
+
+
+
     void CheckWhichUser() {
         boolean whichUserBoolean = false;
         if(WhichUser==1){
@@ -313,19 +794,4 @@ public class Home extends AppCompatActivity  implements AdapterView.OnItemSelect
 
         }
     }
-
-
-    void EnterButtons(){
-
-        btnProfile.setOnClickListener(view -> startActivity(new Intent(Home.this, Profile.class)));
-
-        btnAbout.setOnClickListener(view -> startActivity(new Intent(Home.this, About.class)));
-
-    }
-
-
-
-
-
-
 }

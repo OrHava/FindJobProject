@@ -5,6 +5,11 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+
+
 
     <application
         android:allowBackup="true"
@@ -17,31 +22,44 @@
         android:theme="@style/Theme.FIndJobProject"
         tools:targetApi="31">
         <activity
-            android:name=".About"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:name=".ViewCvsApplys"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".Spinner"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".ViewAllFiles"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".UpLoadPDF"
+            android:screenOrientation="portrait"
+            android:exported="false" />
         <activity
             android:name=".SignUp"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:screenOrientation="portrait"
+            android:exported="false" />
         <activity
             android:name=".Profile"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".About"
+            android:screenOrientation="portrait"
+            android:exported="false" />
         <activity
             android:name=".Home"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".SignIn"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+        <activity
+            android:name=".Splash"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -49,10 +67,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
