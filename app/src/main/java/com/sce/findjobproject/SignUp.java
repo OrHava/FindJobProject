@@ -1,13 +1,11 @@
 package com.sce.findjobproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
 import android.content.Intent;
+import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -18,6 +16,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import io.reactivex.annotations.NonNull;
 
@@ -29,7 +29,7 @@ public class SignUp extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        setContentView(R.layout.activity_signin);
 
 
         initialize();
@@ -48,6 +48,7 @@ public class SignUp extends AppCompatActivity {
     void startButtons(){
         button_login.setOnClickListener(view -> {
             startActivity(new Intent(SignUp.this, SignIn.class));
+            overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
         });
     }
 
@@ -71,16 +72,31 @@ public class SignUp extends AppCompatActivity {
     }
 
 
+    public static boolean isEmailValid(String email) {
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+    static boolean isPasswordValid(String password) {
+        return password.length() >= 6;
+    }
+
+
+
     public void reload() {
         button_register.setOnClickListener(view -> {
-            if(edit_email==null || Objects.requireNonNull(edit_email.getText()).toString().isEmpty() ){
-                Toast.makeText(SignUp.this, "Enter Email", Toast.LENGTH_SHORT).show();
+            if(edit_email==null || Objects.requireNonNull(edit_email.getText()).toString().isEmpty() || !isEmailValid(edit_email.getText().toString())){
+                Toast.makeText(SignUp.this, R.string.enter_a_valid_email, Toast.LENGTH_SHORT).show();
             }
-            if(edit_password==null || Objects.requireNonNull(edit_password.getText()).toString().isEmpty() ) {
-                Toast.makeText(SignUp.this, "Enter Password", Toast.LENGTH_SHORT).show();
+            if(edit_password==null || Objects.requireNonNull(edit_password.getText()).toString().isEmpty() || !isPasswordValid(edit_password.getText().toString())) {
+                Toast.makeText(SignUp.this,
+                        R.string.enter_a_valid_password,
+                        Toast.LENGTH_SHORT).show();
             }
 
-            if(edit_password!=null && edit_email!=null && !(Objects.requireNonNull(edit_password.getText()).toString().isEmpty()) && !(Objects.requireNonNull(edit_email.getText()).toString().isEmpty())){
+            if(edit_password!=null && edit_email!=null && !(Objects.requireNonNull(edit_password.getText()).toString().isEmpty()) && !(Objects.requireNonNull(edit_email.getText()).toString().isEmpty()) &&isEmailValid(edit_email.getText().toString())&& isPasswordValid(edit_password.getText().toString())){
 
                 mAuth.createUserWithEmailAndPassword(Objects.requireNonNull(edit_email.getText()).toString().trim(), edit_password.getText().toString().trim())
                         .addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
@@ -104,6 +120,7 @@ public class SignUp extends AppCompatActivity {
                             private void updateUI(FirebaseUser user) {
                                 if(user!=null) {
                                     startActivity(new Intent(SignUp.this, SignIn.class));
+                                    overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
                                 }
                             }
                         });

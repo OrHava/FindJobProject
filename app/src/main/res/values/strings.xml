@@ -86,6 +86,23 @@
     <string name="southern_district">Southern District</string>
     <string name="judea_and_samaria_district">Judea and Samaria District</string>
     <string name="jobs_by_district">Jobs By District:</string>
+    <string name="delete_post">Delete Post</string>
+    <string name="are_you_sure">Are you sure you want to delete this post permanently as admin?</string>
+    <string name="reason_of_report">\Reason of Report:\ \</string>
+    <string name="discrimination">discrimination</string>
+    <string name="violence_content">violence content</string>
+    <string name="wrong_information">wrong information</string>
+    <string name="disturbing_or_offensive">disturbing or offensive</string>
+    <string name="violation_of_intellectual_property_or_other_law">Violation of intellectual property or other law</string>
+    <string name="other">other</string>
+    <string name="exit">exit</string>
+    <string name="post_report_successfully">Post Report successfully</string>
+    <string name="with_reports_on_them">\ With Reports on them\</string>
+    <string name="choose_reason_of_report_post">Choose Reason of Report Post</string>
+    <string name="job_posted_successfully">job posted successfully</string>
+    <string name="report_of_user">Report of User</string>
+    <string name="enter_a_valid_email">Enter a valid Email</string>
+    <string name="enter_a_valid_password">Enter a valid Password</string>
 
 
     <!-- Language array -->

@@ -1,176 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">FindJob</string>
-    <string name="Google_id" translatable="false">494529078470-0dvquaekhka84dn2e7sjsvoauoo6smhk.apps.googleusercontent.com</string>
-    <string name="private_info">Private Info</string>
-    <string name="Name">Name</string>
-    <string name="last_name">Last Name</string>
-    <string name="email">Email</string>
-    <string name="phone">Phone</string>
-    <string name="city">City</string>
-    <string name="gender">Gender</string>
-    <string name="submit_info">submit info</string>
-    <string name="name">Name</string>
-    <string name="submit_cv">Submit Cv</string>
-    <string name="company_name">Company Name</string>
-    <string name="job_type">Job Type</string>
-    <string name="location_of_job">Location Of Job</string>
-    <string name="job_description">Job Description</string>
-    <string name="submit_work">Submit Work</string>
-    <string name="Administrator">Administrator</string>
-    <string name="Software_Engineer">Software Engineer</string>
-    <string name="Architect">Architect</string>
-    <string name="Plumber">Plumber</string>
-    <string name="Tattooist">Tattooist</string>
-    <string name="Teacher">Teacher</string>
-    <string name="Selected">\"Selected: \"</string>
+    <string name="private_info">פרטים אישיים</string>
+    <string name="Name">שם פרטי</string>
+    <string name="last_name">שם משפחה</string>
+    <string name="email">איימל</string>
+    <string name="phone">טלפון</string>
+    <string name="city">עיר</string>
+    <string name="gender">מגדר</string>
+    <string name="submit_info">הכנס מידע</string>
+    <string name="name">שם פרטי</string>
+    <string name="submit_cv">לעלות קורות חיים</string>
+    <string name="company_name">שם חברה</string>
+    <string name="job_type">סוג עבודה</string>
+    <string name="location_of_job">מיקום עבודה</string>
+    <string name="job_description">תיאור עבודה</string>
+    <string name="submit_work">הגש עבודה</string>
+    <string name="Administrator">מזכירות</string>
+    <string name="Software_Engineer">מהנדס תוכנה</string>
+    <string name="Architect">אדריכלות</string>
+    <string name="Plumber">אינסטלטור</string>
+    <string name="Tattooist">מקעקע</string>
+    <string name="Teacher">מורה</string>
+    <string name="Selected">\ נבחר:  \</string>
     <string name="hello">Hello</string>
-    <string name="send_cv">Send CV</string>
-    <string name="all_job_applied_cv_s">All Job Applied Cv\'s</string>
-    <string name="Your_Looking_For_Jobs">Your Looking For Jobs</string>
-    <string name="Your_Looking_For_Employees">Your Looking For Employees</string>
-    <string name="Your_Manager_of_The_App">Your Manager of The App</string>
-    <string name="publish_a_job">Publish A Job</string>
-    <string name="there_is">\"There is: \"</string>
-    <string name="cvsforyou">\" Cvs For You\"</string>
-    <string name="Cv_sent_successfully">Cv sent successfully</string>
-    <string name="exit_user">Exit User</string>
-    <string name="jobnotfound">Job Not Found</string>
-    <string name="Amount_of_Jobs_Found">\"Amount of Jobs Found: \"</string>
-    <string name="Job_Not_Found">Job Not Found</string>
-    <string name="sign_up">sign up</string>
-    <string name="password">password</string>
-    <string name="login">login</string>
-    <string name="forgot_password">forgot password</string>
-    <string name="choose_as_which_user_you_enter">Choose as Which User you Enter</string>
-    <string name="looking_for_job">Looking For Job</string>
-    <string name="looking_for_employees">Looking For Employees</string>
-    <string name="app_manager">App Manager</string>
-    <string name="or_sign_in_with">or sign in with</string>
-    <string name="upload_pdf">Upload PDF</string>
-    <string name="enter_pdf_file_name">Enter PDF file name</string>
-    <string name="view_pdf">View PDF</string>
-    <string name="Delete_Watch">Delete/Watch</string>
-    <string name="Watch_or_Delete_File">Watch or Delete File:</string>
-    <string name="Delete_All_Files">Delete All Files?</string>
-    <string name="Files_Delete_successfully">Files Delete successfully</string>
-    <string name="Yo_want_to_see_this_File">You want to see this File?</string>
-    <string name="You_want_to_see_this_File">You want to see this File?</string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
-    <string name="register">register</string>
-    <string name="Go_To_login">Go To login</string>
-    <string name="Cv_was_already_sent">Cv was already sent</string>
-    <string name="Cv_sent_successfully2">Cv sent successfully</string>
-    <string name="Cv_already_sent">Cv already sent</string>
-    <string name="Cv_Send">Cv Send</string>
-    <string name="select">Select</string>
-    <string name="search">Search</string>
-    <string name="Delete_The_File">Delete The File?</string>
-    <string name="enter_as_admin">Admin</string>
-    <string name="We_Found">\We Found\ \</string>
-    <string name="JobsThatSuitYou">\ Jobs That Suit You\</string>
-    <string name="date">Date</string>
-    <string name="btnsearch">BtnSearch</string>
-    <string name="imageac">ImageAc</string>
-    <string name="line">Line</string>
-    <string name="empty">Empty</string>
-    <string name="You_dont_have_a_cv_to_send">You don\'t have a cv to send!</string>
-    <string name="amount_of_users">Amount Of Users:</string>
-    <string name="Amount_of_Job_Recruiters">\Amount of Job Recruiters: \</string>
-    <string name="Amount_Of_Job_Seekers">\Amount Of Job Seekers: \</string>
-    <string name="northern_district">Northern District</string>
-    <string name="haifa_district">Haifa District</string>
-    <string name="tel_aviv_district">Tel Aviv District</string>
-    <string name="central_district">Central District</string>
-    <string name="jerusalem_district">Jerusalem District</string>
-    <string name="southern_district">Southern District</string>
-    <string name="judea_and_samaria_district">Judea and Samaria District</string>
-    <string name="jobs_by_district">Jobs By District:</string>
-
+    <string name="send_cv">שליחת קורות חיים</string>
+    <string name="all_job_applied_cv_s">כל הקורות חיים שנשלחו</string>
+    <string name="Your_Looking_For_Jobs">את/ה מחפש עבודות</string>
+    <string name="Your_Looking_For_Employees">את/ה מחפש עובדים</string>
+    <string name="Your_Manager_of_The_App">את/ה מנהל את האפליקציה</string>
+    <string name="publish_a_job">פרסום הצעת עבודה</string>
+    <string name="there_is">יש: \</string>
+    <string name="cvsforyou"> \ קורות חיים בשבילך</string>
+    <string name="Cv_sent_successfully">קורות חיים נשלחו בהצלחה</string>
+    <string name="exit_user">יציאה</string>
+    <string name="jobnotfound">לא נמצא עבודה</string>
+    <string name="Amount_of_Jobs_Found">\כמות העבודות:\ \</string>
+    <string name="Job_Not_Found">לא נמצא עבודה</string>
+    <string name="sign_up">הרשמה</string>
+    <string name="password">סיסמא</string>
+    <string name="login">כניסה</string>
+    <string name="forgot_password">שחזר סיסמא</string>
+    <string name="choose_as_which_user_you_enter">בחר סוג משתמש</string>
+    <string name="looking_for_job">מחפש עבודה</string>
+    <string name="looking_for_employees">מחפש עובדים</string>
+    <string name="app_manager">מנהל אפליקציה</string>
+    <string name="or_sign_in_with">או שתתחבר עם</string>
+    <string name="upload_pdf">תעלה pdf</string>
+    <string name="enter_pdf_file_name">תכניס את שם ה- pdf</string>
+    <string name="view_pdf">לראות את הקורות חיים שלך</string>
+    <string name="Delete_Watch">למחוק/לראות</string>
+    <string name="Watch_or_Delete_File">למחוק או לראות קובץ</string>
+    <string name="Delete_All_Files">למחוק את כל הקבצים?</string>
+    <string name="Files_Delete_successfully">קבצים נמחקו בהצלחה</string>
+    <string name="Yo_want_to_see_this_File">אתה רוצה לראות את הקובץ הזה?</string>
+    <string name="You_want_to_see_this_File">ה רוצה לראות את הקובץ הזה?</string>
+    <string name="yes">כן</string>
+    <string name="no">לא</string>
+    <string name="register">הרשמה</string>
+    <string name="Go_To_login">חזרה לכניסה</string>
+    <string name="Cv_was_already_sent">קורות חיים נשלחו כבר</string>
+    <string name="Cv_sent_successfully2">קורות חיים נשלחו בהצלחה</string>
+    <string name="Cv_already_sent">קורות חיים נשלחו כבר</string>
+    <string name="Cv_Send">קורות חיים נשלחו</string>
+    <string name="select">בחירה</string>
+    <string name="search">חיפוש</string>
+    <string name="Delete_The_File">למחוק את הקובץ?</string>
+    <string name="enter_as_admin">מנהל</string>
+    <string name="We_Found">\מצאנו\ \</string>
+    <string name="JobsThatSuitYou">\ משרות מתאימות עבורך\</string>
+    <string name="date">תאריך</string>
+    <string name="btnsearch">כפתור חיפוש</string>
+    <string name="imageac">תמונה של חשבון</string>
+    <string name="line">קו</string>
+    <string name="empty">ריק</string>
+    <string name="You_dont_have_a_cv_to_send">אין לך קורות חיים לשלוח!</string>
+    <string name="amount_of_users">כמות משתמשים</string>
+    <string name="Amount_of_Job_Recruiters">\כמות מחפשי עובדים: \</string>
+    <string name="Amount_Of_Job_Seekers">\כמות מחפשי עובדים: \</string>
+    <string name="northern_district">מחוז צפון</string>
+    <string name="haifa_district">מחוז חיפה</string>
+    <string name="tel_aviv_district">מחוז תל אביב</string>
+    <string name="central_district">מחוז המרכז</string>
+    <string name="jerusalem_district">מחוז ירושלים</string>
+    <string name="southern_district">מחוז דרום</string>
+    <string name="judea_and_samaria_district">מחוז יהודה ושומרון</string>
+    <string name="jobs_by_district">עבודות לפי מחוז:</string>
+    <string name="delete_post">למחוק מודעה</string>
+    <string name="are_you_sure">האם אתה בטוח שאתה רוצה למחוק את המודעה לצמיתות כמנהל?</string>
+    <string name="reason_of_report">\סיבת דיווח:\ \</string>
+    <string name="discrimination">אפליה</string>
+    <string name="violence_content">תוכן אלים</string>
+    <string name="wrong_information">מידע שגוי</string>
+    <string name="disturbing_or_offensive">מטריד או מעליב</string>
+    <string name="violation_of_intellectual_property_or_other_law">הפרה של חוק</string>
+    <string name="other">אחר</string>
+    <string name="exit">יציאה</string>
+    <string name="post_report_successfully">מודעה דווחה בהצלחה</string>
+    <string name="with_reports_on_them">\ \עבודות עם דיווחים עליהם\</string>
+    <string name="choose_reason_of_report_post">בחר סיבת דיווח</string>
+    <string name="job_posted_successfully">העבודה העלתה בהצלחה</string>
+    <string name="report_of_user">דוח משתמש</string>
+    <string name="enter_a_valid_email">הכנס כתובת אימייל חוקית</string>
+    <string name="enter_a_valid_password">הכנס סיסמא חוקית</string>
 
     <!-- Language array -->
     <string-array name="jobs_location">
-        <item>Afula</item>
-        <item>Akko</item>
-        <item>Arad</item>
-        <item>Ariel</item>
-        <item>Ashdod</item>
-        <item>Ashkelon</item>
-        <item>Baqa al-Gharbiyye</item>
-        <item>Bat Yam</item>
-        <item>Beer Sheva</item>
-        <item>Beit Shean</item>
-        <item>Beit Shemesh</item>
-        <item>Betar Illit</item>
-        <item>Bnei Berak</item>
-        <item>Dimona</item>
-        <item>Eilat</item>
-        <item>Elad</item>
-        <item>Givatayim</item>
-        <item>Hadera</item>
-        <item>Haifa</item>
-        <item>Harish</item>
-        <item>Herzliya</item>
-        <item>Hod HaSharon</item>
-        <item>Holon</item>
-        <item>Jerusalem</item>
-        <item>Karmiel</item>
-        <item>Kfar Sava</item>
-        <item>Kiryat Ata</item>
-        <item>Kiryat Bialik</item>
-        <item>Kiryat Gat</item>
-        <item>Kiryat Malachi</item>
-        <item>Kiryat Motzkin</item>
-        <item>Kiryat Ono</item>
-        <item>Kiryat Shemone</item>
-        <item>Kiryat Yam</item>
-        <item>Lod</item>
-        <item>Maale Adumim</item>
-        <item>Maalot Tarshiha</item>
-        <item>Migdal HaEmek</item>
-        <item>Modiin</item>
-        <item>Nahariya</item>
-        <item>Nazareth</item>
-        <item>Nes Ziona</item>
-        <item>Nesher</item>
-        <item>Netanya</item>
-        <item>Netivot</item>
-        <item>Nof Hagalil</item>
-        <item>Ofakim</item>
-        <item>Or Akiva</item>
-        <item>Or Yehuda</item>
-        <item>Petah Tikva</item>
-        <item>Qalansawe</item>
-        <item>Raanana</item>
-        <item>Rahat</item>
-        <item>Ramat Hasharon</item>
-        <item>Ramat-Gan</item>
-        <item>Ramla</item>
-        <item>Rehovot</item>
-        <item>Rishon Lezion</item>
-        <item>Rosh Ha\'ayin</item>
-        <item>Sakhnin</item>
-        <item>Sderot</item>
-        <item>Shefaram</item>
-        <item>Taibeh</item>
-        <item>Tamra</item>
-        <item>Tel Aviv</item>
-        <item>Tiberias</item>
-        <item>Tira</item>
-        <item>Tirat Carmel</item>
-        <item>Tsfat (Safed)</item>
-        <item>Umm al-Fahm</item>
-        <item>Yavne</item>
-        <item>Yehud-Monosson</item>
-        <item>Yokneam</item>
+        <item>עפולה</item>
+        <item>עכו</item>
+        <item>ערד</item>
+        <item>אריאל</item>
+        <item>אשדוד</item>
+        <item>אשקלון</item>
+        <item>בקעה על גרבייה</item>
+        <item>בת ים</item>
+        <item>באר שבע</item>
+        <item>בית שאן</item>
+        <item>בית שמש</item>
+        <item>ביתר עילית</item>
+        <item>בני ברק</item>
+        <item>דימונה</item>
+        <item>אילת</item>
+        <item>אלעד</item>
+        <item>גבעתיים</item>
+        <item>חדרה</item>
+        <item>חיפה</item>
+        <item>חריש</item>
+        <item>הרצליה</item>
+        <item>הוד השרון</item>
+        <item>חולון</item>
+        <item>ירושלים</item>
+        <item>כרמיאל</item>
+        <item>כפר סבא</item>
+        <item>קרית אתא</item>
+        <item>קרית ביאליק</item>
+        <item>קרית גת</item>
+        <item>קרית מלאכי</item>
+        <item>קרית מוצקין</item>
+        <item>קרית אונו</item>
+        <item>קרית שמונה</item>
+        <item>קרית ים</item>
+        <item>לוד</item>
+        <item>מעלה אדומים</item>
+        <item>מעלות-תרשיחא</item>
+        <item>מגדל העמק</item>
+        <item>מודיעין-מכבים-רעות</item>
+        <item>נהריה</item>
+        <item>נצרת</item>
+        <item>נס ציונה</item>
+        <item>נשר</item>
+        <item>נתניה</item>
+        <item>נתיבות</item>
+        <item>נוף הגליל</item>
+        <item>אופקים</item>
+        <item>אור עקיבא</item>
+        <item>אור יהודה</item>
+        <item>פתח תקוה</item>
+        <item>קלנסווה</item>
+        <item>רעננה</item>
+        <item>רהט</item>
+        <item>רמת השרון</item>
+        <item>רמת גן</item>
+        <item>רמלה</item>
+        <item>רחובות</item>
+        <item>ראשון לציון</item>
+        <item>ראש העין</item>
+        <item>סח\'נין</item>
+        <item>שדרות</item>
+        <item>שפרעם</item>
+        <item>טייבה</item>
+        <item>תמרה</item>
+        <item>תל אביב-יפו</item>
+        <item>טבריה</item>
+        <item>טירה</item>
+        <item>טירת כרמל</item>
+        <item>צפת</item>
+        <item>אום אל-פחם</item>
+        <item>יבנה</item>
+        <item>יהוד-מונוסון</item>
+        <item>יקנעם</item>
     </string-array>
 
     <string-array name="jobs_types">
-        <item>Administrator</item>
-        <item>Software Engineer</item>
-        <item>Architect</item>
-        <item>Plumber</item>
-        <item>Tattooist</item>
-        <item>Teacher</item>
+        <item>מזכירות</item>
+        <item>מהנדס תוכנה</item>
+        <item>אדריכלות</item>
+        <item>אינסטלטור</item>
+        <item>מקעקע</item>
+        <item>מורה</item>
     </string-array>
 </resources>

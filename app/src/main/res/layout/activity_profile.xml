@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E4ECEC"
     tools:context=".Profile">
+
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,1193 +16,1188 @@
         >
 
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <RelativeLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/btnExit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
-                android:text="@string/exit_user"
-                android:backgroundTint="#FF5722"
-                android:textColor="@color/white"
-                tools:ignore="RelativeOverlap" />
-
-            <TextView
-                android:id="@+id/txtWhichUser"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/hello"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
+            android:layout_height="match_parent">
 
             <RelativeLayout
-                android:id="@+id/LayoutProfile"
-                android:layout_width="500dp"
-                android:layout_height="370dp"
-                android:layout_below="@+id/txtWhichUser"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/shadow_10590_9">
-
-                <TextView
-                    android:id="@+id/txtPI"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/private_info"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:id="@+id/imageAc"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:contentDescription="@string/imageac"
-                    android:src="@drawable/account"
-                    app:tint="#A7AAAC" />
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="346dp"
-                    android:layout_marginStart="-25dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_toEndOf="@+id/imageAc"
-                    android:contentDescription="@string/line"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/line"
-                    app:tint="#2196F3" />
-
-
-                <EditText
-                    android:id="@+id/edtName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtPI"
-                    android:layout_marginStart="130dp"
-                    android:layout_marginTop="9dp"
-                    android:autofillHints="Name"
-                    android:backgroundTint="@color/black"
-                    android:hint="@string/name"
-                    android:inputType="text"
-                    android:shadowColor="@color/black"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/txtCompanyName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtPI"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="25dp"
-                    android:text="@string/name"
-                    android:textColor="@color/black"
-                    android:textSize="13sp" />
-
-                <EditText
-                    android:id="@+id/edtLastName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtCompanyName"
-                    android:layout_marginStart="130dp"
-                    android:layout_marginTop="10dp"
-                    android:autofillHints="Last Name"
-                    android:backgroundTint="@color/black"
-                    android:hint="@string/last_name"
-                    android:inputType="text"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/txtLastName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtCompanyName"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="25dp"
-                    android:text="@string/last_name"
-                    android:textColor="@color/black"
-                    android:textSize="13sp" />
-
-                <EditText
-                    android:id="@+id/edtEmail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtLastName"
-                    android:layout_marginStart="130dp"
-                    android:layout_marginTop="10dp"
-                    android:autofillHints="Email"
-                    android:backgroundTint="@color/black"
-                    android:hint="@string/email"
-                    android:inputType="textEmailAddress"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/txtJobType2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtLastName"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="25dp"
-                    android:text="@string/email"
-                    android:textColor="@color/black"
-                    android:textSize="13sp" />
-
-                <EditText
-                    android:id="@+id/edtPhone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtJobType2"
-                    android:layout_marginStart="130dp"
-                    android:layout_marginTop="10dp"
-                    android:autofillHints="Phone"
-                    android:backgroundTint="@color/black"
-                    android:hint="@string/phone"
-                    android:inputType="phone"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/txtPhone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtJobType2"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="25dp"
-                    android:text="@string/phone"
-                    android:textColor="@color/black"
-                    android:textSize="13sp" />
-
-                <EditText
-                    android:id="@+id/edtCity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtPhone"
-                    android:layout_marginStart="130dp"
-                    android:layout_marginTop="10dp"
-                    android:autofillHints="City"
-                    android:backgroundTint="@color/black"
-                    android:hint="@string/city"
-                    android:inputType="text"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/txtCity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtPhone"
-                    android:layout_marginStart="53dp"
-                    android:layout_marginTop="25dp"
-                    android:text="@string/city"
-                    android:textColor="@color/black"
-                    android:textSize="13sp" />
-
-
-                <RadioGroup
-                    android:id="@+id/RadioGroupGender"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="130dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="70dp"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:textAlignment="center">
-
-                    <RadioButton
-                        android:id="@+id/radio_Male"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:layout_margin="5dp"
-                        android:adjustViewBounds="true"
-                        android:background="@color/white"
-                        android:button="@drawable/male2"
-                        android:buttonTint="@color/black"
-                        android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
-                        android:textColor="@color/black" />
-
-                    <RadioButton
-                        android:id="@+id/radio_Female"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:layout_margin="5dp"
-                        android:background="@color/white"
-                        android:button="@drawable/female"
-                        android:buttonTint="@color/black"
-                        android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
-                        android:textAlignment="center"
-                        android:textColor="@color/black" />
-
-                    <RadioButton
-                        android:id="@+id/radio_NoBinary"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:layout_margin="5dp"
-                        android:adjustViewBounds="true"
-                        android:background="@color/white"
-                        android:button="@drawable/genderequality"
-                        android:buttonTint="@color/black"
-                        android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
-                        android:textColor="@color/black" />
-
-
-                </RadioGroup>
-
-
-                <TextView
-                    android:id="@+id/txtGender"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtCity"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="25dp"
-                    android:text="@string/gender"
-                    android:textColor="@color/black"
-                    android:textSize="13sp" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <Button
-                    android:id="@+id/btnSubmitInfo"
+                    android:id="@+id/btnExit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtGender"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="25dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
                     android:backgroundTint="#FF5722"
-                    android:text="@string/submit_info"
-                    android:textColor="@color/white" />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/LayoutCv"
-                android:layout_width="500dp"
-                android:layout_height="100dp"
-                android:layout_below="@+id/LayoutProfile"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/shadow_10590_9">
-
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="-20dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginBottom="3dp"
-                    android:layout_toEndOf="@+id/imageCv"
-                    android:contentDescription="Line"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/line"
-                    app:tint="#2196F3"
-                    tools:ignore="HardcodedText" />
-
-                <ImageView
-                    android:id="@+id/imageCv"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:contentDescription="ImageCv"
-                    android:src="@drawable/pdf"
-                    tools:ignore="HardcodedText" />
+                    android:text="@string/exit_user"
+                    android:textColor="@color/white"
+                    tools:ignore="RelativeOverlap" />
 
                 <TextView
-                    android:id="@+id/txtUpCv"
+                    android:id="@+id/txtWhichUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="5dp"
-                    android:backgroundTint="@color/white"
-                    android:text="@string/submit_cv"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/hello"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
-                <ImageButton
-                    android:id="@+id/btnUpCv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtUpCv"
+                <RelativeLayout
+                    android:id="@+id/LayoutProfile"
+                    android:layout_width="500dp"
+                    android:layout_height="370dp"
+                    android:layout_below="@+id/txtWhichUser"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/white"
-                    android:backgroundTint="#FF5722"
-                    android:contentDescription="btnUpCv"
-                    android:src="@drawable/upload"
-                    app:tint="@color/white"
-                    tools:ignore="HardcodedText" />
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/background_with_shadow">
+
+                    <TextView
+                        android:id="@+id/txtPI"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/private_info"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/imageAc"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:contentDescription="@string/imageac"
+                        android:src="@drawable/account"
+                        app:tint="#A7AAAC" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="360dp"
+                        android:layout_marginStart="-25dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_toEndOf="@+id/imageAc"
+                        android:contentDescription="@string/line"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line"
+                        app:tint="#2196F3" />
+
+
+                    <EditText
+                        android:id="@+id/edtName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtPI"
+                        android:layout_marginStart="130dp"
+                        android:layout_marginTop="9dp"
+                        android:autofillHints="Name"
+                        android:backgroundTint="@color/black"
+                        android:hint="@string/name"
+                        android:inputType="text"
+                        android:shadowColor="@color/black"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/txtCompanyName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtPI"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="25dp"
+                        android:text="@string/name"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/edtLastName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtCompanyName"
+                        android:layout_marginStart="130dp"
+                        android:layout_marginTop="10dp"
+                        android:autofillHints="Last Name"
+                        android:backgroundTint="@color/black"
+                        android:hint="@string/last_name"
+                        android:inputType="text"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/txtLastName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtCompanyName"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="25dp"
+                        android:text="@string/last_name"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/edtEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtLastName"
+                        android:layout_marginStart="130dp"
+                        android:layout_marginTop="10dp"
+                        android:autofillHints="Email"
+                        android:backgroundTint="@color/black"
+                        android:hint="@string/email"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/txtJobType2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtLastName"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="25dp"
+                        android:text="@string/email"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/edtPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtJobType2"
+                        android:layout_marginStart="130dp"
+                        android:layout_marginTop="10dp"
+                        android:autofillHints="Phone"
+                        android:backgroundTint="@color/black"
+                        android:hint="@string/phone"
+                        android:inputType="phone"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/txtPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtJobType2"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="25dp"
+                        android:text="@string/phone"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/edtCity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtPhone"
+                        android:layout_marginStart="130dp"
+                        android:layout_marginTop="10dp"
+                        android:autofillHints="City"
+                        android:backgroundTint="@color/black"
+                        android:hint="@string/city"
+                        android:inputType="text"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/txtCity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtPhone"
+                        android:layout_marginStart="53dp"
+                        android:layout_marginTop="25dp"
+                        android:text="@string/city"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+
+                    <RadioGroup
+                        android:id="@+id/RadioGroupGender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="130dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="70dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:textAlignment="center">
+
+                        <RadioButton
+                            android:id="@+id/radio_Male"
+                            android:layout_width="33dp"
+                            android:layout_height="33dp"
+                            android:layout_margin="5dp"
+                            android:adjustViewBounds="true"
+                            android:background="@color/white"
+                            android:button="@drawable/male2"
+                            android:buttonTint="@color/black"
+                            android:gravity="center"
+                            android:onClick="onRadioButtonClicked"
+                            android:textColor="@color/black" />
+
+                        <RadioButton
+                            android:id="@+id/radio_Female"
+                            android:layout_width="33dp"
+                            android:layout_height="33dp"
+                            android:layout_margin="5dp"
+                            android:background="@color/white"
+                            android:button="@drawable/female"
+                            android:buttonTint="@color/black"
+                            android:gravity="center"
+                            android:onClick="onRadioButtonClicked"
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+                        <RadioButton
+                            android:id="@+id/radio_NoBinary"
+                            android:layout_width="33dp"
+                            android:layout_height="33dp"
+                            android:layout_margin="5dp"
+                            android:adjustViewBounds="true"
+                            android:background="@color/white"
+                            android:button="@drawable/genderequality"
+                            android:buttonTint="@color/black"
+                            android:gravity="center"
+                            android:onClick="onRadioButtonClicked"
+                            android:textColor="@color/black" />
+
+
+                    </RadioGroup>
+
+
+                    <TextView
+                        android:id="@+id/txtGender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtCity"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="25dp"
+                        android:text="@string/gender"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                    <Button
+                        android:id="@+id/btnSubmitInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtGender"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="25dp"
+                        android:backgroundTint="#FF5722"
+                        android:text="@string/submit_info"
+                        android:textColor="@color/white" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/LayoutCv"
+                    android:layout_width="500dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@+id/LayoutProfile"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/background_with_shadow">
+
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="-20dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_toEndOf="@+id/imageCv"
+                        android:contentDescription="Line"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line"
+                        app:tint="#2196F3"
+                        tools:ignore="HardcodedText" />
+
+                    <ImageView
+                        android:id="@+id/imageCv"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:contentDescription="ImageCv"
+                        android:src="@drawable/pdf"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/txtUpCv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:backgroundTint="@color/white"
+                        android:text="@string/submit_cv"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                    <ImageButton
+                        android:id="@+id/btnUpCv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtUpCv"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/white"
+                        android:backgroundTint="#FF5722"
+                        android:contentDescription="btnUpCv"
+                        android:src="@drawable/upload"
+                        app:tint="@color/white"
+                        tools:ignore="HardcodedText" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/LayoutPostJob"
+                    android:layout_width="500dp"
+                    android:layout_height="700dp"
+                    android:layout_below="@+id/LayoutCv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/background_with_shadow">
+
+
+                    <ImageView
+                        android:id="@+id/imageLinePostJob"
+                        android:layout_width="40dp"
+                        android:layout_height="1500dp"
+                        android:layout_marginStart="-25dp"
+                        android:layout_marginTop="23dp"
+                        android:layout_marginBottom="22dp"
+                        android:layout_toEndOf="@+id/imagePostJob"
+                        android:contentDescription="imageLinePostJob"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line"
+                        app:tint="#2196F3"
+                        tools:ignore="HardcodedText" />
+
+                    <ImageView
+                        android:id="@+id/imagePostJob"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:contentDescription="imagePostJob"
+                        android:src="@drawable/add"
+                        app:tint="#A7AAAC"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/txtUpJob"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="25dp"
+                        android:text="@string/publish_a_job"
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:id="@+id/edtCompany"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtUpJob"
+                        android:layout_marginStart="160dp"
+                        android:layout_marginTop="9dp"
+                        android:autofillHints="@string/company_name"
+
+                        android:backgroundTint="@color/black"
+                        android:hint="@string/company_name"
+                        android:inputType="text"
+                        android:shadowColor="@color/black"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/txtCompany"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtUpJob"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="25dp"
+                        android:text="@string/company_name"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+
+                    <TextView
+                        android:id="@+id/SpinJobsType1"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/edtCompany"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="100dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="30dp"
+                        android:backgroundTint="@color/black"
+
+                        android:gravity="center"
+                        android:hint="@string/job_type"
+                        android:minHeight="48dp"
+                        android:padding="12dp"
+                        android:shadowColor="@color/black"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="11sp"
+                        app:drawableEndCompat="@drawable/ic_arrow" />
+
+
+                    <TextView
+                        android:id="@+id/row_item_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/edtCompany"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="25dp"
+                        android:text="@string/job_type"
+                        android:textColor="@color/black"
+
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/placeOfJob"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/row_item_textview"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="25dp"
+                        android:text="@string/location_of_job"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+
+                    <TextView
+                        android:id="@+id/SpinJobsLocation1"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/row_item_textview"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="100dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="30dp"
+                        android:backgroundTint="@color/black"
+                        android:gravity="center"
+                        android:hint="@string/location_of_job"
+                        android:minHeight="48dp"
+                        android:shadowColor="@color/black"
+
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="11sp"
+                        app:drawableEndCompat="@drawable/ic_arrow" />
+
+                    <TextView
+                        android:id="@+id/JobDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/placeOfJob"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="25dp"
+                        android:text="@string/job_description"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+
+                    <androidx.core.widget.NestedScrollView
+                        android:id="@+id/NestedScrollView1"
+                        android:layout_width="230dp"
+                        android:layout_height="300dp"
+                        android:layout_below="@+id/placeOfJob"
+                        android:layout_marginStart="160dp"
+                        android:layout_marginTop="9dp"
+                        android:layout_marginEnd="5dp"
+                        android:gravity="top">
+
+                        <EditText
+                            android:id="@+id/edtJobDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:autofillHints="@string/job_description"
+                            android:backgroundTint="@color/black"
+                            android:gravity="top"
+                            android:hint="@string/job_description"
+                            android:inputType="textMultiLine"
+                            android:shadowColor="@color/black"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+
+
+                    </androidx.core.widget.NestedScrollView>
+
+                    <Button
+                        android:id="@+id/BtnUpJobDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/NestedScrollView1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="25dp"
+                        android:backgroundTint="#FF5722"
+                        android:text="@string/submit_work"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
+
+                    <Button
+                        android:id="@+id/BtnUpJobApplied"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/BtnUpJobDesc"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="25dp"
+                        android:backgroundTint="#FF5722"
+                        android:text="@string/all_job_applied_cv_s"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/AdminLayout"
+                    android:layout_width="500dp"
+                    android:layout_height="900dp"
+                    android:layout_below="@+id/LayoutPostJob"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/background_with_shadow">
+
+
+                    <TextView
+                        android:id="@+id/txtAmountUsers1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="50dp"
+                        android:fontFamily="sans-serif-light"
+                        android:text="@string/amount_of_users"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/txtAmountUsers2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="100dp"
+                        android:fontFamily="sans-serif-light"
+                        android:text="@string/amount_of_users"
+                        android:textColor="@color/black" />
+
+                    <!-- Card view for displaying the -->
+                    <!-- Pie chart and details of pie chart -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardViewGraph"
+                        android:layout_width="500dp"
+                        android:layout_height="200dp"
+                        android:layout_below="@+id/txtAmountUsers2"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@android:color/transparent"
+                        android:elevation="10dp"
+                        app:cardCornerRadius="10dp">
+
+
+                        <!--Linear layout to display pie chart -->
+                        <!-- and details of pie chart-->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/white"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <!--Pie chart to display the data-->
+
+                            <org.eazegraph.lib.charts.PieChart
+                                android:id="@+id/piechart"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginBottom="15dp"
+                                android:layout_weight="1"
+                                android:background="@android:color/transparent"
+                                android:padding="6dp"
+
+                                />
+
+                            <!--Creating another linear layout -->
+                            <!-- to display pie chart details -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="20dp"
+                                android:layout_weight="1"
+                                android:background="@android:color/transparent"
+
+                                android:gravity="center_vertical"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="15dp"
+                                    android:layout_gravity="center_vertical"
+
+                                    android:background="@android:color/transparent">
+
+                                    <!--View to display the yellow color icon-->
+                                    <View
+                                        android:layout_width="15dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/Northern_District_Color" />
+
+                                    <!--Text view to display R -->
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingStart="10dp"
+                                        android:text="@string/northern_district"
+                                        android:textColor="@color/black" />
+
+                                </LinearLayout>
+
+                                <!--Linear layout to display Python-->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="15dp"
+                                    android:layout_gravity="center_vertical"
+
+                                    android:layout_marginTop="5dp"
+                                    android:background="@android:color/transparent">
+
+                                    <!--View to display the green color icon-->
+                                    <View
+                                        android:layout_width="15dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/Haifa_District_Color" />
+
+                                    <!--Text view to display python text -->
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingStart="10dp"
+                                        android:text="@string/haifa_district"
+
+                                        android:textColor="@color/black" />
+
+                                </LinearLayout>
+
+                                <!--Linear layout to display C++-->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="15dp"
+                                    android:layout_gravity="center_vertical"
+
+                                    android:layout_marginTop="5dp"
+                                    android:background="@android:color/transparent">
+
+                                    <!--View to display the red color icon-->
+                                    <View
+                                        android:layout_width="15dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/Tel_Aviv_District_Color" />
+
+                                    <!--Text view to display C++ text -->
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingStart="10dp"
+                                        android:text="@string/tel_aviv_district"
+
+                                        android:textColor="@color/black" />
+
+                                </LinearLayout>
+
+                                <!--Linear layout to display Java-->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="15dp"
+                                    android:layout_gravity="center_vertical"
+
+                                    android:layout_marginTop="5dp"
+                                    android:background="@android:color/transparent">
+
+                                    <!--View to display the blue color icon-->
+                                    <View
+                                        android:layout_width="15dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/Central_District_Color" />
+
+                                    <!--Text view to display Java text -->
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingStart="10dp"
+                                        android:text="@string/central_district"
+
+                                        android:textColor="@color/black" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="15dp"
+                                    android:layout_gravity="center_vertical"
+
+                                    android:layout_marginTop="5dp"
+                                    android:background="@android:color/transparent">
+
+                                    <!--View to display the blue color icon-->
+                                    <View
+                                        android:layout_width="15dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/Jerusalem_District_Color" />
+
+                                    <!--Text view to display Java text -->
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingStart="10dp"
+                                        android:text="@string/jerusalem_district"
+
+                                        android:textColor="@color/black" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="15dp"
+                                    android:layout_gravity="center_vertical"
+
+                                    android:layout_marginTop="5dp"
+                                    android:background="@android:color/transparent">
+
+                                    <!--View to display the blue color icon-->
+                                    <View
+                                        android:layout_width="15dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/Southern_District_Color" />
+
+                                    <!--Text view to display Java text -->
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingStart="10dp"
+                                        android:text="@string/southern_district"
+
+                                        android:textColor="@color/black" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="15dp"
+                                    android:layout_gravity="center_vertical"
+
+                                    android:layout_marginTop="5dp"
+                                    android:background="@android:color/transparent">
+
+                                    <!--View to display the blue color icon-->
+                                    <View
+                                        android:layout_width="15dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/Judea_and_Samaria_District_Color" />
+
+                                    <!--Text view to display Java text -->
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingStart="10dp"
+                                        android:text="@string/judea_and_samaria_district"
+
+                                        android:textColor="@color/black" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <!-- Another Card view for displaying -->
+                    <!-- Use of programming languages -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/details"
+                        android:layout_width="match_parent"
+                        android:layout_height="400dp"
+                        android:layout_below="@+id/cardViewGraph"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@android:color/transparent"
+                        android:elevation="10dp"
+                        app:cardCornerRadius="10dp">
+
+                        <!--Relative layout to display -->
+                        <!-- use of programming languages -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="400dp"
+                            android:background="@android:color/white"
+                            android:orientation="vertical">
+
+                            <!--Text view to use of -->
+                            <!-- programming languages text-->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="20dp"
+                                android:text="@string/jobs_by_district"
+                                android:textColor="@color/black"
+                                android:textSize="23sp"
+                                android:textStyle="bold" />
+
+                            <!--View to display the line-->
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="@color/color_two" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="25dp"
+                                android:layout_marginBottom="10dp"
+                                android:background="@android:color/transparent">
+
+                                <!--Text view to display R -->
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-light"
+                                    android:text="@string/northern_district"
+                                    android:textColor="@color/black"
+
+                                    android:textSize="18sp" />
+
+                                <!--Text view to display the -->
+                                <!-- percentage of programming language -->
+                                <!-- used. For now default set to 0-->
+                                <TextView
+                                    android:id="@+id/tv_northern_district"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:fontFamily="sans-serif-light"
+                                    android:text="0"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/Northern_District_Color"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+                            </RelativeLayout>
+
+                            <!--View to display the line-->
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:background="@color/color_two" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="25dp"
+                                android:layout_marginBottom="10dp"
+                                android:background="@android:color/transparent">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-light"
+                                    android:text="@string/haifa_district"
+                                    android:textColor="@color/black"
+
+                                    android:textSize="18sp" />
+
+                                <!--Text view to display the percentage -->
+                                <!-- of programming language used. -->
+                                <!-- For now default set to 0-->
+
+                                <TextView
+                                    android:id="@+id/tv_haifa_district"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:fontFamily="sans-serif-light"
+                                    android:text="0"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/Haifa_District_Color"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:background="@color/color_two" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="25dp"
+                                android:layout_marginBottom="10dp"
+                                android:background="@android:color/transparent">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-light"
+                                    android:text="@string/tel_aviv_district"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp" />
+
+                                <!--Text view to display the percentage -->
+                                <!-- of programming language used. -->
+                                <!-- For now default set to 0-->
+                                <TextView
+                                    android:id="@+id/tv_tel_aviv_district"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:fontFamily="sans-serif-light"
+                                    android:text="0"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/Tel_Aviv_District_Color"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:background="@color/color_two" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="25dp"
+                                android:layout_marginBottom="10dp"
+                                android:background="@android:color/transparent">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-light"
+                                    android:text="@string/central_district"
+
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp" />
+
+                                <!--Text view to display the percentage -->
+                                <!-- of programming language used. -->
+                                <!-- For now default set to 0-->
+                                <TextView
+                                    android:id="@+id/tv_central_district"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:fontFamily="sans-serif-light"
+                                    android:text="0"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/Central_District_Color"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:background="@color/color_two" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="25dp"
+
+                                android:layout_marginBottom="10dp"
+                                android:background="@android:color/transparent">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-light"
+                                    android:text="@string/jerusalem_district"
+                                    android:textColor="@color/black"
+
+                                    android:textSize="18sp" />
+
+                                <!--Text view to display the percentage -->
+                                <!-- of programming language used. -->
+                                <!-- For now default set to 0-->
+                                <TextView
+                                    android:id="@+id/tv_jerusalem_district"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:fontFamily="sans-serif-light"
+                                    android:text="0"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/Jerusalem_District_Color"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
+
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:background="@color/color_two" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="25dp"
+
+                                android:layout_marginBottom="10dp"
+                                android:background="@android:color/transparent">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-light"
+                                    android:text="@string/southern_district"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp" />
+
+                                <!--Text view to display the percentage -->
+                                <!-- of programming language used. -->
+                                <!-- For now default set to 0-->
+                                <TextView
+                                    android:id="@+id/tv_southern_district"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:fontFamily="sans-serif-light"
+                                    android:text="0"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/Southern_District_Color"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
+
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:background="@color/color_two" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="10dp"
+
+                                android:layout_marginRight="25dp"
+                                android:layout_marginBottom="10dp"
+                                android:background="@android:color/transparent">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-light"
+                                    android:text="@string/judea_and_samaria_district"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp" />
+
+                                <!--Text view to display the percentage -->
+                                <!-- of programming language used. -->
+                                <!-- For now default set to 0-->
+                                <TextView
+                                    android:id="@+id/tv_judea_and_samaria_district"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:fontFamily="sans-serif-light"
+                                    android:text="0"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/Judea_and_Samaria_District_Color"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
+
+                            </RelativeLayout>
+
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </RelativeLayout>
+
+
 
             </RelativeLayout>
-
-
-
-    <RelativeLayout
-        android:id="@+id/LayoutPostJob"
-        android:layout_width="500dp"
-        android:layout_height="700dp"
-        android:layout_below="@+id/LayoutCv"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/background_with_shadow">
-
-
-        <ImageView
-            android:id="@+id/imageLinePostJob"
-            android:layout_width="40dp"
-            android:layout_height="1500dp"
-            android:layout_marginStart="-25dp"
-            android:layout_marginTop="23dp"
-            android:layout_marginBottom="22dp"
-            android:layout_toEndOf="@+id/imagePostJob"
-            android:contentDescription="imageLinePostJob"
-            android:scaleType="fitXY"
-            android:src="@drawable/line"
-            app:tint="#2196F3"
-            tools:ignore="HardcodedText" />
-
-        <ImageView
-            android:id="@+id/imagePostJob"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="5dp"
-            android:contentDescription="imagePostJob"
-            android:src="@drawable/add"
-            app:tint="#A7AAAC"
-            tools:ignore="HardcodedText" />
-
-        <TextView
-            android:id="@+id/txtUpJob"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="25dp"
-            android:text="@string/publish_a_job"
-            android:textColor="@color/black" />
-
-        <EditText
-            android:id="@+id/edtCompany"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtUpJob"
-            android:layout_marginStart="160dp"
-            android:layout_marginTop="9dp"
-            android:autofillHints="@string/company_name"
-
-            android:backgroundTint="@color/black"
-            android:hint="@string/company_name"
-            android:inputType="text"
-            android:shadowColor="@color/black"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/txtCompany"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtUpJob"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="25dp"
-            android:text="@string/company_name"
-            android:textColor="@color/black"
-            android:textSize="15sp" />
-
-
-        <TextView
-            android:id="@+id/SpinJobsType1"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edtCompany"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="30dp"
-            android:backgroundTint="@color/black"
-
-            android:gravity="center"
-            android:hint="@string/job_type"
-            android:minHeight="48dp"
-            android:padding="12dp"
-            android:shadowColor="@color/black"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="11sp"
-            app:drawableEndCompat="@drawable/ic_arrow" />
-
-
-        <TextView
-            android:id="@+id/row_item_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edtCompany"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="25dp"
-            android:text="@string/job_type"
-            android:textColor="@color/black"
-
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/placeOfJob"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/row_item_textview"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="25dp"
-            android:text="@string/location_of_job"
-            android:textColor="@color/black"
-            android:textSize="15sp" />
-
-
-        <TextView
-            android:id="@+id/SpinJobsLocation1"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/row_item_textview"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="30dp"
-            android:backgroundTint="@color/black"
-            android:gravity="center"
-            android:hint="@string/location_of_job"
-            android:minHeight="48dp"
-            android:shadowColor="@color/black"
-
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="11sp"
-            app:drawableEndCompat="@drawable/ic_arrow" />
-
-        <TextView
-            android:id="@+id/JobDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/placeOfJob"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="25dp"
-            android:text="@string/job_description"
-            android:textColor="@color/black"
-            android:textSize="15sp" />
-
-
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/NestedScrollView1"
-            android:layout_width="230dp"
-            android:layout_height="300dp"
-            android:layout_below="@+id/placeOfJob"
-            android:layout_marginStart="160dp"
-            android:layout_marginTop="9dp"
-            android:layout_marginEnd="5dp"
-            android:gravity="top">
-
-            <EditText
-                android:id="@+id/edtJobDescription"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="5dp"
-                android:autofillHints="@string/job_description"
-                android:backgroundTint="@color/black"
-                android:gravity="top"
-                android:hint="@string/job_description"
-                android:inputType="textMultiLine"
-                android:shadowColor="@color/black"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
 
 
         </androidx.core.widget.NestedScrollView>
 
-        <Button
-            android:id="@+id/BtnUpJobDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/NestedScrollView1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dp"
-            android:backgroundTint="#FF5722"
-            android:text="@string/submit_work"
-            android:textColor="@color/white"
-            android:textSize="25sp" />
 
-        <Button
-            android:id="@+id/BtnUpJobApplied"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/BtnUpJobDesc"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dp"
-            android:backgroundTint="#FF5722"
-            android:text="@string/all_job_applied_cv_s"
-            android:textColor="@color/white"
-            android:textSize="15sp" />
 
 
     </RelativeLayout>
-
-
-    <ImageView
-        android:id="@+id/profile_exit_user"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="30dp"
-        app:srcCompat="@drawable/exit_user" />
-
-        </RelativeLayout>
-
-
-    </androidx.core.widget.NestedScrollView>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/AdminLayout"
-        android:layout_width="500dp"
-        android:layout_height="900dp"
-        android:layout_below="@+id/LayoutPostJob"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/background_with_shadow">
-
-
-        <TextView
-            android:id="@+id/txtAmountUsers1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:fontFamily="sans-serif-light"
-            android:text="@string/amount_of_users"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/txtAmountUsers2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="100dp"
-            android:fontFamily="sans-serif-light"
-            android:text="@string/amount_of_users"
-            android:textColor="@color/black" />
-
-        <!-- Card view for displaying the -->
-        <!-- Pie chart and details of pie chart -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewGraph"
-            android:layout_width="500dp"
-            android:layout_height="200dp"
-            android:layout_below="@+id/txtAmountUsers2"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="20dp"
-            android:background="@android:color/transparent"
-            android:elevation="10dp"
-            app:cardCornerRadius="10dp">
-
-
-            <!--Linear layout to display pie chart -->
-            <!-- and details of pie chart-->
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/white"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <!--Pie chart to display the data-->
-
-                <org.eazegraph.lib.charts.PieChart
-                    android:id="@+id/piechart"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    android:padding="6dp"
-
-                    />
-
-                <!--Creating another linear layout -->
-                <!-- to display pie chart details -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="20dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-
-                    android:gravity="center_vertical"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="15dp"
-                        android:layout_gravity="center_vertical"
-
-                        android:background="@android:color/transparent">
-
-                        <!--View to display the yellow color icon-->
-                        <View
-                            android:layout_width="15dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/Northern_District_Color" />
-
-                        <!--Text view to display R -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingStart="10dp"
-                            android:text="@string/northern_district"
-                            android:textColor="@color/black" />
-
-                    </LinearLayout>
-
-                    <!--Linear layout to display Python-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="15dp"
-                        android:layout_gravity="center_vertical"
-
-                        android:layout_marginTop="5dp"
-                        android:background="@android:color/transparent">
-
-                        <!--View to display the green color icon-->
-                        <View
-                            android:layout_width="15dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/Haifa_District_Color" />
-
-                        <!--Text view to display python text -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingStart="10dp"
-                            android:text="@string/haifa_district"
-
-                            android:textColor="@color/black" />
-
-                    </LinearLayout>
-
-                    <!--Linear layout to display C++-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="15dp"
-                        android:layout_gravity="center_vertical"
-
-                        android:layout_marginTop="5dp"
-                        android:background="@android:color/transparent">
-
-                        <!--View to display the red color icon-->
-                        <View
-                            android:layout_width="15dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/Tel_Aviv_District_Color" />
-
-                        <!--Text view to display C++ text -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingStart="10dp"
-                            android:text="@string/tel_aviv_district"
-
-                            android:textColor="@color/black" />
-
-                    </LinearLayout>
-
-                    <!--Linear layout to display Java-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="15dp"
-                        android:layout_gravity="center_vertical"
-
-                        android:layout_marginTop="5dp"
-                        android:background="@android:color/transparent">
-
-                        <!--View to display the blue color icon-->
-                        <View
-                            android:layout_width="15dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/Central_District_Color" />
-
-                        <!--Text view to display Java text -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingStart="10dp"
-                            android:text="@string/central_district"
-
-                            android:textColor="@color/black" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="15dp"
-                        android:layout_gravity="center_vertical"
-
-                        android:layout_marginTop="5dp"
-                        android:background="@android:color/transparent">
-
-                        <!--View to display the blue color icon-->
-                        <View
-                            android:layout_width="15dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/Jerusalem_District_Color" />
-
-                        <!--Text view to display Java text -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingStart="10dp"
-                            android:text="@string/jerusalem_district"
-
-                            android:textColor="@color/black" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="15dp"
-                        android:layout_gravity="center_vertical"
-
-                        android:layout_marginTop="5dp"
-                        android:background="@android:color/transparent">
-
-                        <!--View to display the blue color icon-->
-                        <View
-                            android:layout_width="15dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/Southern_District_Color" />
-
-                        <!--Text view to display Java text -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingStart="10dp"
-                            android:text="@string/southern_district"
-
-                            android:textColor="@color/black" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="15dp"
-                        android:layout_gravity="center_vertical"
-
-                        android:layout_marginTop="5dp"
-                        android:background="@android:color/transparent">
-
-                        <!--View to display the blue color icon-->
-                        <View
-                            android:layout_width="15dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/Judea_and_Samaria_District_Color" />
-
-                        <!--Text view to display Java text -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingStart="10dp"
-                            android:text="@string/judea_and_samaria_district"
-
-                            android:textColor="@color/black" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-
-        <!-- Another Card view for displaying -->
-        <!-- Use of programming languages -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/details"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_below="@+id/cardViewGraph"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@android:color/transparent"
-            android:elevation="10dp"
-            app:cardCornerRadius="10dp">
-
-            <!--Relative layout to display -->
-            <!-- use of programming languages -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:background="@android:color/white"
-                android:orientation="vertical">
-
-                <!--Text view to use of -->
-                <!-- programming languages text-->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/jobs_by_district"
-                    android:textColor="@color/black"
-                    android:textSize="23sp"
-                    android:textStyle="bold" />
-
-                <!--View to display the line-->
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@color/color_two" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="25dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@android:color/transparent">
-
-                    <!--Text view to display R -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="@string/northern_district"
-                        android:textColor="@color/black"
-
-                        android:textSize="18sp" />
-
-                    <!--Text view to display the -->
-                    <!-- percentage of programming language -->
-                    <!-- used. For now default set to 0-->
-                    <TextView
-                        android:id="@+id/tv_northern_district"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:fontFamily="sans-serif-light"
-                        android:text="0"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/Northern_District_Color"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </RelativeLayout>
-
-                <!--View to display the line-->
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@color/color_two" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="25dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@android:color/transparent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="@string/haifa_district"
-                        android:textColor="@color/black"
-
-                        android:textSize="18sp" />
-
-                    <!--Text view to display the percentage -->
-                    <!-- of programming language used. -->
-                    <!-- For now default set to 0-->
-
-                    <TextView
-                        android:id="@+id/tv_haifa_district"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:fontFamily="sans-serif-light"
-                        android:text="0"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/Haifa_District_Color"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@color/color_two" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="25dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@android:color/transparent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="@string/tel_aviv_district"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
-
-                    <!--Text view to display the percentage -->
-                    <!-- of programming language used. -->
-                    <!-- For now default set to 0-->
-                    <TextView
-                        android:id="@+id/tv_tel_aviv_district"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:fontFamily="sans-serif-light"
-                        android:text="0"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/Tel_Aviv_District_Color"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@color/color_two" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="25dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@android:color/transparent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="@string/central_district"
-
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
-
-                    <!--Text view to display the percentage -->
-                    <!-- of programming language used. -->
-                    <!-- For now default set to 0-->
-                    <TextView
-                        android:id="@+id/tv_central_district"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:fontFamily="sans-serif-light"
-                        android:text="0"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/Central_District_Color"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@color/color_two" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="25dp"
-
-                    android:layout_marginBottom="10dp"
-                    android:background="@android:color/transparent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="@string/jerusalem_district"
-                        android:textColor="@color/black"
-
-                        android:textSize="18sp" />
-
-                    <!--Text view to display the percentage -->
-                    <!-- of programming language used. -->
-                    <!-- For now default set to 0-->
-                    <TextView
-                        android:id="@+id/tv_jerusalem_district"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:fontFamily="sans-serif-light"
-                        android:text="0"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/Jerusalem_District_Color"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@color/color_two" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="25dp"
-
-                    android:layout_marginBottom="10dp"
-                    android:background="@android:color/transparent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="@string/southern_district"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
-
-                    <!--Text view to display the percentage -->
-                    <!-- of programming language used. -->
-                    <!-- For now default set to 0-->
-                    <TextView
-                        android:id="@+id/tv_southern_district"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:fontFamily="sans-serif-light"
-                        android:text="0"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/Southern_District_Color"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@color/color_two" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="10dp"
-
-                    android:layout_marginRight="25dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@android:color/transparent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="@string/judea_and_samaria_district"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
-
-                    <!--Text view to display the percentage -->
-                    <!-- of programming language used. -->
-                    <!-- For now default set to 0-->
-                    <TextView
-                        android:id="@+id/tv_judea_and_samaria_district"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:fontFamily="sans-serif-light"
-                        android:text="0"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/Judea_and_Samaria_District_Color"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-
-                </RelativeLayout>
-
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-
-    </RelativeLayout>
-
 
 
     <include layout="@layout/navbar"/>
+
+
 
 </RelativeLayout>

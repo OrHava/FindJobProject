@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -21,7 +22,7 @@ public class ContactsRecViewAdapter extends RecyclerView.Adapter<ContactsRecView
 
     private ArrayList<Contact> contacts = new ArrayList<>();
     private ArrayList<String> CompanyReasons=new ArrayList<>();
-private final Context context;
+    private final Context context;
     public ContactsRecViewAdapter(Context context) {
         this.context=context;
     }
@@ -39,7 +40,7 @@ private final Context context;
 
         holder.txtCompanyName.setText(contacts.get(position).getCompanyName());
         holder.SendCV.setOnClickListener(view -> {
-          ((Home) context).SendCvFunc(position);
+            ((Home) context).SendCvFunc(position);
             holder.SendCV.setText(R.string.Cv_Send);
             holder.SendCV.setEnabled(false);
 
@@ -55,18 +56,18 @@ private final Context context;
 
 
 
-       if(( (Home) context).CheckWhichUserForRecView()==3){
-           holder.reportBtn.setVisibility(View.GONE);
-           holder.SendCV.setVisibility(View.GONE);
-           holder.txtReport.setText(context.getString(R.string.reason_of_report) + CompanyReasons.get(position));
-       }
+        if(( (Home) context).CheckWhichUserForRecView()==3){
+            holder.reportBtn.setVisibility(View.GONE);
+            holder.SendCV.setVisibility(View.GONE);
+            holder.txtReport.setText(context.getString(R.string.reason_of_report) + CompanyReasons.get(position));
+        }
 
         holder.btnTrash.setOnClickListener(view -> {
 
             if(contacts !=null && !(contacts.isEmpty())){
                 int actualPosition = holder.getBindingAdapterPosition();
 
-                     if (( (Home) context).CheckWhichUserForRecView()==1 || ( (Home) context).CheckWhichUserForRecView()==2){
+                if (( (Home) context).CheckWhichUserForRecView()==1 || ( (Home) context).CheckWhichUserForRecView()==2){
                     contacts.remove(actualPosition);
                     notifyItemRemoved(actualPosition);
                     notifyItemRangeChanged(actualPosition, contacts.size());
@@ -93,7 +94,7 @@ private final Context context;
         });
 
         holder.reportBtn.setOnClickListener(view -> {
-          //  int actualPosition = holder.getBindingAdapterPosition();
+            //  int actualPosition = holder.getBindingAdapterPosition();
             ( (Home) context).ReportButton(position);
 
         });
@@ -109,20 +110,20 @@ private final Context context;
         holder.txtJobDescription.setText(contacts.get(position).getJobDescription());
         holder.txtJobLocation2.setText(contacts.get(position).getJobLocation());
         holder.parent.setOnClickListener(view -> {
-              if(!contacts.get(position).isExpanded()){
-                  holder.btnDown.setImageResource(R.drawable.uparrows);
-                  holder.RelativeLayoutSize.getLayoutParams().height=px1;
-                  contacts.get(position).setExpanded(true);
+            if(!contacts.get(position).isExpanded()){
+                holder.btnDown.setImageResource(R.drawable.uparrows);
+                holder.RelativeLayoutSize.getLayoutParams().height=px1;
+                contacts.get(position).setExpanded(true);
 
-              }
-              else{
-                  holder.btnDown.setImageResource(R.drawable.downarrow);
-                  holder.RelativeLayoutSize.getLayoutParams().height=px2;
-                  contacts.get(position).setExpanded(false);
-              }
-              notifyDataSetChanged();
+            }
+            else{
+                holder.btnDown.setImageResource(R.drawable.downarrow);
+                holder.RelativeLayoutSize.getLayoutParams().height=px2;
+                contacts.get(position).setExpanded(false);
+            }
+            notifyDataSetChanged();
 
-          });
+        });
 
 
 
