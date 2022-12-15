@@ -3,9 +3,6 @@ package com.sce.findjobproject;
 import static com.google.firebase.auth.FirebaseAuth.getInstance;
 import static com.sce.findjobproject.SignIn.WhichUser;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
@@ -23,12 +20,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -52,7 +51,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
 
-public class Profile extends AppCompatActivity {
+public class Profile extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private ImageButton btnHome,btnAbout;
     private TextView txtWhichUser,txtJobDescription;
     private EditText edtName,edtLastName,edtEmail,edtPhone,edtCity,edtCompany,edtJobDescription;
@@ -82,7 +81,6 @@ public class Profile extends AppCompatActivity {
     private int count_northern_district=0,count_haifa_district=0,count_tel_aviv_district=0, count_central_district=0,count_jerusalem_district=0,count_southern_district=0,count_judea_and_samaria_district=0;
     private TextView tv_northern_district, tv_haifa_district, tv_tel_aviv_district, tv_central_district,tv_jerusalem_district,tv_southern_district,tv_judea_and_samaria_district;
     private PieChart pieChart;
-
 
 
     @Override
@@ -138,8 +136,9 @@ public class Profile extends AppCompatActivity {
         SpinnerFuncAdvance();
 
 
-    }
 
+
+    }
 
     private void PieChartPie() {
 
@@ -542,7 +541,7 @@ public class Profile extends AppCompatActivity {
     }
 
 
-
+    @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         // On selecting a spinner item
         //String item = parent.getItemAtPosition(position).toString();

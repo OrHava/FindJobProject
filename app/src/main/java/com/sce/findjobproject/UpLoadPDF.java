@@ -23,12 +23,12 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class UpLoadPDF extends AppCompatActivity {
-Button upload_btn,ViewPdf_btn;
-EditText pdf_name;
+    Button upload_btn,ViewPdf_btn;
+    EditText pdf_name;
     private ImageButton btnHome,btnAbout,btnProfile;
     private FirebaseUser user;
-StorageReference storageReference;
-DatabaseReference databaseReference;
+    StorageReference storageReference;
+    DatabaseReference databaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +73,7 @@ DatabaseReference databaseReference;
         Intent intent= new Intent();
         intent.setType("application/pdf");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-     // startActivityForResult(Intent.createChooser(intent,"Select PDF Files..."),1);
+        // startActivityForResult(Intent.createChooser(intent,"Select PDF Files..."),1);
 
         someActivityResultLauncher.launch(intent);
     }

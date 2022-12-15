@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "494529078470",
+    "firebase_url": "https://findjobproject-4f932-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "findjobproject-4f932",
     "storage_bucket": "findjobproject-4f932.appspot.com"
   },
@@ -13,6 +14,30 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "494529078470-6cv90pmn4lvjk12env7mjsq0k3e5dn5j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sce.findjobproject",
+            "certificate_hash": "3f4d375f48a47fc6519b7f9c56ffc6652c492ca9"
+          }
+        },
+        {
+          "client_id": "494529078470-b7hphh5513nm7usef8l4jned75ukjlk4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sce.findjobproject",
+            "certificate_hash": "965e1f9cef723864a506452c7a87e2d9a3b0bc92"
+          }
+        },
+        {
+          "client_id": "494529078470-ne7ucj3k2u70n7inbqns6ap26rt1ode6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sce.findjobproject",
+            "certificate_hash": "f73cf2d9d9708d61de06d059d060486880279cc5"
+          }
+        },
         {
           "client_id": "494529078470-shdbcmjnnkg3bd57imndf703295cgia4.apps.googleusercontent.com",
           "client_type": 1,

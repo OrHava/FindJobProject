@@ -2,12 +2,6 @@ package com.sce.findjobproject;
 import static com.google.firebase.auth.FirebaseAuth.getInstance;
 import static com.sce.findjobproject.SignIn.WhichUser;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -29,11 +23,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.airbnb.lottie.LottieAnimationView;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -47,7 +43,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class Home extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
+public class Home extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private TextView txtWhichUser,SpinJobsType,SpinJobsLocation;
     private ImageButton btnProfile,btnAbout,BtnSearch;
     private DatabaseReference databaseReference;
@@ -96,6 +92,7 @@ public class Home extends AppCompatActivity  implements AdapterView.OnItemSelect
         EnterButtons();
         CheckWhichUser();
         SpinnerFuncAdvance();
+
 
 
     }
@@ -248,105 +245,6 @@ public class Home extends AppCompatActivity  implements AdapterView.OnItemSelect
 
     }
 
-    private void SearchHelperManager(){
-        if(user!=null ) {
-            String userId = user.getUid();
-            databaseReference = FirebaseDatabase.getInstance().getReference("Managers");
-            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-
-                @SuppressLint("SetTextI18n")
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
-                        if (Objects.requireNonNull(postsnapshot.getValue()).toString().equals(userId)) {
-                            count2++;
-                        }
-
-
-                    }
-                    if(count2>0){
-                        WhichUser=3;
-                        CheckWhichUser();
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    // Failed to read value
-
-                }
-            });
-
-
-
-        }
-
-    }
-    public void DeletePostAdmin(int index){
-        AtomicBoolean DeletePostOrNot = new AtomicBoolean(false);
-        if(WhichUser ==3){
-            AlertDialog.Builder alert = new AlertDialog.Builder(Home.this);
-            alert.setTitle(R.string.delete_post);
-            alert.setMessage(R.string.are_you_sure);
-            alert.setPositiveButton(R.string.yes, (dialog, which) -> {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef3 = database.getReference("usersJobs").child(CompanyIdWithReports.get(index));
-                myRef3.getRef().removeValue();
-                DatabaseReference myRef4 = database.getReference("reports").child(CompanyIdWithReports.get(index));
-                myRef4.getRef().removeValue();
-                DeletePostOrNot.set(true);
-                Toast.makeText(Home.this, R.string.Files_Delete_successfully, Toast.LENGTH_SHORT).show();
-                dialog.dismiss();
-
-            });
-
-            alert.setNegativeButton(R.string.no, (dialog, which) -> {
-                DeletePostOrNot.set(false);
-
-                dialog.dismiss();
-            });
-
-            alert.show();
-
-
-
-        }
-
-    }
-
-
-
-
-
-
-
-    void EnterButtons(){
-
-        btnProfile.setOnClickListener(view -> startActivity(new Intent(Home.this, Profile.class)));
-
-        btnAbout.setOnClickListener(view -> startActivity(new Intent(Home.this, About.class)));
-
-    }
-
-
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        // On selecting a spinner item
-        //String item = parent.getItemAtPosition(position).toString();
-
-
-
-        // Showing selected spinner item
-        //Toast.makeText(parent.getContext(), getString(R.string.Selected) + item, Toast.LENGTH_LONG).show();
-
-    }
-
-    public void onNothingSelected(AdapterView<?> arg0) {
-        // TODO Auto-generated method stub
-
-    }
-
     public void ShareButton(int index) {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
@@ -420,6 +318,40 @@ public class Home extends AppCompatActivity  implements AdapterView.OnItemSelect
 
 
     }
+
+    public void DeletePostAdmin(int index){
+        AtomicBoolean DeletePostOrNot = new AtomicBoolean(false);
+        if(WhichUser ==3){
+            AlertDialog.Builder alert = new AlertDialog.Builder(Home.this);
+            alert.setTitle(R.string.delete_post);
+            alert.setMessage(R.string.are_you_sure);
+            alert.setPositiveButton(R.string.yes, (dialog, which) -> {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef3 = database.getReference("usersJobs").child(CompanyIdWithReports.get(index));
+                myRef3.getRef().removeValue();
+                DatabaseReference myRef4 = database.getReference("reports").child(CompanyIdWithReports.get(index));
+                myRef4.getRef().removeValue();
+                DeletePostOrNot.set(true);
+                Toast.makeText(Home.this, R.string.Files_Delete_successfully, Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+
+            });
+
+            alert.setNegativeButton(R.string.no, (dialog, which) -> {
+                DeletePostOrNot.set(false);
+
+                dialog.dismiss();
+            });
+
+            alert.show();
+
+
+
+        }
+
+    }
+
+
     private void checkIfUserHaveCV(){
 
         if(user!=null ) {
@@ -445,6 +377,43 @@ public class Home extends AppCompatActivity  implements AdapterView.OnItemSelect
         }
 
     }
+
+
+    private void SearchHelperManager(){
+        if(user!=null ) {
+            String userId = user.getUid();
+            databaseReference = FirebaseDatabase.getInstance().getReference("Managers");
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+
+                @SuppressLint("SetTextI18n")
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
+                        if (Objects.requireNonNull(postsnapshot.getValue()).toString().equals(userId)) {
+                            count2++;
+                        }
+
+
+                    }
+                    if(count2>0){
+                        WhichUser=3;
+                        CheckWhichUser();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    // Failed to read value
+
+                }
+            });
+
+
+
+        }
+
+    }
+
     private void SpinnerFuncAdvance() {
 
 
@@ -575,6 +544,7 @@ public class Home extends AppCompatActivity  implements AdapterView.OnItemSelect
 
         });
     }
+
     private void SearchHelper(){
 
         databaseReference = FirebaseDatabase.getInstance().getReference("usersJobs");
@@ -747,6 +717,37 @@ public class Home extends AppCompatActivity  implements AdapterView.OnItemSelect
 
 
     }
+
+
+
+
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        // On selecting a spinner item
+        //String item = parent.getItemAtPosition(position).toString();
+
+
+
+        // Showing selected spinner item
+        //Toast.makeText(parent.getContext(), getString(R.string.Selected) + item, Toast.LENGTH_LONG).show();
+
+    }
+
+    public void onNothingSelected(AdapterView<?> arg0) {
+        // TODO Auto-generated method stub
+
+    }
+
+
+
+
+
+
+
+
+
+
     public static int CheckWhichUserForRecView() {
         if(WhichUser==1){
             return 1;
@@ -794,4 +795,23 @@ public class Home extends AppCompatActivity  implements AdapterView.OnItemSelect
 
         }
     }
+
+
+    void EnterButtons(){
+
+        btnProfile.setOnClickListener(view -> startActivity(new Intent(Home.this, Profile.class)));
+
+        btnAbout.setOnClickListener(view -> startActivity(new Intent(Home.this, About.class)));
+
+    }
+
+
+
+
+
+
+
+
+
+
 }
