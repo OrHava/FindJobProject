@@ -194,97 +194,109 @@
         <item>יקנעם</item>
     </string-array>
 
-    <string-array name="jobs_types">
-        <item>מזכירות</item>
-        <item>מהנדס תוכנה</item>
-        <item>אדריכלות</item>
-        <item>אינסטלטור</item>
-        <item>מקעקע</item>
-        <item>מורה</item>
-    </string-array>
 
     <string-array name="jobs_types">
-        <item>מזכירות</item>
-        <item>מהנדס תוכנה</item>
-        <item>אדריכלות</item>
-        <item>אינסטלטור</item>
-        <item>מקעקע</item>
-        <item>מורה</item>
-        <item>מוליך כלבים לטיול</item>
-        <item>דוקטור</item>
-        <item>מהנדס</item>
+        <item>רופא שיניים</item>
+        <item>אחות מוסמכת</item>
+        <item>רוֹקֵחַ</item>
+        <item>מנתח מערכות מחשבים</item>
+        <item>רוֹפֵא</item>
+        <item>מנהל מסד נתונים</item>
+        <item>מפתח תוכנה</item>
+        <item>פיזיותרפיסט</item>
+        <item>מפתח אינטרנט</item>
+        <item>רופא שיניים</item>
+        <item>מרפא בעיסוק</item>
+        <item>וֵטֵרִינָר</item>
+        <item>תוכניות מחשב</item>
+        <item>פסיכולוג בית ספר</item>
+        <item>עוזר פיזיותרפיסט</item>
+        <item>מתורגמן ומתרגם</item>
+        <item>מהנדס מכונות</item>
+        <item>טכנולוג וטכנאי וטרינרי</item>
+        <item>אפידמיולוג</item>
+        <item>מנהל IT</item>
+        <item>מנתח מחקרי שוק</item>
+        <item>סונוגרף רפואי אבחנתי</item>
+        <item>מנהל מערכות מחשב</item>
+        <item>מטפל נשימתי</item>
+        <item>מזכירה רפואית</item>
+        <item>מהנדס אזרחי</item>
+        <item>יועץ שימוש בסמים</item>
+        <item>מנתח את שפת הדיבור</item>
+        <item>מעצב ושומר שטח</item>
+        <item>טכנולוג רדיולוגי</item>
+        <item>מעריך עלויות</item>
+        <item>יועץ פיננסי</item>
+        <item>מטפל זוגי ומשפחתי</item>
+        <item>סיוע רפואי</item>
         <item>עורך דין</item>
-        <item>רואה חשבון</item>
-        <item>עובד בניין</item>
-        <item>שוטר</item>
-        <item>כבאי</item>
-        <item>איש מכירות</item>
-        <item>מכונאי</item>
-        <item>אחראי רשתות</item>
-        <item>אחות</item>
-        <item>איש קבלה (במלון)</item>
-        <item>שירות לקוחות</item>
-        <item>מלצר/ית</item>
-        <item>שליח/ה</item>
-        <item>שרת</item>
-        <item>ספרן/ית</item>
-        <item>אלקטרונאי/ת</item>
-        <item>שרברב</item>
-        <item>רתך</item>
-        <item>רתך</item>
-        <item>חוואי</item>
-        <item>שף</item>
-        <item>נהג אוטובוס</item>
-        <item>עובד דואר</item>
-        <item>מנקה</item>
-        <item>שומר/ת</item>
-        <item>מאלף חיות</item>
-        <item>ספר/ית</item>
-        <item>מעצב נוף</item>
-        <item>כתב/ת</item>
-        <item>אמן/ית</item>
-        <item>רקדן/ית</item>
-        <item>מוזיקאי/ת</item>
-        <item>שחקן/ית</item>
-        <item>מאמן ספורטאים</item>
-        <item>מאמן</item>
-        <item>מאמן אישי</item>
-        <item>תרפיסט</item>
-        <item>יועץ</item>
-        <item>עובד סוציאלי</item>
-        <item>קצין מבחן אסירים מהכלא</item>
-        <item>קצין שחרור אסירים מהכלא</item>
-        <item>חבר כמורה</item>
-        <item>ארכיטקט</item>
-        <item>אוצר מוזיאון</item>
-        <item>מפקח גן חיות</item>
-        <item>וטרינר/ית</item>
-        <item>שיננ/ית</item>
-        <item>יוטיובר</item>
-        <item>דוגמן/ית אינסטגרם</item>
-        <item>מנקה רחוב</item>
-        <item>אופטמיטריסט</item>
+        <item>רואת חשבון</item>
+        <item>קצין ציות</item>
+        <item>מורה בתיכון</item>
+        <item>טכנאי מעבדה קלינית</item>
+        <item>עובד תחזוקה ותיקונים</item>
+        <item>פקיד הנהלת חשבונות, הנהלת חשבונות וביקורת</item>
+        <item>מנהל כספים</item>
+        <item>עובד פנאי וכושר</item>
+        <item>סוכן ביטוח</item>
+        <item>מורה של בית ספר יסודי</item>
+        <item>סייעת רופא שיניים</item>
+        <item>אנליסט ניהול</item>
+        <item>עוזר לבריאות הבית</item>
         <item>רוקח</item>
-        <item>פיזיותרפיסט/ית</item>
-        <item>תרפיית דיבור</item>
-        <item>ריפוי בעיסוק</item>
-        <item>פסיכולוג/ית</item>
-        <item>פסיכיאטר/ית</item>
-        <item>ביולוג/ית</item>
-        <item>כימאי/ית</item>
-        <item>גיאולוג/ית</item>
-        <item>אסטרו-פיזיקאי/ת</item>
-        <item>מטיאורולוג/ית</item>
-        <item>מדענ/ית סביבה</item>
-        <item>אריכיאולוג/ית</item>
-        <item>אנטרופולוג/ית</item>
-        <item>סוציולוג/ית</item>
-        <item>חשבונאי/ת</item>
-        <item>מדען/ית פוליטיקה</item>
-        <item>היסטוריון</item>
-        <item>מרצה ליסודות תוכנה</item>
-        <item>בלשן</item>
-        <item>מתורגמן</item>
+        <item>קבלן בניה</item>
+        <item>מומחה ליחסי ציבור</item>
+        <item>מורה בחטיבת הביניים</item>
+        <item>מעסה</item>
+        <item>חוֹבֵשׁ</item>
+        <item>גננת בגן ילדים</item>
+        <item>מעצבת שיער</item>
+        <item>מנהל שיווק</item>
+        <item>שוטר סיור</item>
+        <item>יועצת בית הספר</item>
+        <item>עוזר מנהלי</item>
+        <item>אנליסט פיננסי</item>
+        <item>סייעת לטיפול אישי</item>
+        <item>עובדת סוציאלית קלינית</item>
+        <item>מנהל תפעול עסקי</item>
+        <item>קצין הלוואות</item>
+        <item>מתכנן פגישות, כנסים ואירועים</item>
+        <item>יועץ לבריאות הנפש</item>
+        <item>סייעת סיעודית</item>
+        <item>נציג מכירות</item>
+        <item>אַדְרִיכָל</item>
+        <item>מנהל מכירות</item>
+        <item>מומחה כוח אדם</item>
+        <item>שרברב</item>
+        <item>סוכן נדלן</item>
+        <item>זַגָג</item>
+        <item>מנהל אומנותי</item>
+        <item>נציג שירות לקוחות</item>
+        <item>לוגיסטי</item>
+        <item>מכונאי רכב</item>
+        <item>נהג אוטובוס</item>
+        <item>טבח</item>
+        <item>עובדת סוציאלית לילד ומשפחה</item>
+        <item>עוזר ניהולי</item>
+        <item>פְּקִיד קַבָּלָה</item>
+        <item>יועץ משפטי</item>
+        <item>גימור בטון לבונה מלט</item>
+        <item>צייר</item>
+        <item>מאמן ספורט</item>
+        <item>עוזר הוראה</item>
+        <item>בנאי</item>
+        <item>קופאית</item>
+        <item>שָׁרָת</item>
+        <item>חַשׁמַלַאי</item>
+        <item>נהג משאית משלוחים</item>
+        <item>עוזרת ועוזרת בית</item>
+        <item>נגר</item>
+        <item>שומר</item>
+        <item>עובד בניין</item>
+        <item>מְפַבּרֵק</item>
+        <item>אנשי טלמרקטינג</item>
+        <item>עוזר לריק</item>
     </string-array>
 
 </resources>

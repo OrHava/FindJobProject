@@ -70,6 +70,7 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemSelecte
     private String JobTypeSearch="",LocationTypeSearch="";
     //to scan websites you need to Parsing competitive websites for more jobs. using google api
     //Data of citys from: https://www.science.co.il/municipal/Cities.php
+    //Data of jobs from: https://www.careerprofiles.info/top-100-careers.html
     //To find hash go to Navigate (its on top bar), Write-> search EveryWhere-> write "gradlew" and enter-> then write click on gradlew ->
     // open in-> Terminal -> then write in Terminal- > ./gradlew signingReport, then if everything is fine you should see hash 1 code which is what we need.
     @Override

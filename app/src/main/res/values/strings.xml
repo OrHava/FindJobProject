@@ -194,76 +194,107 @@
 
 
     <string-array name="jobs_types">
-        <item>Doctor</item>
-        <item>Engineer</item>
+        <item>Dentist</item>
+        <item>Registered Nurse</item>
+        <item>Pharmacist</item>
+        <item>Computer Systems Analyst</item>
+        <item>Physician</item>
+        <item>Database Administrator</item>
+        <item>Software Developer</item>
+        <item>Physical Therapist</item>
+        <item>Web Developer</item>
+        <item>Dental Hygienist</item>
+        <item>Occupational Therapist</item>
+        <item>Veterinarian</item>
+        <item>Computer Programmer</item>
+        <item>School Psychologist</item>
+        <item>Physical Therapist Assistant</item>
+        <item>Interpreter and Translator</item>
+        <item>Mechanical Engineer</item>
+        <item>Veterinary Technologist Technician</item>
+        <item>Epidemiologist</item>
+        <item>IT Manager</item>
+        <item>Market Research Analyst</item>
+        <item>Diagnostic Medical Sonographer</item>
+        <item>Computer Systems Administrator</item>
+        <item>Respiratory Therapist</item>
+        <item>Medical Secretary</item>
+        <item>Civil Engineer</item>
+        <item>Substance Abuse Counselor</item>
+        <item>Speech-Language Pathologist</item>
+        <item>Landscaper or Groundskeeper</item>
+        <item>Radiologic Technologist</item>
+        <item>Cost Estimator</item>
+        <item>Financial Advisor</item>
+        <item>Marriage and Family Therapist</item>
+        <item>Medical Assistant</item>
         <item>Lawyer</item>
         <item>Accountant</item>
-        <item>Construction worker</item>
-        <item>Police officer</item>
-        <item>Firefighter</item>
-        <item>Salesperson</item>
-        <item>Mechanic</item>
-        <item>IT professional</item>
-        <item>Nurse</item>
-        <item>Receptionist</item>
-        <item>Customer service representative</item>
-        <item>Waiter/waitress</item>
-        <item>Delivery person</item>
-        <item>Janitor</item>
-        <item>Librarian</item>
-        <item>Electrician</item>
+        <item>Compliance Officer</item>
+        <item>High School Teacher</item>
+        <item>Clinical Laboratory Technician</item>
+        <item>Maintenance and Repair Worker</item>
+        <item>Bookkeeping, Accounting, Audit Clerk</item>
+        <item>Financial Manager</item>
+        <item>Recreation, Fitness Worker</item>
+        <item>Insurance Agent</item>
+        <item>Elementary School Teacher</item>
+        <item>Dental Assistant</item>
+        <item>Management Analyst</item>
+        <item>Home Health Aide</item>
+        <item>Pharmacy Technician</item>
+        <item>Construction Manager</item>
+        <item>Public Relations Specialist</item>
+        <item>Middle School Teacher</item>
+        <item>Massage Therapist</item>
+        <item>Paramedic</item>
+        <item>Preschool Teacher</item>
+        <item>Hairdresser</item>
+        <item>Marketing Manager</item>
+        <item>Patrol Officer</item>
+        <item>School Counselor</item>
+        <item>Executive Assistant</item>
+        <item>Financial Analyst</item>
+        <item>Personal Care Aide</item>
+        <item>Clinical Social Worker</item>
+        <item>Business Operations Manager</item>
+        <item>Loan Officer</item>
+        <item>Meeting, Convention, Event Planner</item>
+        <item>Mental Health Counselor</item>
+        <item>Nursing Aide</item>
+        <item>Sales Representative</item>
+        <item>Architect</item>
+        <item>Sales Manager</item>
+        <item>HR Specialist</item>
         <item>Plumber</item>
-        <item>Welder</item>
+        <item>Real Estate Agent</item>
+        <item>Glazier</item>
+        <item>Art Director</item>
+        <item>Customer Service Representative</item>
+        <item>Logistician</item>
+        <item>Auto Mechanic</item>
+        <item>Bus Driver</item>
+        <item>Restaurant Cook</item>
+        <item>Child, Family Social Worker</item>
+        <item>Administrative Assistant</item>
+        <item>Receptionist</item>
+        <item>Paralegal</item>
+        <item>Cement Mason, Concrete Finisher</item>
+        <item>Painter</item>
+        <item>Sports Coach</item>
+        <item>Teacher Assistant</item>
+        <item>Brickmason, Blockmason</item>
+        <item>Cashier</item>
+        <item>Janitor</item>
+        <item>Electrician</item>
+        <item>Delivery Truck Driver</item>
+        <item>Maid and Housekeeper</item>
         <item>Carpenter</item>
-        <item>Farmer</item>
-        <item>Chef</item>
-        <item>Bus driver</item>
-        <item>Postal worker</item>
-        <item>Cleaner</item>
-        <item>Security guard</item>
-        <item>Animal trainer</item>
-        <item>Barber/hairdresser</item>
-        <item>Landscaper</item>
-        <item>Writer</item>
-        <item>Artist</item>
-        <item>Dancer</item>
-        <item>Musician</item>
-        <item>Actor</item>
-        <item>Athletic trainer</item>
-        <item>Coach</item>
-        <item>Personal trainer</item>
-        <item>Therapist</item>
-        <item>Counselor</item>
-        <item>Social worker</item>
-        <item>Probation officer</item>
-        <item>Parole officer</item>
-        <item>Clergy member</item>
-        <item>Archivist</item>
-        <item>Museum curator</item>
-        <item>Zookeeper</item>
-        <item>Veterinarian</item>
-        <item>Dentist</item>
-        <item>Optometrist</item>
-        <item>Pharmacist</item>
-        <item>Physical therapist</item>
-        <item>Speech therapist</item>
-        <item>Occupational therapist</item>
-        <item>Psychologist</item>
-        <item>Psychiatrist</item>
-        <item>Biologist</item>
-        <item>Chemist</item>
-        <item>Geologist</item>
-        <item>Astrophysicist</item>
-        <item>Meteorologist</item>
-        <item>Environmental scientist</item>
-        <item>Archaeologist</item>
-        <item>Anthropologist</item>
-        <item>Sociologist</item>
-        <item>Economist</item>
-        <item>Political scientist</item>
-        <item>Historian</item>
-        <item>Linguist</item>
-        <item>Translator</item>
+        <item>Security Guard</item>
+        <item>Construction Worker</item>
+        <item>Fabricator</item>
+        <item>Telemarketer</item>
+        <item>Rick Assistance</item>
     </string-array>
 
 </resources>
