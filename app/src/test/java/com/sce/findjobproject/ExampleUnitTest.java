@@ -14,4 +14,12 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
+
+
+
+    //Tests check if email and password are valid.
+    @Test
+    public void emailValidator_EmptyString_ReturnsTrue() {
+        assertTrue(SignUp.isEmailValid("or6562@gmail.com"));
+    }
 }

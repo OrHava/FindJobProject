@@ -1,5 +1,6 @@
 package com.sce.findjobproject;
 
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -22,16 +24,16 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Objects;
 
@@ -49,6 +51,7 @@ public class SignIn extends AppCompatActivity {
     // [END declare_auth]
     public static int WhichUser=1;
     private GoogleSignInClient mGoogleSignInClient;
+
 
 
     @SuppressLint("WrongViewCast")
@@ -184,7 +187,7 @@ public class SignIn extends AppCompatActivity {
         }
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("494529078470-0dvquaekhka84dn2e7sjsvoauoo6smhk.apps.googleusercontent.com")
+                .requestIdToken(getString(R.string.Google_id))
                 .requestEmail()
                 .build();
 
@@ -204,12 +207,32 @@ public class SignIn extends AppCompatActivity {
 
         signIn.setOnClickListener(view -> {
             startActivity(new Intent(SignIn.this, SignUp.class));
-
+            overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
         });
 
         login.setOnClickListener(view -> signInEmail());
     }
 
+
+    public void signInEmailFirebase(String Email, String Password){
+        mAuth.signInWithEmailAndPassword(Email,Password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d(TAG, "signInWithEmail:success");
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        updateUI();
+                        startActivity(new Intent(SignIn.this, Home.class));
+                        overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w(TAG, "signInWithEmail:failure", task.getException());
+                        Toast.makeText(SignIn.this, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show();
+                        updateUI();
+                    }
+                });
+    }
 
     public void signInEmail(){
         if(Email==null || Objects.requireNonNull(Email.getText()).toString().isEmpty() ){
@@ -219,24 +242,7 @@ public class SignIn extends AppCompatActivity {
             Toast.makeText(this, "Enter Password", Toast.LENGTH_SHORT).show();
         }
         if(password!=null && Email!=null && !(Objects.requireNonNull(password.getText()).toString().isEmpty()) && !(Objects.requireNonNull(Email.getText()).toString().isEmpty())){
-
-            mAuth.signInWithEmailAndPassword(Objects.requireNonNull(Email.getText()).toString().trim(), Objects.requireNonNull(password.getText()).toString().trim())
-                    .addOnCompleteListener(this, task -> {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                            startActivity(new Intent(SignIn.this, Home.class));
-
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(SignIn.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
-                        }
-                    });
+            signInEmailFirebase(Email.getText().toString().trim(),password.getText().toString().trim());
         }
 
     }
@@ -250,7 +256,7 @@ public class SignIn extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+        updateUI();
     }
     // [END on_start_check_user]
 
@@ -278,7 +284,7 @@ public class SignIn extends AppCompatActivity {
     // [END onactivityresult]
 
     // [START auth_with_google]
-    private void firebaseAuthWithGoogle(String idToken) {
+    public void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, task -> {
@@ -286,14 +292,14 @@ public class SignIn extends AppCompatActivity {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "signInWithCredential:success");
                         FirebaseUser user = mAuth.getCurrentUser();
-                        updateUI(user);
+                        updateUI();
                         //gotoProfile();
                         startActivity(new Intent(SignIn.this, Home.class));
-
+                        overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "signInWithCredential:failure", task.getException());
-                        updateUI(null);
+                        updateUI();
                     }
                 });
     }
@@ -320,7 +326,8 @@ public class SignIn extends AppCompatActivity {
 
 
 
-    private void updateUI(FirebaseUser user) {
+    private void updateUI() {
+        Log.d("Success", "User Logged");
 
     }
     private void gotoProfile(){
@@ -331,4 +338,8 @@ public class SignIn extends AppCompatActivity {
     }
 
 
+
+
+    public void tearDown() throws Exception {
+    }
 }

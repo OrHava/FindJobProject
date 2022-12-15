@@ -104,6 +104,19 @@
     <string name="enter_a_valid_email">הכנס כתובת אימייל חוקית</string>
     <string name="enter_a_valid_password">הכנס סיסמא חוקית</string>
 
+
+
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_login">Login</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="error_login_failed">Your email or password was incorrect. Please try again.</string>
+    <string name="login_successfully">Login successfully.</string>
+
+
+
     <!-- Language array -->
     <string-array name="jobs_location">
         <item>עפולה</item>
