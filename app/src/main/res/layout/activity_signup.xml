@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="#E4ECEC"
+    android:background="#818FDF"
     android:layout_gravity="center">
 
 
@@ -20,6 +20,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/edit_email2"
+        android:textColorLink="@color/black"
+        android:shadowColor="@color/black"
+        android:textColorHighlight="@color/black"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -27,6 +32,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
+            android:background="#C9CEEA"
+            android:textColorLink="@color/black"
+            android:shadowColor="@color/black"
+            android:textColorHighlight="@color/black"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:inputType="textEmailAddress"
             android:padding="20dp"
             tools:ignore="HardcodedText" />
@@ -40,6 +51,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:passwordToggleEnabled="true"
+        android:textColorLink="@color/black"
+        android:shadowColor="@color/black"
+        android:textColorHighlight="@color/black"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         app:layout_constraintTop_toBottomOf="@id/edit_email2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -51,6 +67,12 @@
             android:hint="@string/password"
             android:inputType="textPassword"
             android:padding="20dp"
+            android:textColorLink="@color/black"
+            android:shadowColor="@color/black"
+            android:textColorHighlight="@color/black"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:background="#C9CEEA"
             tools:ignore="HardcodedText" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -61,8 +83,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/register"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/design_default_color_secondary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_password2"
         tools:ignore="HardcodedText" />
@@ -75,6 +98,9 @@
         android:layout_marginTop="36dp"
         android:text="@string/Go_To_login"
         android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:backgroundTint="@color/design_default_color_secondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_register"
