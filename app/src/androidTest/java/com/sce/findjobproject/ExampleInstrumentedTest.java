@@ -23,6 +23,4 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         assertEquals("com.sce.findjobproject", appContext.getPackageName());
     }
-
-
 }
