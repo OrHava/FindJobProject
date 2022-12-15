@@ -202,4 +202,89 @@
         <item>מקעקע</item>
         <item>מורה</item>
     </string-array>
+
+    <string-array name="jobs_types">
+        <item>מזכירות</item>
+        <item>מהנדס תוכנה</item>
+        <item>אדריכלות</item>
+        <item>אינסטלטור</item>
+        <item>מקעקע</item>
+        <item>מורה</item>
+        <item>מוליך כלבים לטיול</item>
+        <item>דוקטור</item>
+        <item>מהנדס</item>
+        <item>עורך דין</item>
+        <item>רואה חשבון</item>
+        <item>עובד בניין</item>
+        <item>שוטר</item>
+        <item>כבאי</item>
+        <item>איש מכירות</item>
+        <item>מכונאי</item>
+        <item>אחראי רשתות</item>
+        <item>אחות</item>
+        <item>איש קבלה (במלון)</item>
+        <item>שירות לקוחות</item>
+        <item>מלצר/ית</item>
+        <item>שליח/ה</item>
+        <item>שרת</item>
+        <item>ספרן/ית</item>
+        <item>אלקטרונאי/ת</item>
+        <item>שרברב</item>
+        <item>רתך</item>
+        <item>רתך</item>
+        <item>חוואי</item>
+        <item>שף</item>
+        <item>נהג אוטובוס</item>
+        <item>עובד דואר</item>
+        <item>מנקה</item>
+        <item>שומר/ת</item>
+        <item>מאלף חיות</item>
+        <item>ספר/ית</item>
+        <item>מעצב נוף</item>
+        <item>כתב/ת</item>
+        <item>אמן/ית</item>
+        <item>רקדן/ית</item>
+        <item>מוזיקאי/ת</item>
+        <item>שחקן/ית</item>
+        <item>מאמן ספורטאים</item>
+        <item>מאמן</item>
+        <item>מאמן אישי</item>
+        <item>תרפיסט</item>
+        <item>יועץ</item>
+        <item>עובד סוציאלי</item>
+        <item>קצין מבחן אסירים מהכלא</item>
+        <item>קצין שחרור אסירים מהכלא</item>
+        <item>חבר כמורה</item>
+        <item>ארכיטקט</item>
+        <item>אוצר מוזיאון</item>
+        <item>מפקח גן חיות</item>
+        <item>וטרינר/ית</item>
+        <item>שיננ/ית</item>
+        <item>יוטיובר</item>
+        <item>דוגמן/ית אינסטגרם</item>
+        <item>מנקה רחוב</item>
+        <item>אופטמיטריסט</item>
+        <item>רוקח</item>
+        <item>פיזיותרפיסט/ית</item>
+        <item>תרפיית דיבור</item>
+        <item>ריפוי בעיסוק</item>
+        <item>פסיכולוג/ית</item>
+        <item>פסיכיאטר/ית</item>
+        <item>ביולוג/ית</item>
+        <item>כימאי/ית</item>
+        <item>גיאולוג/ית</item>
+        <item>אסטרו-פיזיקאי/ת</item>
+        <item>מטיאורולוג/ית</item>
+        <item>מדענ/ית סביבה</item>
+        <item>אריכיאולוג/ית</item>
+        <item>אנטרופולוג/ית</item>
+        <item>סוציולוג/ית</item>
+        <item>חשבונאי/ת</item>
+        <item>מדען/ית פוליטיקה</item>
+        <item>היסטוריון</item>
+        <item>מרצה ליסודות תוכנה</item>
+        <item>בלשן</item>
+        <item>מתורגמן</item>
+    </string-array>
+
 </resources>
