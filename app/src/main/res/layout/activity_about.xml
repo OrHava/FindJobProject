@@ -12,9 +12,136 @@
         android:id="@+id/btnReport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
         android:text="@string/report_of_user" />
 
     <include layout="@layout/navbar"/>
+
+    <TextView
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="@string/q1_how_this_thing_is_wotking_if_you_delete_your_account_does_my_data_delete_absulotly"
+        android:id="@+id/txtQ1"
+
+        android:layout_below="@+id/btnReport"
+        android:layout_marginTop="5dp"
+        android:textSize="12sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:background="#FF9800"
+        />
+
+    <ImageButton
+        android:id="@+id/btnPlus1"
+        android:layout_width="38dp"
+        android:layout_height="42dp"
+        android:layout_below="@+id/btnReport"
+        android:layout_marginTop="0dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/plus_button" />
+
+    <TextView
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="Q2-all the data will be deleted absulotly"
+        android:id="@+id/txtA1"
+
+        android:layout_below="@+id/txtQ1"
+        android:layout_marginTop="15dp"
+        android:textSize="12sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:background="#FF9800"
+        android:visibility="gone"
+        />
+
+
+    <TextView
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="Q1...how this thing is wotking?!?!?....if you delete your account- does my data delete absulotly?"
+        android:id="@+id/txtQ2"
+
+        android:layout_below="@+id/btnReport"
+        android:layout_marginTop="100dp"
+        android:textSize="12sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:background="#FF9800"
+        />
+
+
+    <ImageButton
+        android:id="@+id/btnPlus2"
+        android:layout_width="38dp"
+        android:layout_height="42dp"
+        android:layout_below="@+id/btnReport"
+        android:layout_marginTop="95dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/plus_button" />
+
+    <TextView
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="Q2-all the data will be deleted absulotly"
+        android:id="@+id/txtA2"
+
+        android:layout_below="@+id/txtQ2"
+        android:layout_marginTop="15dp"
+        android:textSize="12sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:background="#FF9800"
+        android:visibility="gone"
+        />
+
+
+
+    <TextView
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="Q2...how this thing is wotking?!?!?....if you delete your account- does my data delete absulotly?"
+        android:id="@+id/txtQ3"
+
+        android:layout_below="@+id/btnReport"
+        android:layout_marginTop="200dp"
+        android:textSize="12sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:background="#FF9800"
+        />
+
+    <ImageButton
+        android:id="@+id/btnPlus3"
+        android:layout_width="38dp"
+        android:layout_height="42dp"
+        android:layout_below="@+id/btnReport"
+        android:layout_marginTop="195dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/plus_button" />
+
+    <TextView
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="Q3-all the data will be deleted absulotly"
+        android:id="@+id/txtA3"
+
+        android:layout_below="@+id/txtQ3"
+        android:layout_marginTop="10dp"
+        android:textSize="12sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:background="#FF9800"
+        android:visibility="gone"
+        />
+
+
+
 
 </RelativeLayout>

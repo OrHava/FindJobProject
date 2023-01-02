@@ -9,8 +9,10 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -50,8 +52,10 @@ public class About extends AppCompatActivity {
     private int count_tel_aviv_district;
     private int count_central_district;
     private int count_jerusalem_district;
-    private int  count_southern_district;
+    private int count_southern_district;
     private int count_judea_and_samaria_district;
+    private ImageButton btnPlus1,btnPlus2,btnPlus3;
+    private TextView txtA1,txtA2,txtA3;
 
 
     List<pdfClass> uploads;
@@ -67,8 +71,53 @@ public class About extends AppCompatActivity {
         user= FirebaseAuth.getInstance().getCurrentUser();
         uploads=new ArrayList<>();
         userApplied= new ArrayList<>();
+        txtA1 = findViewById(R.id.txtA1);
+        btnPlus1 = findViewById(R.id.btnPlus1);
+        txtA2 = findViewById(R.id.txtA2);
+        btnPlus2 = findViewById(R.id.btnPlus2);
+        txtA3 = findViewById(R.id.txtA3);
+        btnPlus3 = findViewById(R.id.btnPlus3);
+        FAQ();
         EnterButtons();
         CheckWhichUser();
+    }
+
+    private void FAQ() {
+        btnPlus1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txtA1.setVisibility(View.VISIBLE);
+                txtA2.setVisibility(View.GONE);
+                txtA3.setVisibility(View.GONE);
+
+
+            }
+        });
+
+
+        btnPlus2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txtA2.setVisibility(View.VISIBLE);
+                txtA1.setVisibility(View.GONE);
+                txtA3.setVisibility(View.GONE);
+
+
+            }
+        });
+
+        btnPlus3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txtA3.setVisibility(View.VISIBLE);
+                txtA1.setVisibility(View.GONE);
+                txtA2.setVisibility(View.GONE);
+            }
+        });
+
+
+
+
     }
 
     private void CheckWhichUser() {
