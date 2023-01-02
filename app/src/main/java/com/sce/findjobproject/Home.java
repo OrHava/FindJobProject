@@ -44,7 +44,7 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Home extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-    private TextView txtWhichUser,SpinJobsType,SpinJobsLocation;
+    private TextView txtWhichUser,SpinJobsType,SpinJobsLocation,txtJobType,txtLocation;
     private ImageButton btnProfile,btnAbout,BtnSearch;
     private DatabaseReference databaseReference;
     private FirebaseUser user;
@@ -70,7 +70,6 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemSelecte
     private String JobTypeSearch="",LocationTypeSearch="";
     //to scan websites you need to Parsing competitive websites for more jobs. using google api
     //Data of citys from: https://www.science.co.il/municipal/Cities.php
-    //Data of jobs from: https://www.careerprofiles.info/top-100-careers.html
     //To find hash go to Navigate (its on top bar), Write-> search EveryWhere-> write "gradlew" and enter-> then write click on gradlew ->
     // open in-> Terminal -> then write in Terminal- > ./gradlew signingReport, then if everything is fine you should see hash 1 code which is what we need.
     @Override
@@ -84,6 +83,8 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemSelecte
         BtnSearch=findViewById(R.id.BtnSearch);
         searchAnim=findViewById(R.id.searchAnim);
         SpinJobsType=findViewById(R.id.SpinJobsType);
+        txtLocation=findViewById(R.id.txtLocation);
+        txtJobType=findViewById(R.id.txtJobType);
         SpinJobsLocation=findViewById(R.id.SpinJobsLocation);
         btnAdmin=findViewById(R.id.btnAdmin);
         listItemJobLocations=getResources().getStringArray(R.array.jobs_location);
@@ -784,8 +785,12 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemSelecte
         else if(WhichUser==3){
             txtWhichUser.setText(R.string.Your_Manager_of_The_App);
             btnAdmin.setVisibility(View.VISIBLE);
+            txtJobType.setVisibility(View.GONE);
+            txtLocation.setVisibility(View.GONE);
+            SpinJobsLocation.setVisibility(View.GONE);
+            SpinJobsType.setVisibility(View.GONE);
+            
             AdminSearch();
-
         }
 
         if(user!=null ) {
@@ -793,7 +798,6 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemSelecte
             String userId = user.getUid();
             databaseReference = FirebaseDatabase.getInstance().getReference("AdminStatistics").child(userId);
             databaseReference.setValue(whichUserBoolean);
-
         }
     }
 
@@ -803,7 +807,6 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemSelecte
         btnProfile.setOnClickListener(view -> startActivity(new Intent(Home.this, Profile.class)));
 
         btnAbout.setOnClickListener(view -> startActivity(new Intent(Home.this, About.class)));
-
     }
 
 

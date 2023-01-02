@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -55,7 +56,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
     private ImageButton btnHome,btnAbout;
     private TextView txtWhichUser,txtJobDescription;
     private EditText edtName,edtLastName,edtEmail,edtPhone,edtCity,edtCompany,edtJobDescription;
-    private Button btnSubmitInfo,BtnUpJobDesc,BtnUpJobApplied;
+    private Button btnSubmitInfo,BtnUpJobDesc,BtnUpJobApplied,AdminButton;
     private String Name="",LastName="",Email="",Phone="",City="";
     private String Company="",JobDescription="",JobType="",JobLocation="";
     private DatabaseReference mDatabase;
@@ -98,6 +99,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
         btnAbout=findViewById(R.id.btnAbout);
         btnHome=findViewById(R.id.btnHome);
         edtName=findViewById(R.id.edtName);
+        AdminButton=findViewById(R.id.AdminButton);
         edtLastName=findViewById(R.id.edtLastName);
         edtEmail=findViewById(R.id.edtEmail);
         edtPhone=findViewById(R.id.edtPhone);
@@ -134,8 +136,6 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
         uploadCv();
         exitUser();
         SpinnerFuncAdvance();
-
-
 
 
     }
@@ -364,10 +364,54 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
             LayoutProfile.setVisibility(View.GONE);
             LayoutPostJob.setVisibility(View.GONE);
             LayoutCv.setVisibility(View.GONE);
+            ClearJobs();
             AdminProfile();
             PieChartPie();
 
         }
+    }
+
+    private void ClearJobs() {
+        AdminButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                if (user != null) {
+                    database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef3 = database.getReference("usersJobs");
+                    myRef3.addListenerForSingleValueEvent(new ValueEventListener() {
+
+                        @SuppressLint("SetTextI18n")
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                            Date date = Calendar.getInstance().getTime();
+                            String strDate = formatter.format(date);
+                            formatter = new SimpleDateFormat("dd-MM-yyyy");
+                            strDate = formatter.format(date);
+
+                           for (DataSnapshot postsnapshot: dataSnapshot.getChildren()){
+
+                               String TheName=  postsnapshot.child("Date").getValue(String.class);
+
+                               Toast.makeText(Profile.this, ""+strDate, Toast.LENGTH_SHORT).show();
+
+
+                           }
+                        }
+
+                        @Override
+                        public void onCancelled(@androidx.annotation.NonNull DatabaseError error) {
+                            // Failed to read value
+                        }
+                    });
+
+                }
+            }
+        });
+
     }
 
 
