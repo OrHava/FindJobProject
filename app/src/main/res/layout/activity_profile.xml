@@ -585,11 +585,11 @@
 
                     <Button
                         android:id="@+id/AdminButton"
-                        android:layout_width="100dp"
+                        android:layout_width="150dp"
                         android:layout_height="50dp"
                         android:layout_centerHorizontal="true"
                         android:backgroundTint="#FF5722"
-                        android:text="@string/clear_jobs"
+                        android:text="clear_jobs"
                         android:textColor="@color/white"
                         android:textSize="12sp"
 

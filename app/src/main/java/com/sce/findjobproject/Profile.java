@@ -10,6 +10,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.icu.util.Calendar;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -28,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -46,7 +48,10 @@ import com.google.firebase.database.ValueEventListener;
 import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.models.PieModel;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
@@ -373,45 +378,53 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
 
     private void ClearJobs() {
         AdminButton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-
                 if (user != null) {
                     database = FirebaseDatabase.getInstance();
                     DatabaseReference myRef3 = database.getReference("usersJobs");
                     myRef3.addListenerForSingleValueEvent(new ValueEventListener() {
-
+                        @RequiresApi(api = Build.VERSION_CODES.O)
                         @SuppressLint("SetTextI18n")
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
+                                String dateString = postsnapshot.child("Date").getValue(String.class);
+                               // Toast.makeText(Profile.this, "date of job" + dateString, Toast.LENGTH_SHORT).show();
+                                if (dateString == null) {
+                                    continue;
+                                }
+                                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+                                Date inputDate = null;
+                                try {
+                                    inputDate = sdf.parse(dateString);
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+                                String currentDate2 = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+                                Date inputDate2 = null;
+                                try {
+                                    inputDate2 = sdf.parse(currentDate2);
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+                                //Toast.makeText(Profile.this, String.format("" + currentDate2 ), Toast.LENGTH_SHORT).show();
+                                long difference = (inputDate2.getTime()-inputDate.getTime() ) / (1000 * 60 * 60 * 24);
+                                if(difference>30){
 
-                            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-                            Date date = Calendar.getInstance().getTime();
-                            String strDate = formatter.format(date);
-                            formatter = new SimpleDateFormat("dd-MM-yyyy");
-                            strDate = formatter.format(date);
+                                    postsnapshot.getRef().removeValue();
 
-                           for (DataSnapshot postsnapshot: dataSnapshot.getChildren()){
-
-                               String TheName=  postsnapshot.child("Date").getValue(String.class);
-
-                               Toast.makeText(Profile.this, ""+strDate, Toast.LENGTH_SHORT).show();
-
-
-                           }
+                                }
+                            }
                         }
-
                         @Override
                         public void onCancelled(@androidx.annotation.NonNull DatabaseError error) {
                             // Failed to read value
                         }
                     });
-
                 }
             }
         });
-
     }
 
 
