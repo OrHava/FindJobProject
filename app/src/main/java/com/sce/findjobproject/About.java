@@ -19,6 +19,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -37,7 +39,7 @@ import java.util.Objects;
 
 public class About extends AppCompatActivity {
     private ImageButton btnProfile,btnHome;
-    private Button btnReport;
+    private Button btnReport,btnDelete;
     private int count;
     private FirebaseUser user;
     private DatabaseReference databaseReference;
@@ -68,6 +70,7 @@ public class About extends AppCompatActivity {
         btnProfile=findViewById(R.id.btnProfile);
         btnHome=findViewById(R.id.btnHome);
         btnReport=findViewById(R.id.btnReport);
+        btnDelete=findViewById(R.id.btnDelete);
         user= FirebaseAuth.getInstance().getCurrentUser();
         uploads=new ArrayList<>();
         userApplied= new ArrayList<>();
@@ -80,6 +83,7 @@ public class About extends AppCompatActivity {
         FAQ();
         EnterButtons();
         CheckWhichUser();
+        DeleteAccount();
     }
 
     private void FAQ() {
@@ -440,6 +444,35 @@ public class About extends AppCompatActivity {
 
         btnHome.setOnClickListener(view -> startActivity(new Intent(About.this, Home.class)));
 
+    }
+
+    void DeleteAccount(){
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                assert user != null;
+                user.delete()
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    // User account deleted successfully
+                                    Toast.makeText(About.this, "User account deleted", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(About.this, SignIn.class);
+                                    startActivity(intent);
+                                    finish();
+
+                                } else {
+                                    // Error occurred during delete operation
+                                    Toast.makeText(About.this, "Error deleting user account", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
+            }
+        });
     }
 
 }

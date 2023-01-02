@@ -21,7 +21,7 @@
         android:id="@+id/txtQ1"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnReport"
+        android:layout_below="@+id/btnDelete"
 
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
@@ -34,7 +34,7 @@
         android:id="@+id/btnPlus1"
         android:layout_width="38dp"
         android:layout_height="42dp"
-        android:layout_below="@+id/btnReport"
+        android:layout_below="@+id/btnDelete"
         android:layout_marginTop="0dp"
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
@@ -61,10 +61,9 @@
         android:id="@+id/txtQ2"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnReport"
-
+        android:layout_below="@+id/txtQ1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="17dp"
         android:background="#FF9800"
         android:text="Q1...how this thing is wotking?!?!?....if you delete your account- does my data delete absulotly?"
         android:textColor="@color/black"
@@ -75,8 +74,8 @@
         android:id="@+id/btnPlus2"
         android:layout_width="38dp"
         android:layout_height="42dp"
-        android:layout_below="@+id/btnReport"
-        android:layout_marginTop="95dp"
+        android:layout_below="@+id/btnDelete"
+        android:layout_marginTop="50dp"
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
@@ -96,6 +95,16 @@
         android:background="#FF9800"
         android:visibility="gone"
         />
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete Acount"
+        android:layout_below="@+id/btnReport"
+        android:layout_centerHorizontal="true"
+
+
+        />
 
 
 
@@ -105,8 +114,8 @@
         android:text="Q2...how this thing is wotking?!?!?....if you delete your account- does my data delete absulotly?"
         android:id="@+id/txtQ3"
 
-        android:layout_below="@+id/btnReport"
-        android:layout_marginTop="200dp"
+        android:layout_below="@+id/txtQ2"
+        android:layout_marginTop="17dp"
         android:textSize="12sp"
         android:layout_centerHorizontal="true"
         android:textColor="@color/black"
@@ -117,8 +126,8 @@
         android:id="@+id/btnPlus3"
         android:layout_width="38dp"
         android:layout_height="42dp"
-        android:layout_below="@+id/btnReport"
-        android:layout_marginTop="195dp"
+        android:layout_below="@+id/btnDelete"
+        android:layout_marginTop="98dp"
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"

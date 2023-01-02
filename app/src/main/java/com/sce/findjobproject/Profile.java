@@ -388,6 +388,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
                         @SuppressLint("SetTextI18n")
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            int count =0;
                             for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
                                 String dateString = postsnapshot.child("Date").getValue(String.class);
                                // Toast.makeText(Profile.this, "date of job" + dateString, Toast.LENGTH_SHORT).show();
@@ -411,11 +412,11 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
                                 //Toast.makeText(Profile.this, String.format("" + currentDate2 ), Toast.LENGTH_SHORT).show();
                                 long difference = (inputDate2.getTime()-inputDate.getTime() ) / (1000 * 60 * 60 * 24);
                                 if(difference>30){
-
+                                    count++;
                                     postsnapshot.getRef().removeValue();
-
                                 }
                             }
+                            Toast.makeText(Profile.this, count+" Amount of jobs over 30 days jobs deleted", Toast.LENGTH_SHORT).show();
                         }
                         @Override
                         public void onCancelled(@androidx.annotation.NonNull DatabaseError error) {

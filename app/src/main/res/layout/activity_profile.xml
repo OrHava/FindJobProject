@@ -592,6 +592,7 @@
                         android:text="clear_jobs"
                         android:textColor="@color/white"
                         android:textSize="12sp"
+                        android:layout_marginTop="20dp"
 
                         />
 
@@ -600,7 +601,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="50dp"
+                        android:layout_marginTop="70dp"
                         android:fontFamily="sans-serif-light"
                         android:text="@string/amount_of_users"
                         android:textColor="@color/black" />
