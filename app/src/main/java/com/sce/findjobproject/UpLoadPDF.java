@@ -91,24 +91,6 @@ public class UpLoadPDF extends AppCompatActivity {
             });
 
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if(requestCode==1 && resultCode==RESULT_OK && data!=null && data.getData()!=null){
-//
-//            UploadFiles(data.getData());
-//        }
-//
-//    }
-
-
-
-
-
-
-
-
 
 
 

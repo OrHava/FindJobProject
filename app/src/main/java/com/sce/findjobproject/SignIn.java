@@ -155,7 +155,9 @@ public class SignIn extends AppCompatActivity {
 
         forgotPass.setOnClickListener(view -> {
             if(Email == null || isEmpty(Email)){
-                Toast.makeText(SignIn.this, "Please Provide Email", Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar.make(view, R.string.Please_Provide_Email, Snackbar.LENGTH_SHORT);
+                snackbar.setAction("Dismiss", view1 -> snackbar.dismiss());
+                snackbar.show();
             }
             else{
 
@@ -171,7 +173,9 @@ public class SignIn extends AppCompatActivity {
                                 showSnackbar(view2, message, duration);
                             }
                             else{
-                                Toast.makeText(SignIn.this, "Password Not Sending to Email", Toast.LENGTH_SHORT).show();
+                                Snackbar snackbar = Snackbar.make(view, R.string.Password_Not_Sending_to_Email, Snackbar.LENGTH_SHORT);
+                                snackbar.setAction("Dismiss", view1 -> snackbar.dismiss());
+                                snackbar.show();
 
                             }
                         });

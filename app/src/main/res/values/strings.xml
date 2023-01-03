@@ -114,6 +114,13 @@
     <string name="error_field_required">This field is required</string>
     <string name="error_login_failed">Your email or password was incorrect. Please try again.</string>
     <string name="login_successfully">Login successfully.</string>
+    <string name="Authentication_successful">Authentication successful.</string>
+    <string name="Authentication_failed">Authentication failed.</string>
+    <string name="Password_Not_Sending_to_Email">Password Not Sending to Email</string>
+    <string name="Please_Provide_Email">Please Provide Email</string>
+    <string name="clear_jobs">Clear jobs</string>
+    <string name="admin_comments">Admin Comments</string>
+    <string name="add_comment">Add Comment</string>
 
     <!-- Language array -->
     <string-array name="jobs_location">

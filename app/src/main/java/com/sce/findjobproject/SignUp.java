@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -88,12 +89,14 @@ public class SignUp extends AppCompatActivity {
     public void reload() {
         button_register.setOnClickListener(view -> {
             if(edit_email==null || Objects.requireNonNull(edit_email.getText()).toString().isEmpty() || !isEmailValid(edit_email.getText().toString())){
-                Toast.makeText(SignUp.this, R.string.enter_a_valid_email, Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar.make(view, R.string.enter_a_valid_email, Snackbar.LENGTH_SHORT);
+                snackbar.setAction("Dismiss", view1 -> snackbar.dismiss());
+                snackbar.show();
             }
             if(edit_password==null || Objects.requireNonNull(edit_password.getText()).toString().isEmpty() || !isPasswordValid(edit_password.getText().toString())) {
-                Toast.makeText(SignUp.this,
-                        R.string.enter_a_valid_password,
-                        Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar.make(view, R.string.enter_a_valid_password, Snackbar.LENGTH_SHORT);
+                snackbar.setAction("Dismiss", view1 -> snackbar.dismiss());
+                snackbar.show();
             }
 
             if(edit_password!=null && edit_email!=null && !(Objects.requireNonNull(edit_password.getText()).toString().isEmpty()) && !(Objects.requireNonNull(edit_email.getText()).toString().isEmpty()) &&isEmailValid(edit_email.getText().toString())&& isPasswordValid(edit_password.getText().toString())){
@@ -105,14 +108,17 @@ public class SignUp extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in    user's information
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    Toast.makeText(SignUp.this, "Authentication successful.",
-                                            Toast.LENGTH_SHORT).show();
+                                    Snackbar snackbar = Snackbar.make(view, R.string.Authentication_successful, Snackbar.LENGTH_SHORT);
+                                    snackbar.setAction("Dismiss", view1 -> snackbar.dismiss());
+                                    snackbar.show();
+
 
                                     updateUI(user);
                                 } else {
                                     // If sign in fails, display a message to the user.
-                                    Toast.makeText(SignUp.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
+                                    Snackbar snackbar = Snackbar.make(view, R.string.Authentication_failed, Snackbar.LENGTH_SHORT);
+                                    snackbar.setAction("Dismiss", view1 -> snackbar.dismiss());
+                                    snackbar.show();
                                     updateUI(null);
                                 }
                             }

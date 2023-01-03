@@ -139,11 +139,7 @@
     </RelativeLayout>
 
 
-
-
-
-
-    <include layout="@layout/navbar"/>
+    <include layout="@layout/navbar" />
 
 
 

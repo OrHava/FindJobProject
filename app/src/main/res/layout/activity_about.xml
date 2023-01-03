@@ -95,32 +95,31 @@
         android:background="#FF9800"
         android:visibility="gone"
         />
+
     <Button
         android:id="@+id/btnDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Delete Acount"
         android:layout_below="@+id/btnReport"
         android:layout_centerHorizontal="true"
+        android:text="Delete Acount"
 
 
         />
-
 
 
     <TextView
+        android:id="@+id/txtQ3"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:text="Q2...how this thing is wotking?!?!?....if you delete your account- does my data delete absulotly?"
-        android:id="@+id/txtQ3"
-
         android:layout_below="@+id/txtQ2"
-        android:layout_marginTop="17dp"
-        android:textSize="12sp"
+
         android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
+        android:layout_marginTop="17dp"
         android:background="#FF9800"
-        />
+        android:text="Q2...how this thing is wotking?!?!?....if you delete your account- does my data delete absulotly?"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
 
     <ImageButton
         android:id="@+id/btnPlus3"

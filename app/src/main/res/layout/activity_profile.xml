@@ -370,7 +370,7 @@
                 <RelativeLayout
                     android:id="@+id/LayoutPostJob"
                     android:layout_width="500dp"
-                    android:layout_height="700dp"
+                    android:layout_height="750dp"
                     android:layout_below="@+id/LayoutCv"
                     android:layout_centerHorizontal="true"
                     android:layout_marginStart="5dp"
@@ -383,7 +383,7 @@
                     <ImageView
                         android:id="@+id/imageLinePostJob"
                         android:layout_width="40dp"
-                        android:layout_height="1500dp"
+                        android:layout_height="1580dp"
                         android:layout_marginStart="-25dp"
                         android:layout_marginTop="23dp"
                         android:layout_marginBottom="22dp"
@@ -572,6 +572,18 @@
                         android:textColor="@color/white"
                         android:textSize="15sp" />
 
+                    <Button
+                        android:id="@+id/btnDeleteJob"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/BtnUpJobApplied"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="25dp"
+                        android:backgroundTint="#FF5722"
+                        android:text="delete job"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
 
                 </RelativeLayout>
 
@@ -588,11 +600,25 @@
                         android:layout_width="150dp"
                         android:layout_height="50dp"
                         android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
                         android:backgroundTint="#FF5722"
-                        android:text="clear_jobs"
+                        android:text="@string/clear_jobs"
                         android:textColor="@color/white"
                         android:textSize="12sp"
-                        android:layout_marginTop="20dp"
+
+                        />
+
+                    <Button
+                        android:id="@+id/AdminButtonComments"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_below="@+id/AdminButton"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:backgroundTint="#FF5722"
+                        android:text="@string/admin_comments"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
 
                         />
 
@@ -601,7 +627,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="70dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/AdminButtonComments"
                         android:fontFamily="sans-serif-light"
                         android:text="@string/amount_of_users"
                         android:textColor="@color/black" />
@@ -611,7 +638,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="100dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/txtAmountUsers1"
                         android:fontFamily="sans-serif-light"
                         android:text="@string/amount_of_users"
                         android:textColor="@color/black" />

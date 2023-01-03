@@ -92,6 +92,7 @@ public class ViewAllFiles extends AppCompatActivity {
         photoRef.delete().addOnSuccessListener(aVoid -> {
             // File deleted successfully
             Toast.makeText(ViewAllFiles.this, "onSuccess: deleted files", Toast.LENGTH_SHORT).show();
+
             removeUser();
         }).addOnFailureListener(exception -> {
             // Uh-oh, an error occurred!

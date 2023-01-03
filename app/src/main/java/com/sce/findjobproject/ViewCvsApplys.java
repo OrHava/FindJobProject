@@ -117,22 +117,6 @@ public class ViewCvsApplys extends AppCompatActivity {
 
     }
 
-//    private void deleteFile(){
-//
-//        FirebaseStorage mFirebaseStorage;
-//        mFirebaseStorage=FirebaseStorage.getInstance();
-//        StorageReference photoRef = mFirebaseStorage.getReferenceFromUrl(pdfuploadhelper.getUrl());
-//
-//
-//        photoRef.delete().addOnSuccessListener(aVoid -> {
-//            // File deleted successfully
-//            Toast.makeText(ViewCvsApplys.this, "onSuccess: deleted files", Toast.LENGTH_SHORT).show();
-//            removeUser();
-//        }).addOnFailureListener(exception -> {
-//            // Uh-oh, an error occurred!
-//            Toast.makeText(ViewCvsApplys.this, "onFailure: did not delete file", Toast.LENGTH_SHORT).show();
-//        });
-//    }
 
     private void viewAllFiles() {
 
@@ -197,21 +181,11 @@ int matchs=0;
 
 
 
-//    void removeUser(){
-//        if(user!=null){
-//            String userId = user.getUid();
-//            FirebaseDatabase database = FirebaseDatabase.getInstance();
-//            DatabaseReference myRef3 = database.getReference("Uploads").child(userId);
-//            myRef3.getRef().removeValue();
-//
-//        }
-//
-//    }
 
 
     void EnterButtons(){
 
-        //btnAbout.setOnClickListener(view -> startActivity(new Intent(ViewCvsApplys.this, About.class)));
+
 
         btnHome.setOnClickListener(view -> startActivity(new Intent(ViewCvsApplys.this, Home.class)));
         btnProfile.setOnClickListener(view -> startActivity(new Intent(ViewCvsApplys.this, Profile.class)));

@@ -1,6 +1,7 @@
 package com.sce.findjobproject;
-import static com.google.firebase.auth.FirebaseAuth.getInstance;
+
 import static com.sce.findjobproject.SignIn.WhichUser;
+import com.google.android.material.snackbar.Snackbar;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -30,6 +32,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -168,6 +171,7 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemSelecte
 
 
 
+
     private void AdminSearch() {
 
         BtnSearch.setOnClickListener(view -> {
@@ -214,7 +218,10 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemSelecte
 
                         searchAnim.cancelAnimation();
                         if( amountofJobs==0){
-                            Toast.makeText(Home.this,""+ getString(R.string.Job_Not_Found), Toast.LENGTH_SHORT).show();
+                            Snackbar snackbar = Snackbar.make(view, ""+ getString(R.string.Job_Not_Found), Snackbar.LENGTH_SHORT);
+                            snackbar.setAction("Dismiss", view1 -> snackbar.dismiss());
+                            snackbar.show();
+
                         }
                         else{
                             txtWhichUser.setText(getString(R.string.We_Found)+amountofJobs+ getString(R.string.with_reports_on_them));
@@ -265,9 +272,7 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemSelecte
         };
         AlertDialog.Builder builder = new AlertDialog.Builder(Home.this);
         builder.setTitle(R.string.choose_reason_of_report_post);
-        builder.setItems(Reasons, new DialogInterface.OnClickListener() {@
-                Override
-        public void onClick(DialogInterface dialog, int which) {
+        builder.setItems(Reasons, (dialog, which) -> {
             if ( getString(R.string.discrimination).equals(Reasons[which])) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef3 = database.getReference("reports").child(CompanyId[index]);
@@ -311,7 +316,6 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemSelecte
                 dialog.dismiss();
             }
 
-        }
         });
         builder.show();
 
@@ -637,7 +641,10 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemSelecte
 
                         searchAnim.cancelAnimation();
                         if( amountofJobs==0){
-                            Toast.makeText(Home.this,""+ getString(R.string.Job_Not_Found), Toast.LENGTH_SHORT).show();
+                            Snackbar snackbar = Snackbar.make(view, ""+ getString(R.string.Job_Not_Found), Snackbar.LENGTH_SHORT);
+                            snackbar.setAction("Dismiss", view1 -> snackbar.dismiss());
+                            snackbar.show();
+
                         }
                         else{
                             txtWhichUser.setText(getString(R.string.We_Found)+amountofJobs+ getString(R.string.JobsThatSuitYou));
