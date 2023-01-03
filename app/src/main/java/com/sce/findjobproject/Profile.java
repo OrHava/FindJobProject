@@ -5,12 +5,10 @@ import static com.sce.findjobproject.SignIn.WhichUser;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -53,13 +51,10 @@ import org.eazegraph.lib.models.PieModel;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Profile extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private ImageButton btnHome,btnAbout;
@@ -150,36 +145,29 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
     }
 
     private void DeleteJobPost() {
-        btnDeleteJob.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(user!=null ) {
-                    String userId = user.getUid();
-                    androidx.appcompat.app.AlertDialog.Builder alert = new AlertDialog.Builder(Profile.this);
-                    alert.setTitle(R.string.delete_post);
-                    alert.setMessage(R.string.are_you_sure);
-                    alert.setPositiveButton(R.string.yes, (dialog, which) -> {
-                        FirebaseDatabase database = FirebaseDatabase.getInstance();
-                        DatabaseReference myRef3 = database.getReference("usersJobs").child(userId);
-                        myRef3.getRef().removeValue();
-                        Snackbar snackbar = Snackbar.make(view, R.string.Files_Delete_successfully, Snackbar.LENGTH_SHORT);
-                        snackbar.setAction("Dismiss", view1 -> snackbar.dismiss());
-                        snackbar.show();
+        btnDeleteJob.setOnClickListener(view -> {
+            if(user!=null ) {
+                String userId = user.getUid();
+                AlertDialog.Builder alert = new AlertDialog.Builder(Profile.this);
+                alert.setTitle(R.string.delete_post);
+                alert.setMessage(R.string.are_you_sure);
+                alert.setPositiveButton(R.string.yes, (dialog, which) -> {
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef3 = database.getReference("usersJobs").child(userId);
+                    myRef3.getRef().removeValue();
+                    Snackbar snackbar = Snackbar.make(view, R.string.Files_Delete_successfully, Snackbar.LENGTH_SHORT);
+                    snackbar.setAction("Dismiss", view1 -> snackbar.dismiss());
+                    snackbar.show();
 
-                        dialog.dismiss();
+                    dialog.dismiss();
 
-                    });
+                });
 
-                    alert.setNegativeButton(R.string.no, (dialog, which) -> {
+                alert.setNegativeButton(R.string.no, (dialog, which) -> dialog.dismiss());
 
-
-                        dialog.dismiss();
-                    });
-
-                    alert.show();
-                }
-
+                alert.show();
             }
+
         });
 
 
@@ -366,6 +354,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
 
 
 
+    @SuppressLint("NonConstantResourceId")
     public void onRadioButtonClicked(View view) {
         boolean checked = ((RadioButton) view).isChecked();
 
@@ -426,87 +415,74 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
     }
 
     private void EnterComments() {
-        AdminButtonComments.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Profile.this, AdminComments.class));
-            }
-        });
+        AdminButtonComments.setOnClickListener(view -> startActivity(new Intent(Profile.this, AdminComments.class)));
     }
 
     private void ClearJobs() {
-        AdminButton.setOnClickListener(new View.OnClickListener() {
+        AdminButton.setOnClickListener(view -> {
 
-            @Override
-            public void onClick(View view) {
+            if(user!=null ) {
 
-                if(user!=null ) {
-                    String userId = user.getUid();
-                    androidx.appcompat.app.AlertDialog.Builder alert = new AlertDialog.Builder(Profile.this);
-                    alert.setTitle(R.string.delete_post);
-                    alert.setMessage(R.string.are_you_sure);
-                    alert.setPositiveButton(R.string.yes, (dialog, which) -> {
-                        database = FirebaseDatabase.getInstance();
-                        DatabaseReference myRef3 = database.getReference("usersJobs");
-                        myRef3.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @RequiresApi(api = Build.VERSION_CODES.O)
-                            @SuppressLint("SetTextI18n")
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
-                                    String dateString = postsnapshot.child("Date").getValue(String.class);
-                                    // Toast.makeText(Profile.this, "date of job" + dateString, Toast.LENGTH_SHORT).show();
-                                    if (dateString == null) {
-                                        continue;
-                                    }
-                                    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
-                                    Date inputDate = null;
-                                    try {
-                                        inputDate = sdf.parse(dateString);
-                                    } catch (ParseException e) {
-                                        e.printStackTrace();
-                                    }
-                                    String currentDate2 = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-                                    Date inputDate2 = null;
-                                    try {
-                                        inputDate2 = sdf.parse(currentDate2);
-                                    } catch (ParseException e) {
-                                        e.printStackTrace();
-                                    }
-                                    //Toast.makeText(Profile.this, String.format("" + currentDate2 ), Toast.LENGTH_SHORT).show();
-                                    long difference = 0;
-                                    if (inputDate2 != null) {
-                                        if (inputDate != null) {
-                                            difference = (inputDate2.getTime()-inputDate.getTime() ) / (1000 * 60 * 60 * 24);
-                                        }
-                                    }
-                                    if(difference>30){
-
-                                        postsnapshot.getRef().removeValue();
-
+                AlertDialog.Builder alert = new AlertDialog.Builder(Profile.this);
+                alert.setTitle(R.string.delete_post);
+                alert.setMessage(R.string.are_you_sure);
+                alert.setPositiveButton(R.string.yes, (dialog, which) -> {
+                    database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef3 = database.getReference("usersJobs");
+                    myRef3.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @RequiresApi(api = Build.VERSION_CODES.O)
+                        @SuppressLint("SetTextI18n")
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
+                                String dateString = postsnapshot.child("Date").getValue(String.class);
+                                // Toast.makeText(Profile.this, "date of job" + dateString, Toast.LENGTH_SHORT).show();
+                                if (dateString == null) {
+                                    continue;
+                                }
+                                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+                                Date inputDate = null;
+                                try {
+                                    inputDate = sdf.parse(dateString);
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+                                String currentDate2 = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+                                Date inputDate2 = null;
+                                try {
+                                    inputDate2 = sdf.parse(currentDate2);
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+                                //Toast.makeText(Profile.this, String.format("" + currentDate2 ), Toast.LENGTH_SHORT).show();
+                                long difference = 0;
+                                if (inputDate2 != null) {
+                                    if (inputDate != null) {
+                                        difference = (inputDate2.getTime()-inputDate.getTime() ) / (1000 * 60 * 60 * 24);
                                     }
                                 }
-                            }
-                            @Override
-                            public void onCancelled(@androidx.annotation.NonNull DatabaseError error) {
-                                // Failed to read value
-                            }
-                        });
+                                if(difference>30){
 
-                        dialog.dismiss();
+                                    postsnapshot.getRef().removeValue();
 
+                                }
+                            }
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            // Failed to read value
+                        }
                     });
 
-                    alert.setNegativeButton(R.string.no, (dialog, which) -> {
+                    dialog.dismiss();
 
+                });
 
-                        dialog.dismiss();
-                    });
+                alert.setNegativeButton(R.string.no, (dialog, which) -> dialog.dismiss());
 
-                    alert.show();
-                }
-
+                alert.show();
             }
+
         });
     }
 

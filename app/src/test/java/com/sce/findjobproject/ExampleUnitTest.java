@@ -1,8 +1,9 @@
 package com.sce.findjobproject;
 
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -22,4 +23,7 @@ public class ExampleUnitTest {
     public void emailValidator_EmptyString_ReturnsTrue() {
         assertTrue(SignUp.isEmailValid("or6562@gmail.com"));
     }
+
+
+
 }

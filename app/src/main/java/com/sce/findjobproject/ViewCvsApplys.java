@@ -40,7 +40,8 @@ public class ViewCvsApplys extends AppCompatActivity {
     pdfClass pdfuploadhelper;
     private FirebaseUser user;
     StorageReference storageReference;
-    private ImageButton btnHome,btnAbout,btnProfile;
+    private ImageButton btnHome;
+    private ImageButton btnProfile;
     private ArrayList<String> userApplied;
     private List<String> newList;
 
@@ -50,7 +51,6 @@ public class ViewCvsApplys extends AppCompatActivity {
         setContentView(R.layout.activity_view_all_files);
         btnHome=findViewById(R.id.btnHome);
         btnProfile=findViewById(R.id.btnProfile);
-        btnAbout=findViewById(R.id.btnAbout);
         listview=findViewById(R.id.listview2);
         user= FirebaseAuth.getInstance().getCurrentUser();
         uploads=new ArrayList<>();

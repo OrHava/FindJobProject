@@ -1,6 +1,7 @@
 package com.sce.findjobproject;
-import static com.sce.findjobproject.SignIn.WhichUser;
 
+import static com.google.firebase.auth.FirebaseAuth.getInstance;
+import static com.sce.findjobproject.SignIn.WhichUser;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -16,11 +17,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -43,12 +46,11 @@ public class About extends AppCompatActivity {
     private int count;
     private FirebaseUser user;
     private DatabaseReference databaseReference;
-    private ArrayList<String> Jobs=new ArrayList<>();
+    private final ArrayList<String> Jobs=new ArrayList<>();
     private ArrayList<String> userApplied;
     private int CountJobSeekers;
     private int CountJobRequiter;
-    private int CountReports;
-    private String JobType;
+    private GoogleSignInClient mGoogleSignInClient;
     private int count_northern_district;
     private int count_haifa_district;
     private int count_tel_aviv_district;
@@ -61,6 +63,8 @@ public class About extends AppCompatActivity {
 
 
     List<pdfClass> uploads;
+
+
 
 
     @Override
@@ -87,36 +91,27 @@ public class About extends AppCompatActivity {
     }
 
     private void FAQ() {
-        btnPlus1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtA1.setVisibility(View.VISIBLE);
-                txtA2.setVisibility(View.GONE);
-                txtA3.setVisibility(View.GONE);
+        btnPlus1.setOnClickListener(view -> {
+            txtA1.setVisibility(View.VISIBLE);
+            txtA2.setVisibility(View.GONE);
+            txtA3.setVisibility(View.GONE);
 
 
-            }
         });
 
 
-        btnPlus2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtA2.setVisibility(View.VISIBLE);
-                txtA1.setVisibility(View.GONE);
-                txtA3.setVisibility(View.GONE);
+        btnPlus2.setOnClickListener(view -> {
+            txtA2.setVisibility(View.VISIBLE);
+            txtA1.setVisibility(View.GONE);
+            txtA3.setVisibility(View.GONE);
 
 
-            }
         });
 
-        btnPlus3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtA3.setVisibility(View.VISIBLE);
-                txtA1.setVisibility(View.GONE);
-                txtA2.setVisibility(View.GONE);
-            }
+        btnPlus3.setOnClickListener(view -> {
+            txtA3.setVisibility(View.VISIBLE);
+            txtA1.setVisibility(View.GONE);
+            txtA2.setVisibility(View.GONE);
         });
 
 
@@ -174,18 +169,13 @@ public class About extends AppCompatActivity {
     }
     private void AmountOfReports(){
         if (user != null) {
-            CountReports = 0;
             databaseReference = FirebaseDatabase.getInstance().getReference("reports");
             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @SuppressLint("SetTextI18n")
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     Jobs.add("Reports: \n\n");
-                    for (DataSnapshot postsnapshot : snapshot.getChildren()) {
-                        String ReportName = postsnapshot.getValue(String.class);
-                        CountReports++;
-                    }
-                    Jobs.add("Amount of reports: " + CountReports + "\n");
+                    Jobs.add("Amount of reports: " +  snapshot.getChildrenCount() + "\n");
                     Jobs.add("\n\n");
                 }
 
@@ -196,26 +186,25 @@ public class About extends AppCompatActivity {
             });
         }
     }
-    private void AmountOfTypejobs(){ // Not ready
-        if (user != null) {
-            databaseReference = FirebaseDatabase.getInstance().getReference("usersJobs");
-            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                @SuppressLint("SetTextI18n")
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    for (DataSnapshot postsnapshot : snapshot.getChildren()) {
-                        JobType= postsnapshot.child("SpinJobsType11Index").getValue(String.class);
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-
-        }
-    }
+//    private void AmountOfTypejobs(){ // Not ready
+//        if (user != null) {
+//            databaseReference = FirebaseDatabase.getInstance().getReference("usersJobs");
+//            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+//                @SuppressLint("SetTextI18n")
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                    for (DataSnapshot postsnapshot : snapshot.getChildren()) {
+//                    }
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
+//
+//                }
+//            });
+//
+//        }
+//    }
     private void AmountOfJobsLocation(){
         if (user != null) {
             databaseReference = FirebaseDatabase.getInstance().getReference("usersJobs");
@@ -447,31 +436,64 @@ public class About extends AppCompatActivity {
     }
 
     void DeleteAccount(){
-        btnDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                assert user != null;
-                user.delete()
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
+        btnDelete.setOnClickListener(view -> {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            user= FirebaseAuth.getInstance().getCurrentUser();
+
+            AlertDialog.Builder alert = new AlertDialog.Builder(About.this);
+            alert.setTitle(R.string.Delete_Account);
+            alert.setMessage(R.string.delete_account);
+            FirebaseUser finalUser = user;
+            alert.setPositiveButton(R.string.yes, (dialog, which) -> {
+
+                if (finalUser != null){
+                    String userId = finalUser.getUid();
+                    finalUser.delete()
+                            .addOnCompleteListener(task -> {
                                 if (task.isSuccessful()) {
                                     // User account deleted successfully
-                                    Toast.makeText(About.this, "User account deleted", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(About.this, SignIn.class);
-                                    startActivity(intent);
-                                    finish();
+                                    WhichUser=1;
+                                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                    DatabaseReference myRef3 = database.getReference("AdminStatistics").child(userId);
+                                    myRef3.getRef().removeValue();
+                                    GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                                            .requestIdToken(getString(R.string.Google_id))
+                                            .requestEmail()
+                                            .build();
+                                    mGoogleSignInClient = GoogleSignIn.getClient(About.this, gso);
+                                    mGoogleSignInClient.signOut().addOnCompleteListener(About.this,
+                                            task2 -> {
+                                                // firebase sign out
+                                                getInstance().signOut();
+
+                                                Intent intent = new Intent(About.this, SignIn.class);
+                                                startActivity(intent);
+                                                finish();
+
+                                            });
 
                                 } else {
                                     // Error occurred during delete operation
                                     Toast.makeText(About.this, "Error deleting user account", Toast.LENGTH_SHORT).show();
                                 }
-                            }
-                        });
+                            });
 
-            }
+
+                }
+
+                dialog.dismiss();
+
+            });
+
+            alert.setNegativeButton(R.string.no, (dialog, which) -> dialog.dismiss());
+
+            alert.show();
+
+
+
+
+
         });
     }
 

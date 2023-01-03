@@ -60,53 +60,41 @@ public class AdminComments extends AppCompatActivity {
     }
 
     private void ClearComments() {
-        btnclearcomments.setOnClickListener(new View.OnClickListener() {
+        btnclearcomments.setOnClickListener(view -> {
 
-            @Override
-            public void onClick(View view) {
+            if(user!=null ) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(AdminComments.this);
+                alert.setTitle(R.string.delete_post);
+                alert.setMessage(R.string.are_you_sure_you_want_to_clear_comments);
+                alert.setPositiveButton(R.string.yes, (dialog, which) -> {
+                    mDatabase = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef3 = mDatabase.getReference("comments");
+                    myRef3.removeValue();
 
-                if(user!=null ) {
-                    String userId = user.getUid();
-                    androidx.appcompat.app.AlertDialog.Builder alert = new AlertDialog.Builder(AdminComments.this);
-                    alert.setTitle(R.string.delete_post);
-                    alert.setMessage(R.string.are_you_sure_you_want_to_clear_comments);
-                    alert.setPositiveButton(R.string.yes, (dialog, which) -> {
-                        mDatabase = FirebaseDatabase.getInstance();
-                        DatabaseReference myRef3 = mDatabase.getReference("comments");
-                        myRef3.removeValue();
+                    dialog.dismiss();
 
-                        dialog.dismiss();
+                });
 
-                    });
+                alert.setNegativeButton(R.string.no, (dialog, which) -> dialog.dismiss());
 
-                    alert.setNegativeButton(R.string.no, (dialog, which) -> {
-
-
-                        dialog.dismiss();
-                    });
-
-                    alert.show();
-                }
-
+                alert.show();
             }
+
         });
     }
 
 
     private void EnterComment() {
-        btnAddComment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String text = edtAddComment.getText().toString();
-                addComment(text);
+        btnAddComment.setOnClickListener(view -> {
+            String text = edtAddComment.getText().toString();
+            addComment(text);
 
-            }
         });
 
     }
-    public class Comment {
-        private String text;
-        private String timestamp;
+    public static class Comment {
+        private final String text;
+        private final String timestamp;
         public Comment(String text, String timestamp) {
             this.text = text;
             this.timestamp = timestamp;
@@ -157,7 +145,7 @@ public class AdminComments extends AppCompatActivity {
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                     // Get the comment text and timestamp from the HashMap
                     Map<String, Object> comment = (Map<String, Object>) childSnapshot.getValue();
-                    String text = null;
+                    String text;
                     String timestamp;
                     if (comment != null) {
                         text = (String) comment.get("text");

@@ -106,15 +106,26 @@
 
 
 
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_login">Login</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="error_login_failed">Your email or password was incorrect. Please try again.</string>
-    <string name="login_successfully">Login successfully.</string>
-
+    <string name="prompt_email">איימל</string>
+    <string name="prompt_password">סיסמא</string>
+    <string name="action_login">כניסה</string>
+    <string name="error_invalid_email">איימל שגוי</string>
+    <string name="error_invalid_password">סיסמא קטנה מידי, חייבת להיות 6 מספרים או אותיות ומעלה.</string>
+    <string name="error_field_required">חייב למלא שדה זה.</string>
+    <string name="error_login_failed">הסיסמא והאיימל לא נכונים, נסה שוב.</string>
+    <string name="login_successfully">כניסה בהצלחה</string>
+    <string name="Authentication_successful">כניסה בהצלחה</string>
+    <string name="Authentication_failed">כניסה נכשלה</string>
+    <string name="Password_Not_Sending_to_Email">סיסמא לא נשלחה לאיימל.</string>
+    <string name="Please_Provide_Email">בבקשד הכנס איימל</string>
+    <string name="clear_jobs">מחיקת עבודות</string>
+    <string name="admin_comments">תגובות מנהלים</string>
+    <string name="add_comment">הוספת תגובה</string>
+    <string name="delete_job">dמחיקה עבודה</string>
+    <string name="are_you_sure_you_want_to_clear_comments">אתה בטוח שאתה רוצה למחוק את כל התגובות?</string>
+    <string name="delete_account">אתה בטוח שאתה רוצה למחוק את החשבון?</string>
+    <string name="Delete_Account">מחיקת חשבון</string>
+    <string name="delete_acount">מחיקת חשבון</string>
 
 
     <!-- Language array -->

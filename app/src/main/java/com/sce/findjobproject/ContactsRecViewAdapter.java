@@ -10,7 +10,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -35,6 +34,7 @@ public class ContactsRecViewAdapter extends RecyclerView.Adapter<ContactsRecView
     }
 
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
@@ -56,7 +56,7 @@ public class ContactsRecViewAdapter extends RecyclerView.Adapter<ContactsRecView
 
 
 
-        if(( (Home) context).CheckWhichUserForRecView()==3){
+        if(Home.CheckWhichUserForRecView()==3){
             holder.reportBtn.setVisibility(View.GONE);
             holder.SendCV.setVisibility(View.GONE);
             holder.txtReport.setText(context.getString(R.string.reason_of_report) + CompanyReasons.get(position));
@@ -67,14 +67,14 @@ public class ContactsRecViewAdapter extends RecyclerView.Adapter<ContactsRecView
             if(contacts !=null && !(contacts.isEmpty())){
                 int actualPosition = holder.getBindingAdapterPosition();
 
-                if (( (Home) context).CheckWhichUserForRecView()==1 || ( (Home) context).CheckWhichUserForRecView()==2){
+                if (Home.CheckWhichUserForRecView()==1 || Home.CheckWhichUserForRecView()==2){
                     contacts.remove(actualPosition);
                     notifyItemRemoved(actualPosition);
                     notifyItemRangeChanged(actualPosition, contacts.size());
                 }
 
 
-                if(( (Home) context).CheckWhichUserForRecView()==3) {
+                if(Home.CheckWhichUserForRecView()==3) {
                     ( (Home) context).DeletePostAdmin(actualPosition);
                     contacts.remove(actualPosition);
                     notifyItemRemoved(actualPosition);
@@ -134,11 +134,13 @@ public class ContactsRecViewAdapter extends RecyclerView.Adapter<ContactsRecView
         return contacts.size();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setCompanyReasons(ArrayList<String> CompanyReasons) {
         this.CompanyReasons = CompanyReasons;
         notifyDataSetChanged();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setContacts(ArrayList<Contact> contacts) {
         this.contacts = contacts;
         notifyDataSetChanged();
