@@ -116,8 +116,6 @@ public class About extends AppCompatActivity {
         });
 
 
-
-
     }
 
     private void CheckWhichUser() {
@@ -486,7 +484,7 @@ public class About extends AppCompatActivity {
     }
 
 
-    private void openFile() {
+    public void openFile() {
         // Get the path to the documents directory
         String path = Environment.DIRECTORY_DOCUMENTS ;
         // Convert the path to a Uri object
