@@ -120,72 +120,100 @@ public class About extends AppCompatActivity {
     }
 
     private void CheckWhichUser() {
+        // Check the value of 'WhichUser'
         if(WhichUser==1){
-            AllJobsSendCvs(); //Function that put all the jobs user applied info, into the ArrayList "Jobs".
+            // Call the 'AllJobsSendCvs' function
+            AllJobsSendCvs();
+            // Write the contents of the 'Jobs' list to a file called 'AllJobsOffersFile.txt'
             Report("AllJobsOffersFile.txt");
         }
         else if(WhichUser==2){
+            // Call the 'AllJobSeekersCvs' function
             AllJobSeekersCvs();
+            // Write the contents of the 'Jobs' list to a file called 'AllJobsSeekersCvs.txt'
             Report("AllJobsSeekersCvs.txt");
-
-
         }
         else if(WhichUser==3){
+            // Call the 'AllJobAdminStats' function
             AllJobAdminStats();
+            // Write the contents of the 'Jobs' list to a file called 'AllJobsStatsAdmin.txt'
             Report("AllJobsStatsAdmin.txt");
         }
     }
+
+
     private void AmountOfUsers(){
+        // Initialize counters for job requiters and job seekers
         CountJobRequiter=0;
         CountJobSeekers=0;
+        // Check if the 'user' object is not null
         if (user != null) {
-
+            // Get a reference to the 'AdminStatistics' node of the Firebase database
             databaseReference = FirebaseDatabase.getInstance().getReference("AdminStatistics");
+            // Add a single event listener to the 'databaseReference' object
             databaseReference.addListenerForSingleValueEvent((new ValueEventListener() {
                 @SuppressLint("SetTextI18n")
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    // Iterate over the children of the 'snapshot' object
                     for (DataSnapshot postsnapshot: snapshot.getChildren()){
+                        // Get the boolean value of the current child node
                         Boolean bool =  postsnapshot.getValue(Boolean.class);
-
+                        // Increment the appropriate counter depending on the value of 'bool'
                         if(Boolean.FALSE.equals(bool)){ // User that looking for workers
+                            // User is a job requiter
                             CountJobRequiter++;
                         }
                         else{ // User that looking for a job
                             CountJobSeekers++;
+                            CountJobSeekers++;
                         }
                     }
+                    // Add the counts to the 'Jobs' list as strings
                     Jobs.add("Amount of job seekers: "+ CountJobSeekers+ "\n");
                     Jobs.add("Amount of job Requiters: "+ CountJobRequiter+ "\n");
                 }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
+                    // This method is called if the listener is cancelled for any reason
+                    // (e.g. if the listener is removed or the database connection is lost)
 
                 }
             }));
 
         }
     }
+
     private void AmountOfReports(){
+        // Check if the 'user' object is not null
         if (user != null) {
+            // Get a reference to the 'reports' node of the Firebase database
             databaseReference = FirebaseDatabase.getInstance().getReference("reports");
+
+            // Add a single event listener to the 'databaseReference' object
             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @SuppressLint("SetTextI18n")
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    // Add the string "Reports: " to the 'Jobs' list
                     Jobs.add("Reports: \n\n");
+                    // Add the number of children (i.e. reports) in the 'reports' node to the 'Jobs' list
                     Jobs.add("Amount of reports: " +  snapshot.getChildrenCount() + "\n");
+                    // Add a newline character to the 'Jobs' list
                     Jobs.add("\n\n");
                 }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
-
+                    // This method is called if the listener is cancelled for any reason
+                    // (e.g. if the listener is removed or the database connection is lost)
+                    // It doesn't appear to do anything in this implementation
                 }
             });
         }
     }
+
 //    private void AmountOfTypejobs(){ // Not ready
 //        if (user != null) {
 //            databaseReference = FirebaseDatabase.getInstance().getReference("usersJobs");
@@ -206,13 +234,18 @@ public class About extends AppCompatActivity {
 //        }
 //    }
     private void AmountOfJobsLocation(){
+        // Check if the 'user' object is not null
         if (user != null) {
             databaseReference = FirebaseDatabase.getInstance().getReference("usersJobs");
+            // Get a reference to the 'usersJobs' node of the Firebase database
             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @SuppressLint("SetTextI18n")
                 @Override
+                // Add a single event listener to the 'databaseReference' object
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    // Iterate over the children of the 'snapshot' object
                     for (DataSnapshot postsnapshot : snapshot.getChildren()) {
+                        // Check which district the job belongs to and increment the appropriate counter
                         if(Arrays.asList(0, 1, 9,24,32,36,37,39,40,45,59,60,62,64.67,72).contains(postsnapshot.child("SpinJobsLocation11Index").getValue(Integer.class))){
 
                             count_northern_district++;
@@ -237,6 +270,7 @@ public class About extends AppCompatActivity {
                             count_judea_and_samaria_district++;
                         }
                     }
+                    // Add the counts for each district to the 'Jobs' list as strings
                     Jobs.add("Jobs location:\n");
                     Jobs.add("Northern District: "+count_northern_district+"\n");
                     Jobs.add("Haifa District: "+count_haifa_district+"\n");
@@ -264,24 +298,33 @@ public class About extends AppCompatActivity {
 
 
     private void AllJobSeekersCvs(){
+        // Check if the 'user' object is not null
         if(user!=null) {
+            // Get the user's unique ID
             String userId = user.getUid();
+            // Get a reference to the 'cvIds' child node of the 'usersJobs' node for this user
             databaseReference = FirebaseDatabase.getInstance().getReference("usersJobs").child(userId).child("cvIds");
+            // Add a single event listener to the 'databaseReference' object
             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
 
                 @SuppressLint("SetTextI18n")
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    // Iterate over the children of the 'dataSnapshot' object
                     for (DataSnapshot postsnapshot: dataSnapshot.getChildren()){
+                        // Add the value of the current child node to the 'userApplied' list
                         userApplied.add(Objects.requireNonNull(postsnapshot.getValue(String.class)));
                     }
+                    // Call the 'viewAllFiles' function
                     viewAllFiles();
 
                 }
 
                 @Override
                 public void onCancelled(@androidx.annotation.NonNull DatabaseError error) {
-                    // Failed to read value
+                    // This method is called if the listener is cancelled for any reason
+                    // (e.g. if the listener is removed or the database connection is lost)
+                    // It doesn't appear to do anything in this implementation
 
                 }
             });
@@ -294,19 +337,27 @@ public class About extends AppCompatActivity {
     }
 
     private void viewAllFiles(){
+        // Check if the 'user' object is not null
         if(user!=null) {
+            // Get the user's unique ID
             String userId = user.getUid();
+            // Get a reference to the 'Uploads' node of the Firebase database
+
 
             databaseReference = FirebaseDatabase.getInstance().getReference("Uploads");
+            // Add a value event listener to the 'databaseReference' object
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @SuppressLint("SetTextI18n")
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                    // Iterate over the elements in the 'userApplied' list
                     for(int i=0;i<userApplied.size();i++){
+                        // Iterate over the children of the 'dataSnapshot' object
                         for (DataSnapshot postsnapshot: dataSnapshot.getChildren()){
+                            // Check if the key of the current child node matches the current element in the 'userApplied' list
+                            // and if the user's ID does not match the key
                             if(userApplied.get(i).equals(postsnapshot.getKey()) && !(userId.equals(postsnapshot.getKey()))){
-
+                                // Add the value of the 'url' child node of the 'Uploads' child node to the 'Jobs' list
                                 Jobs.add(postsnapshot.child("Uploads").child("url").getValue(String.class));
                             }
 
@@ -333,23 +384,30 @@ public class About extends AppCompatActivity {
     }
 
     private void AllJobsSendCvs(){
-
+        // Initialize count to 0
         count=0;
+        // Check if the 'user' object is not null
         if(user!=null ) {
+            // Get the user's unique ID
             String userId = user.getUid();
+            // Get a reference to the 'usersJobs' node of the Firebase database
             databaseReference = FirebaseDatabase.getInstance().getReference("usersJobs");
+            // Add a value event listener to the 'databaseReference' object
             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
 
                 @SuppressLint("SetTextI18n")
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                    // Iterate over the children of the 'dataSnapshot' object
                     for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
+                        // Iterate over the children of the 'cvIds' child node of the current 'postsnapshot' object
                         for (DataSnapshot postsnapshot2 : postsnapshot.child("cvIds").getChildren()){
+                            // Check if the value of the current 'postsnapshot2' object matches the user's ID
 
                             if (Objects.requireNonNull(postsnapshot2.getValue(String.class)).equals(userId)) {
-
+                                // Increment count by 1
                                 count++;
+                                // Add job information to the 'Jobs' list
                                 Jobs.add("Job Index "+ count);
                                 Jobs.add("Company: "+ postsnapshot.child("Company").getValue(String.class));
                                 Jobs.add("Date: "+ postsnapshot.child("Date").getValue(String.class));
@@ -380,32 +438,43 @@ public class About extends AppCompatActivity {
     }
 
     private void Report(String FileName) {
+        // Set an onClickListener on the 'btnReport' object
         btnReport.setOnClickListener(view -> {
+            // Request write permissions from the user
             ActivityCompat.requestPermissions(About.this, new String[]
                     {Manifest.permission.WRITE_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
             boolean wasSuccessful;
+            // Convert the contents of the 'Jobs' list to a string
             String datafilecontect = String.valueOf(Jobs);
+            // Get the public documents directory
             File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
 
 
             try {
+                // Attempt to create the directory
                 wasSuccessful = dir.mkdirs();
 
             }
             catch (Exception e){
+                // Print the stack trace if an exception was thrown
                 e.printStackTrace();
             }
-
+            // Create a new file in the 'dir' directory with the specified file name
             File contentfilename = new File(dir, FileName);
             try {
+                // Create a FileOutputStream for the 'contentfilename' file
                 FileOutputStream stream = new FileOutputStream(contentfilename);
+                // Write the contents of 'datafilecontect' to the file
                 stream.write(datafilecontect.getBytes());
+                // Display a toast message indicating that the directory was created
                 Toast.makeText(About.this, "Dir created", Toast.LENGTH_SHORT).show();
+                // Call the 'openFile' method
                 openFile();
 
 
             }
             catch (IOException e){
+                // Print the stack trace if an exception
                 e.printStackTrace();
             }
         });
@@ -417,38 +486,52 @@ public class About extends AppCompatActivity {
 
 
     private void openFile() {
-
+        // Get the path to the documents directory
         String path = Environment.DIRECTORY_DOCUMENTS ;
+        // Convert the path to a Uri object
         Uri uri = Uri.parse(path);
+        // Create a new Intent with the ACTION_VIEW action
         Intent intent = new Intent(Intent.ACTION_VIEW);
+        // Set the data and type for the intent
         intent.setDataAndType(uri,  "*/*");
+        // Start the activity using the intent
         startActivity(intent);
     }
 
 
-
+    // Sets up the onClickListeners for the navigation buttons
     void EnterButtons(){
-
+        // Set an OnClickListener for the 'btnProfile' button
+        // Start the 'Profile' activity when the button is clicked
         btnProfile.setOnClickListener(view -> startActivity(new Intent(About.this, Profile.class)));
-
+        // Set an OnClickListener for the 'btnHome' button
+        // Start the 'Home' activity when the button is clicked
         btnHome.setOnClickListener(view -> startActivity(new Intent(About.this, Home.class)));
 
     }
 
+
+    // Function to delete user's account
     void DeleteAccount(){
+        // Set on click listener for delete button
 
         btnDelete.setOnClickListener(view -> {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            // Assign the current user to a final variable to be used in inner class
             user= FirebaseAuth.getInstance().getCurrentUser();
-
+            // Create an alert dialog to confirm account deletion
             AlertDialog.Builder alert = new AlertDialog.Builder(About.this);
-            alert.setTitle(R.string.Delete_Account);
-            alert.setMessage(R.string.delete_account);
+            alert.setTitle(R.string.Delete_Account); // Set dialog title
+            alert.setMessage(R.string.delete_account); // Set dialog message
+            // Assign final user to a new variable to be used in inner class
             FirebaseUser finalUser = user;
             alert.setPositiveButton(R.string.yes, (dialog, which) -> {
+                // If the user is not null, proceed with deleting the account
 
                 if (finalUser != null){
+                    // Get the user's unique ID
                     String userId = finalUser.getUid();
+                    // Delete the user's account
                     finalUser.delete()
                             .addOnCompleteListener(task -> {
                                 if (task.isSuccessful()) {

@@ -58,23 +58,28 @@ public class AdminComments extends AppCompatActivity {
         ClearComments();
 
     }
-
+    // Function to clear all comments from the database
     private void ClearComments() {
+        // Set onClickListener for the 'Clear Comments' button
         btnclearcomments.setOnClickListener(view -> {
-
+            // Check if the 'user' object is not null
             if(user!=null ) {
+                // Create an alert dialog to confirm that the user wants to clear all comments
                 AlertDialog.Builder alert = new AlertDialog.Builder(AdminComments.this);
-                alert.setTitle(R.string.delete_post);
-                alert.setMessage(R.string.are_you_sure_you_want_to_clear_comments);
+                alert.setTitle(R.string.delete_post);  // Set the title of the alert dialog
+                alert.setMessage(R.string.are_you_sure_you_want_to_clear_comments); // Set the message of the alert dialog
+                // Set positive button to clear comments
                 alert.setPositiveButton(R.string.yes, (dialog, which) -> {
+                    // Get reference to the 'comments' node in the database
                     mDatabase = FirebaseDatabase.getInstance();
                     DatabaseReference myRef3 = mDatabase.getReference("comments");
+                    // Remove all comments from the 'comments' node
                     myRef3.removeValue();
-
+                    // Dismiss the alert dialog
                     dialog.dismiss();
 
                 });
-
+                // Set negative button to cancel and dismiss the alert dialog
                 alert.setNegativeButton(R.string.no, (dialog, which) -> dialog.dismiss());
 
                 alert.show();
@@ -85,23 +90,33 @@ public class AdminComments extends AppCompatActivity {
 
 
     private void EnterComment() {
+        // Set an onClickListener for the 'btnAddComment' Button
         btnAddComment.setOnClickListener(view -> {
+            // Get the text entered in the edtAddComment EditText
             String text = edtAddComment.getText().toString();
+            // Call the 'addComment' method with the entered text
             addComment(text);
 
         });
 
     }
+    // This class represents a comment made by a user
     public static class Comment {
+        // The text of the comment
         private final String text;
+        // The timestamp of when the comment was made
         private final String timestamp;
+        // Constructs a new Comment with the given text and timestamp
         public Comment(String text, String timestamp) {
             this.text = text;
             this.timestamp = timestamp;
         }
+
+        // Returns the text of this Comment
         public String getText() {
             return text;
         }
+        // Returns the timestamp of this Comment
         public String getTimestamp() {
             return timestamp;
         }
@@ -122,7 +137,6 @@ public class AdminComments extends AppCompatActivity {
 
         // Create a new comment object with the comment text and the current timestamp
         Map<String, Object> newComment = new HashMap<>();
-        //newComment.put("name", name);
         newComment.put("text", comment);
         newComment.put("timestamp", dateTime);
 
@@ -133,7 +147,7 @@ public class AdminComments extends AppCompatActivity {
     }
 
 
-
+    // Displays the comments stored in the Firebase database
     public void displayComments(){
         // Get a reference to the database node containing the HashMap
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("comments");
@@ -142,6 +156,7 @@ public class AdminComments extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 List<Comment> comments = new ArrayList<>();
+                // Iterate through all the comments in the database
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                     // Get the comment text and timestamp from the HashMap
                     Map<String, Object> comment = (Map<String, Object>) childSnapshot.getValue();
@@ -153,6 +168,7 @@ public class AdminComments extends AppCompatActivity {
                         comments.add(new Comment(text, timestamp));
                     }
                 }
+                // Reverse the list of comments so that they are displayed in chronological order
                 Collections.reverse(comments);
 
                 ArrayAdapter<Comment> adapter = new ArrayAdapter<Comment>(AdminComments.this, android.R.layout.simple_list_item_2, android.R.id.text1, comments) {
@@ -162,6 +178,7 @@ public class AdminComments extends AppCompatActivity {
                         TextView text1 = view.findViewById(android.R.id.text1);
                         TextView text2 = view.findViewById(android.R.id.text2);
                         Comment comment = comments.get(position);
+                        // Set the text and timestamp of the comment in the list view
                         text1.setText(comment.getText());
                         text1.setTextColor(Color.BLACK);
                         text2.setText(String.valueOf(comment.getTimestamp()));
@@ -182,7 +199,7 @@ public class AdminComments extends AppCompatActivity {
 
 
     }
-
+    // Sets up the onClickListeners for the navigation buttons
     void EnterButtons(){
 
         btnAbout.setOnClickListener(view -> startActivity(new Intent(AdminComments.this, About.class)));
