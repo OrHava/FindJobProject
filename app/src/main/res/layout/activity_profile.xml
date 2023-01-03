@@ -580,7 +580,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="25dp"
                         android:backgroundTint="#FF5722"
-                        android:text="delete job"
+                        android:text="@string/delete_job"
                         android:textColor="@color/white"
                         android:textSize="15sp" />
 

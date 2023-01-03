@@ -1,6 +1,7 @@
 package com.sce.findjobproject;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,10 +13,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -32,6 +35,9 @@ public class AdminComments extends AppCompatActivity {
     public ListView list_view;
     public EditText edtAddComment ;
     public ImageButton btnAddComment;
+    public Button btnclearcomments;
+    private FirebaseDatabase mDatabase;
+    private FirebaseUser user;
     private ImageButton btnHome,btnAbout,btnProfile;
 
     @Override
@@ -44,12 +50,47 @@ public class AdminComments extends AppCompatActivity {
         btnAbout=findViewById(R.id.btnAbout);
         edtAddComment = findViewById(R.id.edtAddComment);
         btnAddComment = findViewById(R.id.btnAddComment);
+        btnclearcomments  = findViewById(R.id.btnclearcomments);
+        user= FirebaseAuth.getInstance().getCurrentUser();
         displayComments();
         EnterComment();
         EnterButtons();
+        ClearComments();
 
     }
 
+    private void ClearComments() {
+        btnclearcomments.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                if(user!=null ) {
+                    String userId = user.getUid();
+                    androidx.appcompat.app.AlertDialog.Builder alert = new AlertDialog.Builder(AdminComments.this);
+                    alert.setTitle(R.string.delete_post);
+                    alert.setMessage(R.string.are_you_sure_you_want_to_clear_comments);
+                    alert.setPositiveButton(R.string.yes, (dialog, which) -> {
+                        mDatabase = FirebaseDatabase.getInstance();
+                        DatabaseReference myRef3 = mDatabase.getReference("comments");
+                        myRef3.removeValue();
+
+                        dialog.dismiss();
+
+                    });
+
+                    alert.setNegativeButton(R.string.no, (dialog, which) -> {
+
+
+                        dialog.dismiss();
+                    });
+
+                    alert.show();
+                }
+
+            }
+        });
+    }
 
 
     private void EnterComment() {
@@ -63,15 +104,39 @@ public class AdminComments extends AppCompatActivity {
         });
 
     }
+    public class Comment {
+        private String text;
+        private String timestamp;
+        public Comment(String text, String timestamp) {
+            this.text = text;
+            this.timestamp = timestamp;
+        }
+        public String getText() {
+            return text;
+        }
+        public String getTimestamp() {
+            return timestamp;
+        }
+    }
 
 
     public void addComment(String comment) {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        int second = calendar.get(Calendar.SECOND);
+
+        String dateTime = year + "/" + (month + 1) + "/" + day + " " + hour + ":" + minute + ":" + second;
+
 
         // Create a new comment object with the comment text and the current timestamp
         Map<String, Object> newComment = new HashMap<>();
         //newComment.put("name", name);
         newComment.put("text", comment);
-        newComment.put("timestamp", System.currentTimeMillis());
+        newComment.put("timestamp", dateTime);
 
         // Add the new comment to the Firebase database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -88,31 +153,35 @@ public class AdminComments extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<String> comments = new ArrayList<>();
+                List<Comment> comments = new ArrayList<>();
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-                    // Get the comment text from the "text" field of the HashMap
+                    // Get the comment text and timestamp from the HashMap
                     Map<String, Object> comment = (Map<String, Object>) childSnapshot.getValue();
                     String text = null;
+                    String timestamp;
                     if (comment != null) {
                         text = (String) comment.get("text");
-                        comments.add(text);
+                        timestamp = (String) comment.get("timestamp");
+                        comments.add(new Comment(text, timestamp));
                     }
-
                 }
-
                 Collections.reverse(comments);
 
-                        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(AdminComments.this, android.R.layout.simple_list_item_1, comments) {
-                            @Override
-                            public View getView(int position, View convertView, ViewGroup parent) {
-                                View view = super.getView(position, convertView, parent);
-                                TextView text = view.findViewById(android.R.id.text1);
-                                text.setTextColor(Color.BLACK);
-                                return view;
-                            }
-                        };
-
-                list_view.setAdapter(adapter2);
+                ArrayAdapter<Comment> adapter = new ArrayAdapter<Comment>(AdminComments.this, android.R.layout.simple_list_item_2, android.R.id.text1, comments) {
+                    @Override
+                    public View getView(int position, View convertView, ViewGroup parent) {
+                        View view = super.getView(position, convertView, parent);
+                        TextView text1 = view.findViewById(android.R.id.text1);
+                        TextView text2 = view.findViewById(android.R.id.text2);
+                        Comment comment = comments.get(position);
+                        text1.setText(comment.getText());
+                        text1.setTextColor(Color.BLACK);
+                        text2.setText(String.valueOf(comment.getTimestamp()));
+                        text2.setTextColor(Color.BLACK);
+                        return view;
+                    }
+                };
+                list_view.setAdapter(adapter);
 
 
             }

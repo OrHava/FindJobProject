@@ -121,6 +121,8 @@
     <string name="clear_jobs">Clear jobs</string>
     <string name="admin_comments">Admin Comments</string>
     <string name="add_comment">Add Comment</string>
+    <string name="delete_job">delete job</string>
+    <string name="are_you_sure_you_want_to_clear_comments">are you sure you want to clear comments?</string>
 
     <!-- Language array -->
     <string-array name="jobs_location">

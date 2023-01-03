@@ -30,6 +30,18 @@
         android:scaleType="fitCenter"
         android:src="@drawable/plus_button" />
 
+    <Button
+        android:id="@+id/btnclearcomments"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/edtAddComment"
+        android:layout_toStartOf="@+id/btnAddComment"
+        android:layout_marginTop="-5dp"
+        android:backgroundTint="#FF5722"
+        android:text="clear"
+        android:textColor="@color/white"
+        android:textSize="11sp" />
+
     <ListView
         android:id="@+id/list_view"
         android:layout_width="match_parent"
