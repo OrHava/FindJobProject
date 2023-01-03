@@ -92,6 +92,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        // Initialize variables for UI elements
         mDatabase = FirebaseDatabase.getInstance().getReference();
         user= FirebaseAuth.getInstance().getCurrentUser();
         listItemJobLocations=getResources().getStringArray(R.array.jobs_location);
@@ -145,52 +146,56 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
     }
 
     private void DeleteJobPost() {
+        // Set up click listener for delete button
         btnDeleteJob.setOnClickListener(view -> {
             if(user!=null ) {
+                // Get user's unique identifier (userId) from user object
                 String userId = user.getUid();
+                // Create alert dialog to confirm deletion
                 AlertDialog.Builder alert = new AlertDialog.Builder(Profile.this);
                 alert.setTitle(R.string.delete_post);
                 alert.setMessage(R.string.are_you_sure);
                 alert.setPositiveButton(R.string.yes, (dialog, which) -> {
+                    // Set up reference to user's job post in "usersJobs" node
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference myRef3 = database.getReference("usersJobs").child(userId);
+                    // Remove value at reference
                     myRef3.getRef().removeValue();
+                    // Show snackbar indicating success
                     Snackbar snackbar = Snackbar.make(view, R.string.Files_Delete_successfully, Snackbar.LENGTH_SHORT);
                     snackbar.setAction("Dismiss", view1 -> snackbar.dismiss());
                     snackbar.show();
-
+                    // Dismiss dialog
                     dialog.dismiss();
 
                 });
-
+                // Set negative button (cancel) for alert dialog
                 alert.setNegativeButton(R.string.no, (dialog, which) -> dialog.dismiss());
-
+                // Show alert dialog
                 alert.show();
             }
 
         });
 
 
-
-
-
-
-
     }
 
-    private void PieChartPie() {
+    private void PieChartPie() { //function to build pie of jobs by district
 
 
 
         if(user!=null ) {
-
+            // Get a reference to the Firebase Database
             databaseReference = FirebaseDatabase.getInstance().getReference("usersJobs");
+            // Add a value event listener to query the database and get the number of job posts for each district
             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
 
                 @SuppressLint("SetTextI18n")
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    // Iterate over the children of the 'snapshot' object of 'usersJobs'
                     for (DataSnapshot postsnapshot: dataSnapshot.getChildren()){
+                        // Check which district the job belongs to and increment the appropriate counter
 
                         if(Arrays.asList(0, 1, 9,24,32,36,37,39,40,45,59,60,62,64.67,72).contains(postsnapshot.child("SpinJobsLocation11Index").getValue(Integer.class))){
 
@@ -220,7 +225,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
 
 
                     }
-                    // Set the percentage of language used
+                    // Add the counts for each district to the 'Jobs' list as strings
                     tv_northern_district.setText(Integer.toString(count_northern_district));
                     tv_haifa_district.setText(Integer.toString(count_haifa_district));
                     tv_tel_aviv_district.setText(Integer.toString(count_tel_aviv_district));
@@ -283,30 +288,25 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
 
 
 
-
-
-
-
-
-
-
-
     }
 
 
-    private void AdminProfile() {
+    private void AdminProfile() { //function to know amount of users and their type.
 
 
 
         if(user!=null ) {
-
+            // Get a reference to the Firebase Database
             databaseReference = FirebaseDatabase.getInstance().getReference("AdminStatistics");
+            // Add a value event listener to query the database and get amount of users and their type.
             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
 
                 @SuppressLint("SetTextI18n")
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    // Iterate over the children of the 'postsnapshot' object of 'AdminStatistics'
                     for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
+                        // Check which user type he is and increment the appropriate counter
                         if (Objects.equals(postsnapshot.getValue(boolean.class), false)) {
                             countAmountOfJobRecruiters++;
 
@@ -317,6 +317,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
 
 
                     }
+                    //display in set text the info.
                     txtAmountUsers1.setText(getString(R.string.Amount_of_Job_Recruiters)+" " + countAmountOfJobRecruiters);
                     txtAmountUsers2.setText(getString(R.string.Amount_Of_Job_Seekers)+ " " +countAmountOfJobSeekers );
                 }
@@ -337,7 +338,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
 
 
     @SuppressLint("ClickableViewAccessibility")
-    private void allowScrollForEditText(){
+    private void allowScrollForEditText(){ //function that allow scroll in edit text.
         txtJobDescription.setOnTouchListener((v, event) -> {
             if (txtJobDescription.hasFocus()) {
                 v.getParent().requestDisallowInterceptTouchEvent(true);
@@ -355,7 +356,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
 
 
     @SuppressLint("NonConstantResourceId")
-    public void onRadioButtonClicked(View view) {
+    public void onRadioButtonClicked(View view) { //function that display which button in the radiobutton to be clicked of user gender.
         boolean checked = ((RadioButton) view).isChecked();
 
         // Check which radio button was clicked
@@ -385,8 +386,10 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
         }
 
     }
-    private void CheckWhichUser() {
+    private void CheckWhichUser() {//check which user and start each function that user need.
+        // Check value of WhichUser variable
         if(WhichUser==1){
+            // If WhichUser is 1, set text for txtWhichUser and hide layouts of admin and post job.
             txtWhichUser.setText(R.string.Your_Looking_For_Jobs);
             AdminLayout.setVisibility(View.GONE);
             LayoutPostJob.setVisibility(View.GONE);
@@ -395,6 +398,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
 
         }
         else if(WhichUser==2){
+            // If WhichUser is 2, set text for txtWhichUser hide layouts of admin and cv upload.
             txtWhichUser.setText(R.string.Your_Looking_For_Employees);
             AdminLayout.setVisibility(View.GONE);
             LayoutCv.setVisibility(View.GONE);
@@ -402,6 +406,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
             DeleteJobPost();
         }
         else if(WhichUser==3){
+            // If WhichUser is 3, set text for txtWhichUser  and hide LayoutProfile,LayoutPostJob,LayoutCv.
             txtWhichUser.setText(R.string.Your_Manager_of_The_App);
             LayoutProfile.setVisibility(View.GONE);
             LayoutPostJob.setVisibility(View.GONE);
@@ -414,33 +419,35 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
         }
     }
 
-    private void EnterComments() {
+    private void EnterComments() { //function that take you to different layout to see comments of admins.
         AdminButtonComments.setOnClickListener(view -> startActivity(new Intent(Profile.this, AdminComments.class)));
     }
 
-    private void ClearJobs() {
+    private void ClearJobs() { //function that allow admin delete comments that are over 30 days.
         AdminButton.setOnClickListener(view -> {
-
+            // Check if user object is not null
             if(user!=null ) {
+                //start alert dialog that ask user admin if he sure he want to delete jobs over 30 days.
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(Profile.this);
                 alert.setTitle(R.string.delete_post);
                 alert.setMessage(R.string.are_you_sure);
                 alert.setPositiveButton(R.string.yes, (dialog, which) -> {
                     database = FirebaseDatabase.getInstance();
+                    // Set up reference to "usersJobs" node in the database and add single value event listener
                     DatabaseReference myRef3 = database.getReference("usersJobs");
                     myRef3.addListenerForSingleValueEvent(new ValueEventListener() {
                         @RequiresApi(api = Build.VERSION_CODES.O)
                         @SuppressLint("SetTextI18n")
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            // Iterate through each child (user job) in the "usersJobs" node
                             for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
-                                String dateString = postsnapshot.child("Date").getValue(String.class);
-                                // Toast.makeText(Profile.this, "date of job" + dateString, Toast.LENGTH_SHORT).show();
+                                String dateString = postsnapshot.child("Date").getValue(String.class); //get the date of job post.
                                 if (dateString == null) {
                                     continue;
                                 }
-                                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+                                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()); //get job of today.
                                 Date inputDate = null;
                                 try {
                                     inputDate = sdf.parse(dateString);
@@ -454,13 +461,13 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
                                 } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
-                                //Toast.makeText(Profile.this, String.format("" + currentDate2 ), Toast.LENGTH_SHORT).show();
                                 long difference = 0;
                                 if (inputDate2 != null) {
                                     if (inputDate != null) {
-                                        difference = (inputDate2.getTime()-inputDate.getTime() ) / (1000 * 60 * 60 * 24);
+                                        difference = (inputDate2.getTime()-inputDate.getTime() ) / (1000 * 60 * 60 * 24); // calc if the different between two dates is 30 days.
                                     }
                                 }
+                                // Check if job date is over 30 days.
                                 if(difference>30){
 
                                     postsnapshot.getRef().removeValue();
@@ -487,11 +494,11 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
     }
 
 
-    void exitUser(){
+    void exitUser(){ //function that allow user leave the main layouts and go back to 'signin' layout.
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-        if(acct!=null || user != null){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); //get the user from firebase.
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this); //get the user from firebase of google ac.
+        if(acct!=null || user != null){ //check if google account or firebase account are not NUll.
 
 
             btnExit.setOnClickListener(view -> {
@@ -505,6 +512,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
                         task -> {
                             // firebase sign out
                             getInstance().signOut();
+                            //go to SignIn Layout.
 
                             Intent intent = new Intent(Profile.this, SignIn.class);
                             startActivity(intent);
@@ -522,7 +530,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
 
 
 
-    private void SpinnerFuncAdvance() {
+    private void SpinnerFuncAdvance() { // function explained already in Home Class. that help user job recruiter to choose job type and location.
 
 
 
@@ -659,11 +667,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        // On selecting a spinner item
-        //String item = parent.getItemAtPosition(position).toString();
 
-        // Showing selected spinner item
-        //Toast.makeText(parent.getContext(), getString(R.string.Selected) + item, Toast.LENGTH_LONG).show();
 
     }
 
@@ -673,7 +677,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
     }
 
 
-    void uploadCv(){
+    void uploadCv(){ //function that allow user job seeker to go to layout 'UpLoadPDF' to upload his CV.
 
 
 
@@ -688,11 +692,12 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
 
     }
 
-    void EnterInfoProfile(){
-
+    void EnterInfoProfile(){ //function that allow job seeker and job recruiter enter personal info.
+        // Check if user object is not null
         if(user!=null){
             database = FirebaseDatabase.getInstance();
             String userId = user.getUid();
+            // Set up reference to "users" node in the database and add single value event listener
             DatabaseReference myRef3 = database.getReference("users").child(userId);
 
             myRef3.addValueEventListener(new ValueEventListener() {
@@ -700,6 +705,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
                 @SuppressLint("SetTextI18n")
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    //check child of user exist and if its exist that all info and set the text to it.
                     if(dataSnapshot.exists()){
 
                         if(dataSnapshot.child("Name").getValue()!=null){
@@ -753,19 +759,17 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
 
 
             btnSubmitInfo.setOnClickListener(view -> {
-
+                // save info of user he put for the first time or edit to firebase database.
                 Name=edtName.getText().toString();
                 LastName=edtLastName.getText().toString();
                 Email=edtEmail.getText().toString();
                 Phone=edtPhone.getText().toString();
                 City=edtCity.getText().toString();
-                //Gender=edtGender.getText().toString();
                 edtName.clearFocus();
                 edtLastName.clearFocus();
                 edtEmail.clearFocus();
                 edtPhone.clearFocus();
                 edtCity.clearFocus();
-                // edtGender.clearFocus();
 
                 if (user != null) {
                     String userId1 = user.getUid();
@@ -785,7 +789,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
     }
 
 
-    void setGender(Integer TheGender){
+    void setGender(Integer TheGender){ //function that help to set gender of user.
         if(TheGender==0){
             radio_Male.setChecked(true);
             radio_Male.setButtonTintList(ColorStateList.valueOf(Color.BLUE));
@@ -807,11 +811,12 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
     }
 
 
-    void EnterInfoJob(){
-
+    void EnterInfoJob(){ //function that enter info of job.
+        // Check if user object is not null
         if(user!=null){
             database = FirebaseDatabase.getInstance();
             String userId = user.getUid();
+            // Set up reference to "usersJobs" node in the database and add single value event listener
             DatabaseReference myRef3 = database.getReference("usersJobs").child(userId);
 
             myRef3.addValueEventListener(new ValueEventListener() {
@@ -819,6 +824,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
                 @SuppressLint("SetTextI18n")
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    //check child of user exist and if its exist that all info and set the text to it.
                     if(dataSnapshot.exists()){
                         if(dataSnapshot.child("Company").getValue()!=null){
                             String TheCompany=  dataSnapshot.child("Company").getValue(String.class);
@@ -868,7 +874,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
 
 
             BtnUpJobDesc.setOnClickListener(view -> {
-
+                // save info of user he put for the first time or edit to firebase database.
                 Company=edtCompany.getText().toString();
                 JobDescription=edtJobDescription.getText().toString();
                 JobType=SpinJobsType1.getText().toString();
@@ -897,7 +903,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
 
 
 
-    private void SpinnerHelperJobTypeIndex(Integer JobType1){
+    private void SpinnerHelperJobTypeIndex(Integer JobType1){ //function that help spinner of job type to set the text by index
         SpinJobsType1.setText(listItemJobTypes[JobType1]);
 
 
@@ -905,19 +911,19 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
 
 
 
-    private void SpinnerHelperJobTypLocationIndex(Integer JobLocation1){
+    private void SpinnerHelperJobTypLocationIndex(Integer JobLocation1){  //function that help spinner of job Location to set the text by index
         SpinJobsLocation1.setText(listItemJobLocations[JobLocation1]);
     }
 
 
 
 
-    public void writeNewUser(String userId, String Name, String LastName,String Email,String Phone,String City, Integer Gender) {
+    public void writeNewUser(String userId, String Name, String LastName,String Email,String Phone,String City, Integer Gender) { //function that create new node child of user to database.
         User user = new User(Name, LastName, Email, Phone, City, Gender);
 
         mDatabase.child("users").child(userId).setValue(user);
     }
-
+//function that create new node child of userJob to database.
     public void writeNewJob(String userId,String Company, String JobDescription,String JobType,String JobLocation, Integer SpinJobsLocation11Index, Integer SpinJobsType11Index, String Date) {
         JobSubmit jobSubmit = new JobSubmit(Company, JobDescription, JobType, JobLocation,SpinJobsLocation11Index, SpinJobsType11Index, Date);
 
@@ -925,7 +931,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
     }
 
 
-    @IgnoreExtraProperties
+    @IgnoreExtraProperties //class for user type.
     public static class User {
 
         public String Name;
@@ -945,7 +951,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
         }
 
     }
-
+    //class for job post type.
     @IgnoreExtraProperties
     public static class JobSubmit {
 
@@ -973,7 +979,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
 
 
 
-    void EnterButtons(){
+    void EnterButtons(){ // Sets up the onClickListeners for the navigation buttons
         BtnUpJobApplied.setOnClickListener(view -> startActivity(new Intent(Profile.this, ViewCvsApplys.class)));
         btnAbout.setOnClickListener(view -> startActivity(new Intent(Profile.this, About.class)));
 

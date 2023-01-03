@@ -83,7 +83,7 @@ public class ViewCvsApplys extends AppCompatActivity {
         EnterButtons();
     }
 
-    private void GetAllUsers() {
+    private void GetAllUsers() { //function that get all users cvs that sent to user job recruiter.
         if(user!=null) {
             String userId = user.getUid();
             final int[] i = {0};
@@ -184,7 +184,7 @@ int matchs=0;
 
 
     void EnterButtons(){
-
+     // Sets up the onClickListeners for the navigation buttons
 
 
         btnHome.setOnClickListener(view -> startActivity(new Intent(ViewCvsApplys.this, Home.class)));

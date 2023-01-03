@@ -54,6 +54,7 @@ public class SignUp extends AppCompatActivity {
     }
 
     void initialize(){
+        // Initialize variables for UI elements
         edit_email= findViewById(R.id.edit_email);
         edit_password= findViewById(R.id.edit_password);
         button_register=findViewById(R.id.button_register);
@@ -65,15 +66,16 @@ public class SignUp extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        //check if user is already connected.
         if (user != null) {
             Toast.makeText(this, "User is already connected", Toast.LENGTH_SHORT).show();
         } else {
-            reload();
+            reload(); // if not start register function name 'reload'
         }
     }
 
 
-    public static boolean isEmailValid(String email) {
+    public static boolean isEmailValid(String email) { //function that checks if email is valid.
         String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
         Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(email);
@@ -82,18 +84,22 @@ public class SignUp extends AppCompatActivity {
 
     static boolean isPasswordValid(String password) {
         return password.length() >= 6;
-    }
+    } //function that check if password is valid. (password need to be over 6 numbers and letter to work in firebase)
 
 
 
     public void reload() {
+        // Set up the "Register" button
         button_register.setOnClickListener(view -> {
+            //check if email and password are valid.
             if(edit_email==null || Objects.requireNonNull(edit_email.getText()).toString().isEmpty() || !isEmailValid(edit_email.getText().toString())){
+                // Email is invalid, show a Snackbar with an error message
                 Snackbar snackbar = Snackbar.make(view, R.string.enter_a_valid_email, Snackbar.LENGTH_SHORT);
                 snackbar.setAction("Dismiss", view1 -> snackbar.dismiss());
                 snackbar.show();
             }
             if(edit_password==null || Objects.requireNonNull(edit_password.getText()).toString().isEmpty() || !isPasswordValid(edit_password.getText().toString())) {
+                // Password is invalid, show a Snackbar with an error message
                 Snackbar snackbar = Snackbar.make(view, R.string.enter_a_valid_password, Snackbar.LENGTH_SHORT);
                 snackbar.setAction("Dismiss", view1 -> snackbar.dismiss());
                 snackbar.show();

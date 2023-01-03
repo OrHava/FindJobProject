@@ -70,6 +70,7 @@ public class About extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Initialize variables for UI elements
         setContentView(R.layout.activity_about);
         btnProfile=findViewById(R.id.btnProfile);
         btnHome=findViewById(R.id.btnHome);
@@ -243,7 +244,7 @@ public class About extends AppCompatActivity {
                 @Override
                 // Add a single event listener to the 'databaseReference' object
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    // Iterate over the children of the 'snapshot' object
+                    // Iterate over the children of the 'snapshot' object of 'usersJobs'
                     for (DataSnapshot postsnapshot : snapshot.getChildren()) {
                         // Check which district the job belongs to and increment the appropriate counter
                         if(Arrays.asList(0, 1, 9,24,32,36,37,39,40,45,59,60,62,64.67,72).contains(postsnapshot.child("SpinJobsLocation11Index").getValue(Integer.class))){

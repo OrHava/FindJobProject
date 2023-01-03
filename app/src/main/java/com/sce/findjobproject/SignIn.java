@@ -55,6 +55,7 @@ public class SignIn extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_signin);
         initialize();
         retrieveChoices();
@@ -66,13 +67,15 @@ public class SignIn extends AppCompatActivity {
     }
 
 
-
+    // Save the user's selection from the radio group to shared preferences
     private void saveRadioChoice(){
+        // Get a reference to the shared preferences file named "Settings"
         SharedPreferences mSharedPref = getSharedPreferences("Settings",MODE_PRIVATE);
 
+        // Edit the shared preferences file
         SharedPreferences.Editor editor = mSharedPref.edit();
 
-// Initialize Radiogroup while saving choices
+        // Check which radio button is checked and save the corresponding value to "key" in the shared preferences file
         if(  radio_LFJ.isChecked()){
             editor.putInt("key",0);
             editor.apply();
@@ -81,15 +84,19 @@ public class SignIn extends AppCompatActivity {
             editor.putInt("key",1);
             editor.apply();
         }
-
-
-
     }
 
-    private void retrieveChoices(){
 
+    // Retrieve the user's saved choices from the shared preferences file
+    private void retrieveChoices(){
+        // Get a reference to the shared preferences file named "Settings"
         SharedPreferences sharedPref = getSharedPreferences("Settings",MODE_PRIVATE);
+
+        // Retrieve the value saved to "key" in the shared preferences file
         int i = sharedPref.getInt("key",-1);
+
+        // Check the value of "key" and set the corresponding radio button as checked
+        // Also set the value of "WhichUser" based on the value of "key"
         if( i == 0){
             radio_LFJ.setChecked(true);
             WhichUser=1;
@@ -98,38 +105,42 @@ public class SignIn extends AppCompatActivity {
             radio_LFE.setChecked(true);
             WhichUser=2;
         }
-
-
-
     }
 
+    // Handle the user clicking on a radio button
     @SuppressLint("NonConstantResourceId")
     public void onRadioButtonClicked(View view) {
+        // Check if the radio button is now checked
         boolean checked = ((RadioButton) view).isChecked();
 
         // Check which radio button was clicked
         switch(view.getId()) {
             case R.id.radio_LFJ:
+                // If the first radio button was clicked, save the choice and set "WhichUser" to 1
                 if (checked)
                     saveRadioChoice();
                 WhichUser=1;
                 break;
             case R.id.radio_LFE:
+                // If the second radio button was clicked, save the choice and set "WhichUser" to 2
                 if (checked)
                     saveRadioChoice();
                 WhichUser=2;
                 break;
-
         }
-
     }
 
+    // Check if an EditText field is empty
     private boolean isEmpty(EditText etText) {
+        // Trim the text in the EditText field and check if the length is 0 or less
         return etText.getText().toString().trim().length() <= 0;
     }
 
 
+
+    // Initialize variables for UI elements
     void initialize(){
+        // Initialize variables for UI elements
 
         signIn =findViewById(R.id.signin);
         sign_in_button=findViewById(R.id.sign_in_button);
@@ -141,22 +152,24 @@ public class SignIn extends AppCompatActivity {
         radio_LFE=findViewById(R.id.radio_LFE);
 
     }
-
+    // Show a Snackbar with the given message and duration
     public void showSnackbar(View view, String message, int duration)
     {
         Snackbar.make(view, message, duration).show();
     }
-
+    // Start the login process
     void start(){
 
-
+      // Set up the "Forgot Password" button
         forgotPass.setOnClickListener(view -> {
             if(Email == null || isEmpty(Email)){
+                // Show a Snackbar with an error message
                 Snackbar snackbar = Snackbar.make(view, R.string.Please_Provide_Email, Snackbar.LENGTH_SHORT);
                 snackbar.setAction("Dismiss", view1 -> snackbar.dismiss());
                 snackbar.show();
             }
             else{
+                // Email field is not empty, send a password reset email to the provided email address
 
                 FirebaseAuth auth = FirebaseAuth.getInstance();
                 String emailAddress = Objects.requireNonNull(Email.getText()).toString().trim();
@@ -164,12 +177,14 @@ public class SignIn extends AppCompatActivity {
                 auth.sendPasswordResetEmail(emailAddress)
                         .addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
+                                // Password reset email was sent, show a Snackbar with a success message
                                 View view2 = findViewById(R.id.view);
                                 String message = "Password Sent to Email "+Email.getText().toString()+" Make Sure to Check Your Spam Folder";
                                 int duration = Snackbar.LENGTH_SHORT;
                                 showSnackbar(view2, message, duration);
                             }
                             else{
+                                // There was an error sending the password reset email, show a Snackbar with an error message
                                 Snackbar snackbar = Snackbar.make(view, R.string.Password_Not_Sending_to_Email, Snackbar.LENGTH_SHORT);
                                 snackbar.setAction("Dismiss", view1 -> snackbar.dismiss());
                                 snackbar.show();
@@ -180,31 +195,33 @@ public class SignIn extends AppCompatActivity {
             }
         });
 
-
+// Check if the user is already logged in
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if(acct!=null || user != null){
+            // User is already logged in, go to the profile screen
             gotoProfile();
         }
-
+        // Set up Google Sign-In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.Google_id))
                 .requestEmail()
                 .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        // [END config_signin]
+        // END config_signin
 
-        // [START initialize_auth]
+        // START initialize_auth
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
-        // [END initialize_auth]
+        // END initialize_auth
 
 
         sign_in_button.setOnClickListener(view -> {
             //signIn();
             ResultLauncher.launch(new Intent(mGoogleSignInClient.getSignInIntent()));
         });
+        // Set up the "Sign Up" button
 
         signIn.setOnClickListener(view -> {
             startActivity(new Intent(SignIn.this, SignUp.class));
@@ -215,7 +232,7 @@ public class SignIn extends AppCompatActivity {
     }
 
 
-    public void signInEmailFirebase(String Email, String Password){
+    public void signInEmailFirebase(String Email, String Password){ //function to enter with email.
         mAuth.signInWithEmailAndPassword(Email,Password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
@@ -234,7 +251,7 @@ public class SignIn extends AppCompatActivity {
                 });
     }
 
-    public void signInEmail(){
+    public void signInEmail(){ //check if email and password is valid and sign in.
         if(Email==null || Objects.requireNonNull(Email.getText()).toString().isEmpty() ){
             Toast.makeText(this, "Enter Email", Toast.LENGTH_SHORT).show();
         }
@@ -250,16 +267,16 @@ public class SignIn extends AppCompatActivity {
 
 
 
-    // [START on_start_check_user]
+    // START on_start_check_user
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         updateUI(true);
     }
-    // [END on_start_check_user]
+    // END on_start_check_user
 
-    // [START onactivityresult]
+    // START onactivityresult
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -280,9 +297,9 @@ public class SignIn extends AppCompatActivity {
             }
         }
     }
-    // [END onactivityresult]
+    // END onactivityresult
 
-    // [START auth_with_google]
+    // START auth_with_google
     public void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(credential)
@@ -301,9 +318,9 @@ public class SignIn extends AppCompatActivity {
                     }
                 });
     }
-    // [END auth_with_google]
+    // END auth_with_google
 
-    // [START signin]
+    // START signin
 
     ActivityResultLauncher<Intent> ResultLauncher= registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
         if(result.getResultCode()== Activity.RESULT_OK){
@@ -328,7 +345,7 @@ public class SignIn extends AppCompatActivity {
         Log.d("Success", "User Logged");
 
     }
-    private void gotoProfile(){
+    private void gotoProfile(){ //Function to enter the home layout after sign in was successful.
         Intent intent = new Intent(SignIn.this, Home.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);

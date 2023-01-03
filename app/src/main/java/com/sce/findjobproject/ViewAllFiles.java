@@ -43,6 +43,7 @@ public class ViewAllFiles extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_all_files);
+        // Initialize variables for UI elements
         btnHome=findViewById(R.id.btnHome);
         btnProfile=findViewById(R.id.btnProfile);
         btnAbout=findViewById(R.id.btnAbout);
@@ -82,7 +83,7 @@ public class ViewAllFiles extends AppCompatActivity {
         EnterButtons();
     }
 
-    private void deleteFile(){
+    private void deleteFile(){ //function to delete cv.
 
         FirebaseStorage mFirebaseStorage;
         mFirebaseStorage=FirebaseStorage.getInstance();
@@ -95,12 +96,12 @@ public class ViewAllFiles extends AppCompatActivity {
 
             removeUser();
         }).addOnFailureListener(exception -> {
-            // Uh-oh, an error occurred!
+            // error.
             Toast.makeText(ViewAllFiles.this, "onFailure: did not delete file", Toast.LENGTH_SHORT).show();
         });
     }
 
-    private void viewAllFiles() {
+    private void viewAllFiles() { //function  to view all files.
 
         if(user!=null) {
             String userId = user.getUid();
@@ -152,7 +153,7 @@ public class ViewAllFiles extends AppCompatActivity {
 
 
 
-    void removeUser(){
+    void removeUser(){ //remove user and its file.
         if(user!=null){
             String userId = user.getUid();
             FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -164,7 +165,7 @@ public class ViewAllFiles extends AppCompatActivity {
     }
 
 
-    void EnterButtons(){
+    void EnterButtons(){  // Sets up the onClickListeners for the navigation buttons
 
         btnAbout.setOnClickListener(view -> startActivity(new Intent(ViewAllFiles.this, About.class)));
 

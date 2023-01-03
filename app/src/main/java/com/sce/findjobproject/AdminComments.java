@@ -201,10 +201,14 @@ public class AdminComments extends AppCompatActivity {
     }
     // Sets up the onClickListeners for the navigation buttons
     void EnterButtons(){
-
+        // Set an onClickListener for the About button
+        // Start the About activity when the button is clicked
         btnAbout.setOnClickListener(view -> startActivity(new Intent(AdminComments.this, About.class)));
-
+       // Set an onClickListener for the Home button
+        // Start the Home activity when the button is clicked
         btnHome.setOnClickListener(view -> startActivity(new Intent(AdminComments.this, Home.class)));
+        // Set an onClickListener for the Profile button
+        // Start the Profile activity when the button is clicked
         btnProfile.setOnClickListener(view -> startActivity(new Intent(AdminComments.this, Profile.class)));
 
     }
