@@ -123,7 +123,7 @@ public class AdminComments extends AppCompatActivity {
     }
 
 
-    public void addComment(String comment) {
+    public  void addComment(String comment) {
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);

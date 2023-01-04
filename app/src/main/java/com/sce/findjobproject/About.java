@@ -382,7 +382,7 @@ public class About extends AppCompatActivity {
 
     }
 
-    private void AllJobsSendCvs(){
+    public void AllJobsSendCvs(){
         // Initialize count to 0
         count=0;
         // Check if the 'user' object is not null

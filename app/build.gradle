@@ -3,6 +3,8 @@ plugins {
     id 'com.google.gms.google-services'
 }
 
+
+
 android {
     compileSdk 32
 
@@ -26,6 +28,12 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+//    testOptions {
+//        unitTests.all {
+//            // Set the path to the google-services.json file
+//            systemProperty 'google.services.json', '../app/google-services.json'
+//        }
+//    }
 }
 
 dependencies {
