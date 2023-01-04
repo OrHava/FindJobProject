@@ -39,7 +39,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:background="#FF9800"
-        android:text="Q1: "
+        android:text="Q1: How does your job search application work?"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -78,7 +78,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="#FF9800"
-        android:text="Q2: "
+        android:text="Q2: How do I search for jobs using your application?"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -118,7 +118,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="#FF9800"
-        android:text="Q3: "
+        android:text="Q3: How do I apply for a job using your application?"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -156,7 +156,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="#FF9800"
-        android:text="Q4: "
+        android:text="Q4: Are the jobs listed on your application only available in a specific location?"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -194,7 +194,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="#FF9800"
-        android:text="Q5: "
+        android:text="Q5: How often are new job listings added to your application?"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -232,7 +232,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="#FF9800"
-        android:text="Q6: "
+        android:text="Q6: How do I create a profile on your job search application?"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -270,7 +270,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="#FF9800"
-        android:text="Q7: "
+        android:text="Q7: Is your job search application free to use?"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -308,7 +308,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="#FF9800"
-        android:text="Q8: "
+        android:text="Q8: How do I update my profile or resume on your application?"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -346,7 +346,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="#FF9800"
-        android:text="Q9: "
+        android:text="Q9: How do I receive alerts for new job listings that match my preferences?"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -384,7 +384,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="#FF9800"
-        android:text="Q10: "
+        android:text="Q10: Can I upload my resume to your job search application?"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
