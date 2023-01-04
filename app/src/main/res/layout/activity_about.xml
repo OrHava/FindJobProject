@@ -18,6 +18,18 @@
 
     <include layout="@layout/navbar"/>
 
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnReport"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#FF5722"
+        android:text="@string/delete_acount"
+        android:textColor="@color/white"
+        />
+
+    <!--____1-->
     <TextView
         android:id="@+id/txtQ1"
         android:layout_width="320dp"
@@ -27,7 +39,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:background="#FF9800"
-        android:text="q1_how_this_thing_is_wotking_if_you_delete_your_account_does_my_data_delete_absulotly"
+        android:text="Q1: "
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -50,24 +62,23 @@
 
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:background="#FF9800"
-        android:text="Q2-all the data will be deleted absulotly"
+        android:background="#FFC107"
+        android:text="A1: "
         android:textColor="@color/black"
         android:textSize="12sp"
         android:visibility="gone"
-
         />
 
-
+    <!--____2-->
     <TextView
         android:id="@+id/txtQ2"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtA1"
+        android:layout_below="@+id/txtQ1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="#FF9800"
-        android:text="Q1...how this thing is wotking?!?!?....if you delete your account- does my data delete absulotly?"
+        android:text="Q2: "
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -92,27 +103,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
 
-        android:background="#FF9800"
-        android:text="Q2-all the data will be deleted absulotly"
+        android:background="#FFEB3B"
+        android:text="A2: "
         android:textColor="@color/black"
         android:textSize="12sp"
-
         />
 
-    <Button
-        android:id="@+id/btnDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnReport"
-        android:layout_centerHorizontal="true"
-        android:backgroundTint="#FF5722"
-        android:text="@string/delete_acount"
-        android:textColor="@color/white"
-
-
-        />
-
-
+    <!--____3-->
     <TextView
         android:id="@+id/txtQ3"
         android:layout_width="320dp"
@@ -121,7 +118,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="#FF9800"
-        android:text="Q2...how this thing is wotking?!?!?....if you delete your account- does my data delete absulotly?"
+        android:text="Q3: "
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -144,14 +141,276 @@
         android:visibility="gone"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:background="#FF9800"
-        android:text="Q3-all the data will be deleted absulotly"
+        android:background="#FFEB3B"
+        android:text="A3"
         android:textColor="@color/black"
         android:textSize="12sp"
-
         />
 
+    <!--____4-->
+    <TextView
+        android:id="@+id/txtQ4"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtA3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="#FF9800"
+        android:text="Q4: "
+        android:textColor="@color/black"
+        android:textSize="12sp" />
 
+    <ImageButton
+        android:id="@+id/btnPlus4"
+        android:layout_width="38dp"
+        android:layout_height="42dp"
+        android:layout_below="@+id/txtA3"
+        android:layout_marginTop="15dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/plus_button" />
 
+    <TextView
+        android:id="@+id/txtA4"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtQ4"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="#FFEB3B"
+        android:text="A4"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        />
+
+    <!--____5-->
+    <TextView
+        android:id="@+id/txtQ5"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtA4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="#FF9800"
+        android:text="Q5: "
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <ImageButton
+        android:id="@+id/btnPlus5"
+        android:layout_width="38dp"
+        android:layout_height="42dp"
+        android:layout_below="@+id/txtA4"
+        android:layout_marginTop="15dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/plus_button" />
+
+    <TextView
+        android:id="@+id/txtA5"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtQ5"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="#FFEB3B"
+        android:text="A5: "
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        />
+
+    <!--____6-->
+    <TextView
+        android:id="@+id/txtQ6"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtA5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="#FF9800"
+        android:text="Q6: "
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <ImageButton
+        android:id="@+id/btnPlus6"
+        android:layout_width="38dp"
+        android:layout_height="42dp"
+        android:layout_below="@+id/txtA5"
+        android:layout_marginTop="15dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/plus_button" />
+
+    <TextView
+        android:id="@+id/txtA6"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtQ6"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="#FFEB3B"
+        android:text="A6: "
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        />
+
+    <!--____7-->
+    <TextView
+        android:id="@+id/txtQ7"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtA6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="#FF9800"
+        android:text="Q7: "
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <ImageButton
+        android:id="@+id/btnPlus7"
+        android:layout_width="38dp"
+        android:layout_height="42dp"
+        android:layout_below="@+id/txtA6"
+        android:layout_marginTop="15dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/plus_button" />
+
+    <TextView
+        android:id="@+id/txtA7"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtQ7"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="#FFEB3B"
+        android:text="A7: "
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        />
+
+    <!--____8-->
+    <TextView
+        android:id="@+id/txtQ8"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtA7"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="#FF9800"
+        android:text="Q8: "
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <ImageButton
+        android:id="@+id/btnPlus8"
+        android:layout_width="38dp"
+        android:layout_height="42dp"
+        android:layout_below="@+id/txtA7"
+        android:layout_marginTop="15dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/plus_button" />
+
+    <TextView
+        android:id="@+id/txtA8"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtQ8"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="#FFEB3B"
+        android:text="A8: "
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        />
+
+    <!--____9-->
+    <TextView
+        android:id="@+id/txtQ9"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtA8"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="#FF9800"
+        android:text="Q9: "
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <ImageButton
+        android:id="@+id/btnPlus9"
+        android:layout_width="38dp"
+        android:layout_height="42dp"
+        android:layout_below="@+id/txtA8"
+        android:layout_marginTop="15dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/plus_button" />
+
+    <TextView
+        android:id="@+id/txtA9"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtQ9"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="#FFEB3B"
+        android:text="A9: "
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        />
+
+    <!--____10-->
+    <TextView
+        android:id="@+id/txtQ10"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtA9"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="#FF9800"
+        android:text="Q10: "
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <ImageButton
+        android:id="@+id/btnPlus10"
+        android:layout_width="38dp"
+        android:layout_height="42dp"
+        android:layout_below="@+id/txtA9"
+        android:layout_marginTop="15dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/plus_button" />
+
+    <TextView
+        android:id="@+id/txtA10"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtQ10"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="#FFEB3B"
+        android:text="A10: "
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        />
 
 </RelativeLayout>
