@@ -91,6 +91,7 @@ public class About extends AppCompatActivity {
         btnPlus8 = findViewById(R.id.btnPlus8);
         txtA8 = findViewById(R.id.txtA8);
         btnPlus9 = findViewById(R.id.btnPlus9);
+        txtA9= findViewById(R.id.txtA9);
         txtA10 = findViewById(R.id.txtA10);
         btnPlus10 = findViewById(R.id.btnPlus10);
 
