@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -19,6 +20,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -339,26 +343,7 @@ public class About extends AppCompatActivity {
             });
         }
     }
-    private void AmountOfTypejobs(){ // Not ready
-        if (user != null) {
-            databaseReference = FirebaseDatabase.getInstance().getReference("usersJobs");
-            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                @SuppressLint("SetTextI18n")
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    for (DataSnapshot postsnapshot : snapshot.getChildren()) {
-                        JobType= postsnapshot.child("SpinJobsType11Index").getValue(String.class);
-                    }
-                }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-
-        }
-    }
     private void AmountOfJobsLocation(){
         if (user != null) {
             databaseReference = FirebaseDatabase.getInstance().getReference("usersJobs");
@@ -595,24 +580,42 @@ public class About extends AppCompatActivity {
             public void onClick(View view) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                assert user != null;
-                user.delete()
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    // User account deleted successfully
-                                    Toast.makeText(About.this, "User account deleted", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(About.this, SignIn.class);
-                                    startActivity(intent);
-                                    finish();
 
-                                } else {
-                                    // Error occurred during delete operation
-                                    Toast.makeText(About.this, "Error deleting user account", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
+               if (user != null){
+                   user.delete()
+                           .addOnCompleteListener(new OnCompleteListener<Void>() {
+                               @Override
+                               public void onComplete(@NonNull Task<Void> task) {
+                                   if (task.isSuccessful()) {
+                                       // User account deleted successfully
+                                       Toast.makeText(About.this, R.string.Useraccountdeleted, Toast.LENGTH_SHORT).show();
+                                       FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+                                       String userId = user.getUid();
+                                       DatabaseReference myRef3 = mDatabase.getReference("AdminStatistics").child(userId);
+                                       // Remove all comments from the 'comments' node
+                                       myRef3.removeValue();
+                                       // Sign out of the Firebase account
+                                       FirebaseAuth.getInstance().signOut();
+                                       // Sign out of the Google account
+                                       GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(About.this, new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build());
+                                       googleSignInClient.signOut();
+                                       Log.d("User Deleted: ","successfully!");
+                                       Intent intent = new Intent(About.this, SignIn.class);
+                                       startActivity(intent);
+                                       finish();
+
+                                   } else {
+                                       // Error occurred during delete operation
+                                       Toast.makeText(About.this, "Error deleting user account", Toast.LENGTH_SHORT).show();
+                                   }
+                               }
+                           });
+
+
+               }
+
+
+
 
             }
         });

@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -389,7 +390,7 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemSelecte
     }
 
 
-    private void SearchHelperManager() {
+    public  void SearchHelperManager() {
         // Check if the user is signed in
         if (user != null) {
             // Get the user's ID
@@ -407,6 +408,8 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemSelecte
                         // Check if the user's ID is equal to the value of the current child node
                         if (Objects.requireNonNull(postsnapshot.getValue()).toString().equals(userId)) {
                             // Increment the count2 variable
+                            String childKey = postsnapshot.getKey();
+                            Log.d("Child key:", childKey);
                             count2++;
                         }
 

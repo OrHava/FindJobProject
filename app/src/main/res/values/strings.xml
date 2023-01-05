@@ -147,6 +147,7 @@
     <string name="q10_can_i_upload_my_job_opportunity_as_job_recruiter_to_the_app">Q10: Can I upload my job opportunity as job recruiter to the app?</string>
     <string name="a10_anyone_can_post_job_opportunity_you_will_need_to_log_to_your_account_as_job_recruiters_and_in_the_profile_page_you_can_post_your_new_job_opportunity">A10: Anyone can post job opportunity, you will need to log to your account as Job Recruiters and in the profile page you can post your new job opportunity.</string>
     <string name="Are_you_sure_2">Are you sure you want to delete jobs over 30 days?</string>
+    <string name="Useraccountdeleted">User account deleted</string>
 
     <!-- Language array -->
     <string-array name="jobs_location">

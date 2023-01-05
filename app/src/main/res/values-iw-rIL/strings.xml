@@ -152,7 +152,7 @@
     <string name="q10_can_i_upload_my_job_opportunity_as_job_recruiter_to_the_app">ש10: האם אני יכול להעלות את הזדמנות העבודה שלי כמגייס עבודה לאפליקציה?</string>
     <string name="a10_anyone_can_post_job_opportunity_you_will_need_to_log_to_your_account_as_job_recruiters_and_in_the_profile_page_you_can_post_your_new_job_opportunity">ת10: כל אחד יכול לפרסם הזדמנות עבודה, תצטרך להיכנס לחשבון שלך כמגייסים לעבודה ובדף הפרופיל תוכל לפרסם את ההזדמנות החדשה שלך לעבודה.</string>
     <string name="Are_you_sure_2">האם אתה בתוך שאתה רוצה למחוק עבודות מעל 30 יום?</string>
-
+    <string name="Useraccountdeleted">חשבון נמחק</string>
 
 
     <!-- Language array -->

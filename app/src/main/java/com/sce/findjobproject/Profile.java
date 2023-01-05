@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,6 +87,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
     private int count_northern_district=0,count_haifa_district=0,count_tel_aviv_district=0, count_central_district=0,count_jerusalem_district=0,count_southern_district=0,count_judea_and_samaria_district=0;
     private TextView tv_northern_district, tv_haifa_district, tv_tel_aviv_district, tv_central_district,tv_jerusalem_district,tv_southern_district,tv_judea_and_samaria_district;
     private PieChart pieChart;
+    private String childKey = null;
 
 
     @Override
@@ -491,10 +493,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
             }
 
         });
-    }
-
-
-    void exitUser(){ //function that allow user leave the main layouts and go back to 'signin' layout.
+    }public void exitUser(){ //function that allow user leave the main layouts and go back to 'signin' layout.
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); //get the user from firebase.
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this); //get the user from firebase of google ac.
@@ -511,6 +510,8 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
                 mGoogleSignInClient.signOut().addOnCompleteListener(Profile.this,
                         task -> {
                             // firebase sign out
+
+                            Log.d("User Exit: ","successfully!");
                             getInstance().signOut();
                             //go to SignIn Layout.
 
@@ -523,6 +524,9 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
             });
 
         }
+
+
+
 
 
     }
