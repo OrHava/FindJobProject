@@ -431,7 +431,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(Profile.this);
                 alert.setTitle(R.string.delete_post);
-                alert.setMessage(R.string.are_you_sure);
+                alert.setMessage(R.string.Are_you_sure_2);
                 alert.setPositiveButton(R.string.yes, (dialog, which) -> {
                     database = FirebaseDatabase.getInstance();
                     // Set up reference to "usersJobs" node in the database and add single value event listener

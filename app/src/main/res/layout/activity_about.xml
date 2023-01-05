@@ -7,11 +7,13 @@
     tools:context=".About">
 
 
+
     <Button
         android:id="@+id/btnReport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#FF5722"
         android:text="@string/report_of_user"
         android:textColor="@color/white" />
@@ -35,11 +37,12 @@
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnDelete"
-
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/btnPlus1"
         android:background="#FF9800"
-        android:text="Q1: How does your job search application work?"
+        android:text="@string/q1_how_does_your_job_search_application_work"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -48,25 +51,26 @@
         android:layout_width="38dp"
         android:layout_height="42dp"
         android:layout_below="@+id/btnDelete"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="-5dp"
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        android:src="@drawable/plus_button" />
+        android:src="@drawable/plus_button_new" />
 
     <TextView
         android:id="@+id/txtA1"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtQ1"
-
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:background="#FFC107"
-        android:text="A1: "
+        android:background="#FFEB3B"
+        android:text="@string/a1_our_system_get_jobs_post_from_potential_jobs_recruiters_and_post_them_in_our_search_engine"
         android:textColor="@color/black"
         android:textSize="12sp"
         android:visibility="gone"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/btnPlus1"
         />
 
     <!--____2-->
@@ -74,11 +78,13 @@
         android:id="@+id/txtQ2"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtQ1"
+        android:layout_below="@+id/txtA1"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
+        android:layout_toEndOf="@+id/btnPlus1"
         android:background="#FF9800"
-        android:text="Q2: How do I search for jobs using your application?"
+        android:text="@string/q2_how_do_i_search_for_jobs_using_your_application"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -88,11 +94,11 @@
         android:layout_width="38dp"
         android:layout_height="42dp"
         android:layout_below="@+id/txtA1"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        android:src="@drawable/plus_button" />
+        android:src="@drawable/plus_button_new" />
 
     <TextView
         android:id="@+id/txtA2"
@@ -102,9 +108,10 @@
         android:visibility="gone"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/btnPlus1"
         android:background="#FFEB3B"
-        android:text="A2: "
+        android:text="@string/a2_in_the_home_button_you_have_the_ability_to_search_for_jobs_you_choose_the_job_type_and_job_location_and_press_the_search_button_to_view_all_potential_jobs"
         android:textColor="@color/black"
         android:textSize="12sp"
         />
@@ -116,9 +123,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtA2"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
+        android:layout_toEndOf="@+id/btnPlus1"
         android:background="#FF9800"
-        android:text="Q3: How do I apply for a job using your application?"
+        android:text="@string/q3_how_do_i_apply_for_a_job_using_your_application"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -127,11 +136,11 @@
         android:layout_width="38dp"
         android:layout_height="42dp"
         android:layout_below="@+id/txtA2"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        android:src="@drawable/plus_button" />
+        android:src="@drawable/plus_button_new" />
 
     <TextView
         android:id="@+id/txtA3"
@@ -142,7 +151,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:background="#FFEB3B"
-        android:text="A3"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/btnPlus1"
+        android:text="@string/a3_in_the_profile_page_you_need_to_upload_a_cv_in_pdf_form_and_in_the_search_engine_you_will_need_to_apply_your_cv_on_the_job_you_want_using_the_search_engine"
         android:textColor="@color/black"
         android:textSize="12sp"
         />
@@ -155,8 +166,10 @@
         android:layout_below="@+id/txtA3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/btnPlus1"
         android:background="#FF9800"
-        android:text="Q4: Are the jobs listed on your application only available in a specific location?"
+        android:text="@string/q4_are_the_jobs_listed_on_your_application_only_available_in_a_specific_location"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -169,7 +182,7 @@
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        android:src="@drawable/plus_button" />
+        android:src="@drawable/plus_button_new" />
 
     <TextView
         android:id="@+id/txtA4"
@@ -179,8 +192,10 @@
         android:visibility="gone"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/btnPlus1"
         android:background="#FFEB3B"
-        android:text="A4"
+        android:text="@string/a4_are_jobs_available_on_the_location_job_recruiters_put_but_may_be_vary_in_locations_if_job_recruiter_specify_it_in_their_posts"
         android:textColor="@color/black"
         android:textSize="12sp"
         />
@@ -194,7 +209,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="#FF9800"
-        android:text="Q5: How often are new job listings added to your application?"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/btnPlus1"
+        android:text="@string/q5_how_often_are_new_job_listings_added_to_your_application"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -205,9 +222,10 @@
         android:layout_below="@+id/txtA4"
         android:layout_marginTop="15dp"
         android:adjustViewBounds="true"
+
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        android:src="@drawable/plus_button" />
+        android:src="@drawable/plus_button_new" />
 
     <TextView
         android:id="@+id/txtA5"
@@ -218,7 +236,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:background="#FFEB3B"
-        android:text="A5: "
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/btnPlus1"
+        android:text="@string/a5_new_jobs_are_listed_to_our_application_only_when_job_recruiters_post_new_jobs_opportunities"
         android:textColor="@color/black"
         android:textSize="12sp"
         />
@@ -231,8 +251,10 @@
         android:layout_below="@+id/txtA5"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/btnPlus1"
         android:background="#FF9800"
-        android:text="Q6: How do I create a profile on your job search application?"
+        android:text="@string/q6_how_do_i_create_a_profile_on_your_job_search_application"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -241,11 +263,11 @@
         android:layout_width="38dp"
         android:layout_height="42dp"
         android:layout_below="@+id/txtA5"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        android:src="@drawable/plus_button" />
+        android:src="@drawable/plus_button_new" />
 
     <TextView
         android:id="@+id/txtA6"
@@ -256,7 +278,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:background="#FFEB3B"
-        android:text="A6: "
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/btnPlus1"
+        android:text="@string/a6_in_the_profile_page_you_add_your_personal_info_and_hit_button_submit_info_to_upload_your_profile"
         android:textColor="@color/black"
         android:textSize="12sp"
         />
@@ -268,9 +292,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtA6"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
+        android:layout_toEndOf="@+id/btnPlus1"
         android:background="#FF9800"
-        android:text="Q7: Is your job search application free to use?"
+        android:text="@string/q7_is_your_job_search_application_free_to_use"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -279,11 +305,12 @@
         android:layout_width="38dp"
         android:layout_height="42dp"
         android:layout_below="@+id/txtA6"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
+
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        android:src="@drawable/plus_button" />
+        android:src="@drawable/plus_button_new" />
 
     <TextView
         android:id="@+id/txtA7"
@@ -294,7 +321,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:background="#FFEB3B"
-        android:text="A7: "
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/btnPlus1"
+        android:text="@string/a7_our_app_findjob_currently_100_free"
         android:textColor="@color/black"
         android:textSize="12sp"
         />
@@ -308,7 +337,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="#FF9800"
-        android:text="Q8: How do I update my profile or resume on your application?"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/btnPlus1"
+        android:text="@string/q8_how_do_i_update_my_profile_or_resume_on_your_application"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -318,10 +349,11 @@
         android:layout_height="42dp"
         android:layout_below="@+id/txtA7"
         android:layout_marginTop="15dp"
+
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        android:src="@drawable/plus_button" />
+        android:src="@drawable/plus_button_new" />
 
     <TextView
         android:id="@+id/txtA8"
@@ -331,8 +363,10 @@
         android:visibility="gone"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/btnPlus1"
         android:background="#FFEB3B"
-        android:text="A8: "
+        android:text="@string/a8_upload_of_resume_is_in_the_profile_page"
         android:textColor="@color/black"
         android:textSize="12sp"
         />
@@ -345,8 +379,10 @@
         android:layout_below="@+id/txtA8"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/btnPlus1"
         android:background="#FF9800"
-        android:text="Q9: How do I receive alerts for new job listings that match my preferences?"
+        android:text="@string/q9_how_do_i_receive_alerts_for_new_job_listings_that_match_my_preferences"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -359,7 +395,7 @@
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        android:src="@drawable/plus_button" />
+        android:src="@drawable/plus_button_new" />
 
     <TextView
         android:id="@+id/txtA9"
@@ -369,8 +405,10 @@
         android:visibility="gone"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/btnPlus1"
         android:background="#FFEB3B"
-        android:text="A9: "
+        android:text="@string/a9_currently_our_jobs_doesn_t_alerts_for_new_jobs_that_in_your_preferences"
         android:textColor="@color/black"
         android:textSize="12sp"
         />
@@ -383,8 +421,10 @@
         android:layout_below="@+id/txtA9"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/btnPlus1"
         android:background="#FF9800"
-        android:text="Q10: Can I upload my resume to your job search application?"
+        android:text="@string/q10_can_i_upload_my_job_opportunity_as_job_recruiter_to_the_app"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -397,7 +437,7 @@
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        android:src="@drawable/plus_button" />
+        android:src="@drawable/plus_button_new" />
 
     <TextView
         android:id="@+id/txtA10"
@@ -407,8 +447,10 @@
         android:visibility="gone"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/btnPlus1"
         android:background="#FFEB3B"
-        android:text="A10: "
+        android:text="@string/a10_anyone_can_post_job_opportunity_you_will_need_to_log_to_your_account_as_job_recruiters_and_in_the_profile_page_you_can_post_your_new_job_opportunity"
         android:textColor="@color/black"
         android:textSize="12sp"
         />

@@ -31,6 +31,11 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.auth.User;
 
 import java.util.Objects;
 
@@ -47,6 +52,11 @@ public class SignIn extends AppCompatActivity {
     public FirebaseAuth mAuth;
     // [END declare_auth]
     public static int WhichUser=1;
+
+    private FirebaseAuth mfireBaseAuth;
+    private DatabaseReference mDatabase;
+    private String userID;
+    private FirebaseUser firebaseUser;
     private GoogleSignInClient mGoogleSignInClient;
 
 

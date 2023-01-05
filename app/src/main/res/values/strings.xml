@@ -126,6 +126,27 @@
     <string name="delete_account">Are you sure you want to delete account?</string>
     <string name="Delete_Account">Delete Account</string>
     <string name="delete_acount">Delete Acount</string>
+    <string name="q1_how_does_your_job_search_application_work">Q1: How does your job search application work?</string>
+    <string name="a1_our_system_get_jobs_post_from_potential_jobs_recruiters_and_post_them_in_our_search_engine">A1: Our system get jobs post from potential jobs recruiters and post them in our search engine.</string>
+    <string name="q2_how_do_i_search_for_jobs_using_your_application">Q2: How do I search for jobs using your application?</string>
+    <string name="a2_in_the_home_button_you_have_the_ability_to_search_for_jobs_you_choose_the_job_type_and_job_location_and_press_the_search_button_to_view_all_potential_jobs">A2: In the Home Button you have the ability to search for jobs,you choose, the job type and job location and press the search button to view all potential jobs.</string>
+    <string name="q3_how_do_i_apply_for_a_job_using_your_application">Q3: How do I apply for a job using your application?</string>
+    <string name="a3_in_the_profile_page_you_need_to_upload_a_cv_in_pdf_form_and_in_the_search_engine_you_will_need_to_apply_your_cv_on_the_job_you_want_using_the_search_engine">A3: In the Profile Page you need to upload a CV in pdf form, and in the search engine you will need to apply your cv on the job you want using the search engine.</string>
+    <string name="q4_are_the_jobs_listed_on_your_application_only_available_in_a_specific_location">Q4: Are the jobs listed on your application only available in a specific location?</string>
+    <string name="a4_are_jobs_available_on_the_location_job_recruiters_put_but_may_be_vary_in_locations_if_job_recruiter_specify_it_in_their_posts">A4: Are jobs available on the location job recruiters put, but may be vary in locations if job recruiter specify it in their posts.</string>
+    <string name="q5_how_often_are_new_job_listings_added_to_your_application">Q5: How often are new job listings added to your application?</string>
+    <string name="a5_new_jobs_are_listed_to_our_application_only_when_job_recruiters_post_new_jobs_opportunities">A5: New jobs are listed to our application only when job recruiters post new jobs opportunities.</string>
+    <string name="q6_how_do_i_create_a_profile_on_your_job_search_application">Q6: How do I create a profile on your job search application?</string>
+    <string name="a6_in_the_profile_page_you_add_your_personal_info_and_hit_button_submit_info_to_upload_your_profile">A6: In the Profile Page you add your personal info and hit button \'submit info\' to upload your profile.</string>
+    <string name="q7_is_your_job_search_application_free_to_use">Q7: Is your job search application free to use?</string>
+    <string name="a7_our_app_findjob_currently_100_free">A7: Our App \'FindJob\' currently 100% free.</string>
+    <string name="q8_how_do_i_update_my_profile_or_resume_on_your_application">Q8: How do I update my profile or resume on your application?</string>
+    <string name="a8_upload_of_resume_is_in_the_profile_page">A8: Upload of resume is in the profile page.</string>
+    <string name="q9_how_do_i_receive_alerts_for_new_job_listings_that_match_my_preferences">Q9: How do I receive alerts for new job listings that match my preferences?</string>
+    <string name="a9_currently_our_jobs_doesn_t_alerts_for_new_jobs_that_in_your_preferences">A9: Currently our jobs doesn\'t alerts for new jobs that in your preferences.</string>
+    <string name="q10_can_i_upload_my_job_opportunity_as_job_recruiter_to_the_app">Q10: Can I upload my job opportunity as job recruiter to the app?</string>
+    <string name="a10_anyone_can_post_job_opportunity_you_will_need_to_log_to_your_account_as_job_recruiters_and_in_the_profile_page_you_can_post_your_new_job_opportunity">A10: Anyone can post job opportunity, you will need to log to your account as Job Recruiters and in the profile page you can post your new job opportunity.</string>
+    <string name="Are_you_sure_2">Are you sure you want to delete jobs over 30 days?</string>
 
     <!-- Language array -->
     <string-array name="jobs_location">

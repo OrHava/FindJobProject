@@ -121,11 +121,38 @@
     <string name="clear_jobs">מחיקת עבודות</string>
     <string name="admin_comments">תגובות מנהלים</string>
     <string name="add_comment">הוספת תגובה</string>
-    <string name="delete_job">dמחיקה עבודה</string>
+    <string name="delete_job">מחיקה עבודה</string>
     <string name="are_you_sure_you_want_to_clear_comments">אתה בטוח שאתה רוצה למחוק את כל התגובות?</string>
     <string name="delete_account">אתה בטוח שאתה רוצה למחוק את החשבון?</string>
     <string name="Delete_Account">מחיקת חשבון</string>
     <string name="delete_acount">מחיקת חשבון</string>
+    <string name="q1_how_does_your_job_search_application_work">שאלה 1: איך עובדת הבקשה שלך לחיפוש עבודה?</string>
+    <string name="a1_our_system_get_jobs_post_from_potential_jobs_recruiters_and_post_them_in_our_search_engine">ת1: המערכת שלנו מקבלת פוסט משרות ממגייסי משרות פוטנציאליים ומפרסמת אותן במנוע החיפוש שלנו.</string>
+    <string name="q2_how_do_i_search_for_jobs_using_your_application">ש 2: כיצד אוכל לחפש משרות באמצעות היישום שלך?</string>
+    <string name="a2_in_the_home_button_you_have_the_ability_to_search_for_jobs_you_choose_the_job_type_and_job_location_and_press_the_search_button_to_view_all_potential_jobs">ת2: בלחצן הבית יש לך את היכולת לחפש משרות, לפי בחירתך, את סוג המשרה ומיקום העבודה ולחץ על כפתור החיפוש כדי להציג את כל המשרות הפוטנציאליות.</string>
+    <string name="q3_how_do_i_apply_for_a_job_using_your_application">ש 3: כיצד אוכל להגיש מועמדות לעבודה באמצעות היישום שלך?</string>
+    <string name="a3_in_the_profile_page_you_need_to_upload_a_cv_in_pdf_form_and_in_the_search_engine_you_will_need_to_apply_your_cv_on_the_job_you_want_using_the_search_engine">ת3: בדף הפרופיל עליך להעלות קורות חיים בצורת pdf, ובמנוע החיפוש תצטרך ליישם את קורות החיים שלך על המשרה הרצויה באמצעות מנוע החיפוש.</string>
+    <string name="q4_are_the_jobs_listed_on_your_application_only_available_in_a_specific_location">ש 4: האם המשרות המפורטות באפליקציה שלך זמינות רק במיקום ספציפי?</string>
+    <string name="a4_are_jobs_available_on_the_location_job_recruiters_put_but_may_be_vary_in_locations_if_job_recruiter_specify_it_in_their_posts">
+ת4: האם משרות זמינות במיקום שמגייסים מציבים, אך עשויות להשתנות במיקומים אם מגייס העבודה יציין זאת בפוסטים שלהם.</string>
+    <string name="q5_how_often_are_new_job_listings_added_to_your_application">
+ש 5: באיזו תדירות מתווספים הצעות עבודה חדשות לבקשה שלך?</string>
+    <string name="a5_new_jobs_are_listed_to_our_application_only_when_job_recruiters_post_new_jobs_opportunities">
+ת5: משרות חדשות מופיעות באפליקציה שלנו רק כאשר מגייסי עבודה מפרסמים הזדמנויות משרות חדשות.</string>
+    <string name="q6_how_do_i_create_a_profile_on_your_job_search_application">
+ש6: כיצד אוכל ליצור פרופיל בבקשתך לחיפוש עבודה?</string>
+    <string name="a6_in_the_profile_page_you_add_your_personal_info_and_hit_button_submit_info_to_upload_your_profile">ת6: בדף הפרופיל אתה מוסיף את המידע האישי שלך ולחץ על הלחצן \'שלח מידע\' כדי להעלות את הפרופיל שלך.</string>
+    <string name="q7_is_your_job_search_application_free_to_use">ש7: האם היישום שלך לחיפוש עבודה בחינם לשימוש?</string>
+    <string name="a7_our_app_findjob_currently_100_free">ת7: האפליקציה \'FindJob\' שלנו חינמית כרגע ב-100%.</string>
+    <string name="q8_how_do_i_update_my_profile_or_resume_on_your_application">
+ש8: איך אני מעדכן את הפרופיל שלי או קורות חיים ביישום שלך?</string>
+    <string name="a8_upload_of_resume_is_in_the_profile_page">ת8: העלאת קורות חיים נמצאת בדף הפרופיל.</string>
+    <string name="q9_how_do_i_receive_alerts_for_new_job_listings_that_match_my_preferences">ש9: כיצד אוכל לקבל התראות על רשימות משרות חדשות התואמות את ההעדפות שלי?</string>
+    <string name="a9_currently_our_jobs_doesn_t_alerts_for_new_jobs_that_in_your_preferences">ת9: כרגע המשרות שלנו לא מתריעות על משרות חדשות לפי העדפותיך.</string>
+    <string name="q10_can_i_upload_my_job_opportunity_as_job_recruiter_to_the_app">ש10: האם אני יכול להעלות את הזדמנות העבודה שלי כמגייס עבודה לאפליקציה?</string>
+    <string name="a10_anyone_can_post_job_opportunity_you_will_need_to_log_to_your_account_as_job_recruiters_and_in_the_profile_page_you_can_post_your_new_job_opportunity">ת10: כל אחד יכול לפרסם הזדמנות עבודה, תצטרך להיכנס לחשבון שלך כמגייסים לעבודה ובדף הפרופיל תוכל לפרסם את ההזדמנות החדשה שלך לעבודה.</string>
+    <string name="Are_you_sure_2">האם אתה בתוך שאתה רוצה למחוק עבודות מעל 30 יום?</string>
+
 
 
     <!-- Language array -->
