@@ -13,13 +13,16 @@
         <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_glow.xml" value="0.1" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_layer_list.xml" value="0.1" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_layer_list_about.xml" value="0.1" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_layer_list_home.xml" value="0.1" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_layer_list_profile.xml" value="0.1" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_normal.xml" value="0.1" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_selector.xml" value="0.113" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_selector_about.xml" value="0.1" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_selector_home.xml" value="0.1" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_selector_profile.xml" value="0.1" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/layout/activity_about.xml" value="0.4" />
-        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/layout/activity_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/layout/activity_admin_comments.xml" value="0.25025641025641027" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/layout/activity_home.xml" value="0.264" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/layout/activity_home2.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/layout/activity_profile.xml" value="0.25416666666666665" />

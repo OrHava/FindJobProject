@@ -552,13 +552,32 @@
                         android:id="@+id/BtnUpJobDesc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/NestedScrollView1"
+                        android:layout_below="@+id/AgreeBtn"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="25dp"
+                        android:layout_marginTop="10dp"
                         android:backgroundTint="#FF5722"
                         android:text="@string/submit_work"
                         android:textColor="@color/white"
                         android:textSize="25sp" />
+
+                    <RadioButton
+                        android:id="@+id/RadioBtnAgree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/NestedScrollView1"
+                        android:layout_marginStart="100dp" />
+
+                    <Button
+                        android:id="@+id/AgreeBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/NestedScrollView1"
+                        android:layout_marginStart="150dp"
+                        android:backgroundTint="#FF5722"
+                        android:text="@string/agreement_info"
+                        android:textColor="@color/white"
+                        android:textSize="11sp" />
+
 
                     <Button
                         android:id="@+id/BtnUpJobApplied"
@@ -566,7 +585,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/BtnUpJobDesc"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="25dp"
+                        android:layout_marginTop="10dp"
                         android:backgroundTint="#FF5722"
                         android:text="@string/all_job_applied_cv_s"
                         android:textColor="@color/white"
@@ -578,7 +597,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/BtnUpJobApplied"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="25dp"
+                        android:layout_marginTop="10dp"
                         android:backgroundTint="#FF5722"
                         android:text="@string/delete_job"
                         android:textColor="@color/white"

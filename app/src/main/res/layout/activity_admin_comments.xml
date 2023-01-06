@@ -28,7 +28,7 @@
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        android:src="@drawable/plus_button" />
+        android:src="@drawable/plus_button_new" />
 
     <Button
         android:id="@+id/btnclearcomments"

@@ -143,12 +143,23 @@
     <string name="q8_how_do_i_update_my_profile_or_resume_on_your_application">Q8: How do I update my profile or resume on your application?</string>
     <string name="a8_upload_of_resume_is_in_the_profile_page">A8: Upload of resume is in the profile page.</string>
     <string name="q9_how_do_i_receive_alerts_for_new_job_listings_that_match_my_preferences">Q9: Why I cannot download my report?</string>
-    <string name="a9_currently_our_jobs_doesn_t_alerts_for_new_jobs_that_in_your_preferences">A9: אם אתה נתקל בבעיה בהורדה אתה מדווח, אנא מחק את הקבצים הקודמים שהורדת מהאפליקציה שלנו שנמצאים באחסון הפנימי בתוך המסמכים</string>
+    <string name="a9_currently_our_jobs_doesn_t_alerts_for_new_jobs_that_in_your_preferences">A9: If you encounter a problem downloading you report, please delete the previous files you downloaded from our application in internal storage within the documents.</string>
     <string name="q10_can_i_upload_my_job_opportunity_as_job_recruiter_to_the_app">Q10: Can I upload my job opportunity as job recruiter to the app?</string>
     <string name="a10_anyone_can_post_job_opportunity_you_will_need_to_log_to_your_account_as_job_recruiters_and_in_the_profile_page_you_can_post_your_new_job_opportunity">A10: Anyone can post job opportunity, you will need to log to your account as Job Recruiters and in the profile page you can post your new job opportunity.</string>
     <string name="Are_you_sure_2">Are you sure you want to delete jobs over 30 days?</string>
     <string name="Useraccountdeleted">User account deleted</string>
-
+    <string name="agreement_link">Agreement Link</string>
+    <string name="agreemeant_info">Agreemeant info</string>
+    <string name="agreement_info">Agreement info</string>
+    <string name="Please_Read_agreement_info_and_check_the_Radio_Button_Above">Agree to agreement info</string>
+    <string name="user_is_null">User is not on error</string>
+    <string name="Job_Posted_Successfully">Job Posted Successfully</string>
+    <string name="Agreement">Agreement</string>
+    <string name="Aggrement_text">By Checking \'Agree\' on the side, you confirm that you will only post content that is safe and appropriate for all audiences. This includes, but is not limited to, avoiding the use of profanity, hate speech, or any other forms of offensive or harmful language. If you violate this agreement, your access to the platform may be restricted or terminated. Do you agree to these terms?</string>
+    <string name="Dismiss">Dismiss</string>
+    <string name="Agree">Agree to the conditions</string>
+    <string name="Success_uploading_profile">Success uploading profile</string>
+    <string name="accessibility_button_label">Accessibility</string>
     <!-- Language array -->
     <string-array name="jobs_location">
         <item>Afula</item>

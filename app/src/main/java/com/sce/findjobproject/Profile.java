@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -87,7 +88,9 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
     private int count_northern_district=0,count_haifa_district=0,count_tel_aviv_district=0, count_central_district=0,count_jerusalem_district=0,count_southern_district=0,count_judea_and_samaria_district=0;
     private TextView tv_northern_district, tv_haifa_district, tv_tel_aviv_district, tv_central_district,tv_jerusalem_district,tv_southern_district,tv_judea_and_samaria_district;
     private PieChart pieChart;
-    private String childKey = null;
+    private Button AgreeBtn;
+
+
 
 
     @Override
@@ -137,6 +140,8 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
         pieChart = findViewById(R.id.piechart);
         btnDeleteJob=findViewById(R.id.btnDeleteJob);
         AdminButtonComments=findViewById(R.id.AdminButtonComments);
+        AgreeBtn=findViewById(R.id.AgreeBtn);
+
         allowScrollForEditText();
         CheckWhichUser();
         EnterButtons();
@@ -146,6 +151,26 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
 
 
     }
+
+    private void Agreement(){
+
+        AgreeBtn.setOnClickListener(view -> {
+            AlertDialog.Builder alert = new AlertDialog.Builder(Profile.this);
+            alert.setTitle(R.string.Agreement);
+            alert.setMessage(R.string.Aggrement_text);
+            alert.setPositiveButton(R.string.yes, (dialog, which) -> {
+                RadioButton RadioBtnAgree= findViewById(R.id.RadioBtnAgree);
+                RadioBtnAgree.setChecked(true);
+                // Dismiss dialog
+                dialog.dismiss();
+
+            });
+            alert.setNegativeButton(R.string.no, (dialog, which) -> dialog.dismiss());
+            alert.show();
+
+        });
+    }
+
 
     private void DeleteJobPost() {
         // Set up click listener for delete button
@@ -405,6 +430,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
             AdminLayout.setVisibility(View.GONE);
             LayoutCv.setVisibility(View.GONE);
             EnterInfoJob();
+            EnterInfoProfile();
             DeleteJobPost();
         }
         else if(WhichUser==3){
@@ -778,7 +804,9 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
                 if (user != null) {
                     String userId1 = user.getUid();
                     writeNewUser(userId1,Name,LastName,Email,Phone,City,whichGender);
-                    Toast.makeText(Profile.this, "Success", Toast.LENGTH_SHORT).show();
+                    Snackbar snackbar = Snackbar.make(view, R.string.Success_uploading_profile, Snackbar.LENGTH_SHORT);
+                    snackbar.setAction("Dismiss", view1 -> snackbar.dismiss());
+                    snackbar.show();
                 }
 
 
@@ -788,6 +816,7 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
         }
         else{
             Toast.makeText(this, "user is null", Toast.LENGTH_SHORT).show();
+
         }
 
     }
@@ -816,6 +845,8 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
 
 
     void EnterInfoJob(){ //function that enter info of job.
+
+        Agreement();//A Way for user to agree to the agreements.
         // Check if user object is not null
         if(user!=null){
             database = FirebaseDatabase.getInstance();
@@ -876,30 +907,52 @@ public class Profile extends AppCompatActivity implements AdapterView.OnItemSele
                 }
             });
 
+            RadioButton RadioBtnAgree= findViewById(R.id.RadioBtnAgree);
 
-            BtnUpJobDesc.setOnClickListener(view -> {
-                // save info of user he put for the first time or edit to firebase database.
-                Company=edtCompany.getText().toString();
-                JobDescription=edtJobDescription.getText().toString();
-                JobType=SpinJobsType1.getText().toString();
-                JobLocation=SpinJobsLocation1.getText().toString();
-                edtCompany.clearFocus();
-                edtJobDescription.clearFocus();
-                String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+                BtnUpJobDesc.setOnClickListener(view -> {
+                    if(RadioBtnAgree.isChecked()){
 
-                if (user != null) {
-                    String userId1 = user.getUid();
-                    writeNewJob(userId1,Company,JobDescription,JobType,JobLocation,SpinJobsLocation1Index,SpinJobsType1Index,currentDate);
-                    Toast.makeText(Profile.this, "Job Posted Successfully", Toast.LENGTH_SHORT).show();
-                }
+                        // save info of user he put for the first time or edit to firebase database.
+                        Company=edtCompany.getText().toString();
+                        JobDescription=edtJobDescription.getText().toString();
+                        JobType=SpinJobsType1.getText().toString();
+                        JobLocation=SpinJobsLocation1.getText().toString();
+                        edtCompany.clearFocus();
+                        edtJobDescription.clearFocus();
+                        String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+
+                        if (user != null) {
+                            String userId1 = user.getUid();
+                            writeNewJob(userId1,Company,JobDescription,JobType,JobLocation,SpinJobsLocation1Index,SpinJobsType1Index,currentDate);
+                            Snackbar snackbar = Snackbar.make(view, R.string.Job_Posted_Successfully, Snackbar.LENGTH_SHORT);
+                            snackbar.setAction("Dismiss", view1 -> snackbar.dismiss());
+                            snackbar.show();
+                        }
+                        else{
+                            Snackbar snackbar = Snackbar.make(view, R.string.user_is_null, Snackbar.LENGTH_SHORT);
+                            snackbar.setAction("Dismiss", view1 -> snackbar.dismiss());
+                            snackbar.show();
+                        }
 
 
-            });
+                    }
+                    else{
+                        Snackbar snackbar = Snackbar.make(view, R.string.Agree, Snackbar.LENGTH_SHORT);
+                        snackbar.setAction("Dismiss", view1 -> snackbar.dismiss());
+                        snackbar.show();
+                    }
+
+
+
+                });
+
+
+
+
+
 
         }
-        else{
-            Toast.makeText(this, "user is null", Toast.LENGTH_SHORT).show();
-        }
+
 
     }
 
