@@ -518,20 +518,17 @@ public class About extends AppCompatActivity {
 
     }
 
+
     private void Report(String FileName) {
         btnReport.setOnClickListener(view -> {
-            ActivityCompat.requestPermissions(About.this, new String[]
-                    {Manifest.permission.WRITE_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
+            ActivityCompat.requestPermissions(About.this, new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
             boolean wasSuccessful;
             String datafilecontect = String.valueOf(Jobs);
             File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
 
-
             try {
                 wasSuccessful = dir.mkdirs();
-
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
@@ -540,30 +537,20 @@ public class About extends AppCompatActivity {
                 FileOutputStream stream = new FileOutputStream(contentfilename);
                 stream.write(datafilecontect.getBytes());
                 Toast.makeText(About.this, "Dir created", Toast.LENGTH_SHORT).show();
-                openFile();
-
-
-            }
-            catch (IOException e){
+                openFile(FileName);
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         });
-
-
-
-
     }
 
-
-    private void openFile() {
-
-        String path = Environment.DIRECTORY_DOCUMENTS ;
+    private void openFile(String FileName) {
+        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/" + FileName;
         Uri uri = Uri.parse(path);
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setDataAndType(uri,  "*/*");
+        intent.setDataAndType(uri, "*/*");
         startActivity(intent);
     }
-
 
 
     void EnterButtons(){
@@ -592,6 +579,16 @@ public class About extends AppCompatActivity {
                                        FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
                                        String userId = user.getUid();
                                        DatabaseReference myRef3 = mDatabase.getReference("AdminStatistics").child(userId);
+                                       if(WhichUser==1){
+                                           DatabaseReference myRef4 = mDatabase.getReference("users").child(userId);
+                                           myRef4.removeValue();
+                                       }
+                                       if(WhichUser==2){
+                                           DatabaseReference myRef6 = mDatabase.getReference("users").child(userId);
+                                           myRef6.removeValue();
+                                           DatabaseReference myRef7 = mDatabase.getReference("usersJobs").child(userId);
+                                           myRef7.removeValue();
+                                       }
                                        // Remove all comments from the 'comments' node
                                        myRef3.removeValue();
                                        // Sign out of the Firebase account

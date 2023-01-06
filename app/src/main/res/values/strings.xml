@@ -142,8 +142,8 @@
     <string name="a7_our_app_findjob_currently_100_free">A7: Our App \'FindJob\' currently 100% free.</string>
     <string name="q8_how_do_i_update_my_profile_or_resume_on_your_application">Q8: How do I update my profile or resume on your application?</string>
     <string name="a8_upload_of_resume_is_in_the_profile_page">A8: Upload of resume is in the profile page.</string>
-    <string name="q9_how_do_i_receive_alerts_for_new_job_listings_that_match_my_preferences">Q9: How do I receive alerts for new job listings that match my preferences?</string>
-    <string name="a9_currently_our_jobs_doesn_t_alerts_for_new_jobs_that_in_your_preferences">A9: Currently our jobs doesn\'t alerts for new jobs that in your preferences.</string>
+    <string name="q9_how_do_i_receive_alerts_for_new_job_listings_that_match_my_preferences">Q9: Why I cannot download my report?</string>
+    <string name="a9_currently_our_jobs_doesn_t_alerts_for_new_jobs_that_in_your_preferences">A9: אם אתה נתקל בבעיה בהורדה אתה מדווח, אנא מחק את הקבצים הקודמים שהורדת מהאפליקציה שלנו שנמצאים באחסון הפנימי בתוך המסמכים</string>
     <string name="q10_can_i_upload_my_job_opportunity_as_job_recruiter_to_the_app">Q10: Can I upload my job opportunity as job recruiter to the app?</string>
     <string name="a10_anyone_can_post_job_opportunity_you_will_need_to_log_to_your_account_as_job_recruiters_and_in_the_profile_page_you_can_post_your_new_job_opportunity">A10: Anyone can post job opportunity, you will need to log to your account as Job Recruiters and in the profile page you can post your new job opportunity.</string>
     <string name="Are_you_sure_2">Are you sure you want to delete jobs over 30 days?</string>

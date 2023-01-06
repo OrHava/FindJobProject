@@ -88,7 +88,7 @@ dependencies {
 // Chart and graph library
     implementation 'com.github.blackfizz:eazegraph:1.2.5l@aar'
     implementation 'com.nineoldandroids:library:2.4.0'
-
+    implementation 'org.apache.ant:ant:1.8.0'
 
     //unit test library's
     testImplementation 'junit:junit:4.13.2'
