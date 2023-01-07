@@ -164,7 +164,8 @@
     <string name="Dismiss">יציאה</string>
     <string name="Agree">תסכים לתנאים כדי לפרסם עבודה בבקשה.</string>
     <string name="Success_uploading_profile">הצלחה בהעלת פרופיל</string>
-    <string name="accessibility_button_label">Accessibility</string>
+    <string name="Error_deleting_user_account">שגיאה במחיקת חשבון</string>
+    <string name="are_you_sure_text_ac">האם אתה בטוח שאתה רוצה למחוק את החשבון? כל המידע שלך אמחק</string>
     <!-- Language array -->
     <string-array name="jobs_location">
         <item>עפולה</item>

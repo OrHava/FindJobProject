@@ -103,9 +103,6 @@
     <string name="report_of_user">Report of User</string>
     <string name="enter_a_valid_email">Enter a valid Email</string>
     <string name="enter_a_valid_password">Enter a valid Password</string>
-
-
-
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_login">Login</string>
@@ -159,7 +156,8 @@
     <string name="Dismiss">Dismiss</string>
     <string name="Agree">Agree to the conditions</string>
     <string name="Success_uploading_profile">Success uploading profile</string>
-    <string name="accessibility_button_label">Accessibility</string>
+    <string name="Error_deleting_user_account">Error deleting user account</string>
+    <string name="are_you_sure_text_ac">Are you sure you want to delete your account? all data will be lost</string>
     <!-- Language array -->
     <string-array name="jobs_location">
         <item>Afula</item>

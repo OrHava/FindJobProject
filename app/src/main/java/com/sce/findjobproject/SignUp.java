@@ -23,10 +23,13 @@ import java.util.regex.Pattern;
 import io.reactivex.annotations.NonNull;
 
 public class SignUp extends AppCompatActivity {
-    private FirebaseAuth mAuth;
-    private TextInputEditText edit_email,edit_password;
-    private MaterialButton button_register;
-    private Button button_login;
+    public FirebaseAuth mAuth;
+
+    public TextInputEditText edit_email,edit_password;
+    public MaterialButton button_register;
+    public Button button_login;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,18 +78,24 @@ public class SignUp extends AppCompatActivity {
     }
 
 
-    public static boolean isEmailValid(String email) { //function that checks if email is valid.
+    public  static boolean isEmailValid(String email) { //function that checks if email is valid.
         String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
         Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
 
-    static boolean isPasswordValid(String password) {
+    public static boolean isPasswordValid(String password) {
         return password.length() >= 6;
     } //function that check if password is valid. (password need to be over 6 numbers and letter to work in firebase)
 
 
+
+    // Other code
+
+    public FirebaseAuth getAuth() {
+        return mAuth;
+    }
 
     public void reload() {
         // Set up the "Register" button
@@ -141,6 +150,7 @@ public class SignUp extends AppCompatActivity {
 
         });
     }
+
 
 
 }

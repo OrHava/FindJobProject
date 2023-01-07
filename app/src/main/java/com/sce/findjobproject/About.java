@@ -1,15 +1,14 @@
 package com.sce.findjobproject;
-import static com.sce.findjobproject.SignIn.WhichUser;
 
+import static com.sce.findjobproject.SignIn.WhichUser;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -17,14 +16,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -47,12 +45,10 @@ public class About extends AppCompatActivity {
     private int count;
     private FirebaseUser user;
     private DatabaseReference databaseReference;
-    private ArrayList<String> Jobs=new ArrayList<>();
+    private final ArrayList<String> Jobs=new ArrayList<>();
     private ArrayList<String> userApplied;
     private int CountJobSeekers;
     private int CountJobRequiter;
-    private int CountReports;
-    private String JobType;
     private int count_northern_district;
     private int count_haifa_district;
     private int count_tel_aviv_district;
@@ -102,169 +98,140 @@ public class About extends AppCompatActivity {
         FAQ();
         EnterButtons();
         CheckWhichUser();
-        DeleteAccount();
+       // DeleteAccount();
+        deleteAccount(this);
     }
 
     private void FAQ() {
-        btnPlus1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtA1.setVisibility(View.VISIBLE);
-                txtA2.setVisibility(View.GONE);
-                txtA3.setVisibility(View.GONE);
-                txtA4.setVisibility(View.GONE);
-                txtA5.setVisibility(View.GONE);
-                txtA6.setVisibility(View.GONE);
-                txtA7.setVisibility(View.GONE);
-                txtA8.setVisibility(View.GONE);
-                txtA9.setVisibility(View.GONE);
-                txtA10.setVisibility(View.GONE);
-            }
+        btnPlus1.setOnClickListener(view -> {
+            txtA1.setVisibility(View.VISIBLE);
+            txtA2.setVisibility(View.GONE);
+            txtA3.setVisibility(View.GONE);
+            txtA4.setVisibility(View.GONE);
+            txtA5.setVisibility(View.GONE);
+            txtA6.setVisibility(View.GONE);
+            txtA7.setVisibility(View.GONE);
+            txtA8.setVisibility(View.GONE);
+            txtA9.setVisibility(View.GONE);
+            txtA10.setVisibility(View.GONE);
         });
 
 
-        btnPlus2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtA1.setVisibility(View.GONE);
-                txtA2.setVisibility(View.VISIBLE);
-                txtA3.setVisibility(View.GONE);
-                txtA4.setVisibility(View.GONE);
-                txtA5.setVisibility(View.GONE);
-                txtA6.setVisibility(View.GONE);
-                txtA7.setVisibility(View.GONE);
-                txtA8.setVisibility(View.GONE);
-                txtA9.setVisibility(View.GONE);
-                txtA10.setVisibility(View.GONE);
-            }
+        btnPlus2.setOnClickListener(view -> {
+            txtA1.setVisibility(View.GONE);
+            txtA2.setVisibility(View.VISIBLE);
+            txtA3.setVisibility(View.GONE);
+            txtA4.setVisibility(View.GONE);
+            txtA5.setVisibility(View.GONE);
+            txtA6.setVisibility(View.GONE);
+            txtA7.setVisibility(View.GONE);
+            txtA8.setVisibility(View.GONE);
+            txtA9.setVisibility(View.GONE);
+            txtA10.setVisibility(View.GONE);
         });
 
-        btnPlus3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtA1.setVisibility(View.GONE);
-                txtA2.setVisibility(View.GONE);
-                txtA3.setVisibility(View.VISIBLE);
-                txtA4.setVisibility(View.GONE);
-                txtA5.setVisibility(View.GONE);
-                txtA6.setVisibility(View.GONE);
-                txtA7.setVisibility(View.GONE);
-                txtA8.setVisibility(View.GONE);
-                txtA9.setVisibility(View.GONE);
-                txtA10.setVisibility(View.GONE);
-            }
+        btnPlus3.setOnClickListener(view -> {
+            txtA1.setVisibility(View.GONE);
+            txtA2.setVisibility(View.GONE);
+            txtA3.setVisibility(View.VISIBLE);
+            txtA4.setVisibility(View.GONE);
+            txtA5.setVisibility(View.GONE);
+            txtA6.setVisibility(View.GONE);
+            txtA7.setVisibility(View.GONE);
+            txtA8.setVisibility(View.GONE);
+            txtA9.setVisibility(View.GONE);
+            txtA10.setVisibility(View.GONE);
         });
 
-        btnPlus4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtA1.setVisibility(View.GONE);
-                txtA2.setVisibility(View.GONE);
-                txtA3.setVisibility(View.GONE);
-                txtA4.setVisibility(View.VISIBLE);
-                txtA5.setVisibility(View.GONE);
-                txtA6.setVisibility(View.GONE);
-                txtA7.setVisibility(View.GONE);
-                txtA8.setVisibility(View.GONE);
-                txtA9.setVisibility(View.GONE);
-                txtA10.setVisibility(View.GONE);
-            }
+        btnPlus4.setOnClickListener(view -> {
+            txtA1.setVisibility(View.GONE);
+            txtA2.setVisibility(View.GONE);
+            txtA3.setVisibility(View.GONE);
+            txtA4.setVisibility(View.VISIBLE);
+            txtA5.setVisibility(View.GONE);
+            txtA6.setVisibility(View.GONE);
+            txtA7.setVisibility(View.GONE);
+            txtA8.setVisibility(View.GONE);
+            txtA9.setVisibility(View.GONE);
+            txtA10.setVisibility(View.GONE);
         });
 
-        btnPlus5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtA1.setVisibility(View.GONE);
-                txtA2.setVisibility(View.GONE);
-                txtA3.setVisibility(View.GONE);
-                txtA4.setVisibility(View.GONE);
-                txtA5.setVisibility(View.VISIBLE);
-                txtA6.setVisibility(View.GONE);
-                txtA7.setVisibility(View.GONE);
-                txtA8.setVisibility(View.GONE);
-                txtA9.setVisibility(View.GONE);
-                txtA10.setVisibility(View.GONE);
-            }
+        btnPlus5.setOnClickListener(view -> {
+            txtA1.setVisibility(View.GONE);
+            txtA2.setVisibility(View.GONE);
+            txtA3.setVisibility(View.GONE);
+            txtA4.setVisibility(View.GONE);
+            txtA5.setVisibility(View.VISIBLE);
+            txtA6.setVisibility(View.GONE);
+            txtA7.setVisibility(View.GONE);
+            txtA8.setVisibility(View.GONE);
+            txtA9.setVisibility(View.GONE);
+            txtA10.setVisibility(View.GONE);
         });
 
-        btnPlus6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtA1.setVisibility(View.GONE);
-                txtA2.setVisibility(View.GONE);
-                txtA3.setVisibility(View.GONE);
-                txtA4.setVisibility(View.GONE);
-                txtA5.setVisibility(View.GONE);
-                txtA6.setVisibility(View.VISIBLE);
-                txtA7.setVisibility(View.GONE);
-                txtA8.setVisibility(View.GONE);
-                txtA9.setVisibility(View.GONE);
-                txtA10.setVisibility(View.GONE);
-            }
+        btnPlus6.setOnClickListener(view -> {
+            txtA1.setVisibility(View.GONE);
+            txtA2.setVisibility(View.GONE);
+            txtA3.setVisibility(View.GONE);
+            txtA4.setVisibility(View.GONE);
+            txtA5.setVisibility(View.GONE);
+            txtA6.setVisibility(View.VISIBLE);
+            txtA7.setVisibility(View.GONE);
+            txtA8.setVisibility(View.GONE);
+            txtA9.setVisibility(View.GONE);
+            txtA10.setVisibility(View.GONE);
         });
 
-        btnPlus7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtA1.setVisibility(View.GONE);
-                txtA2.setVisibility(View.GONE);
-                txtA3.setVisibility(View.GONE);
-                txtA4.setVisibility(View.GONE);
-                txtA5.setVisibility(View.GONE);
-                txtA6.setVisibility(View.GONE);
-                txtA7.setVisibility(View.VISIBLE);
-                txtA8.setVisibility(View.GONE);
-                txtA9.setVisibility(View.GONE);
-                txtA10.setVisibility(View.GONE);
-            }
+        btnPlus7.setOnClickListener(view -> {
+            txtA1.setVisibility(View.GONE);
+            txtA2.setVisibility(View.GONE);
+            txtA3.setVisibility(View.GONE);
+            txtA4.setVisibility(View.GONE);
+            txtA5.setVisibility(View.GONE);
+            txtA6.setVisibility(View.GONE);
+            txtA7.setVisibility(View.VISIBLE);
+            txtA8.setVisibility(View.GONE);
+            txtA9.setVisibility(View.GONE);
+            txtA10.setVisibility(View.GONE);
         });
 
-        btnPlus8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtA1.setVisibility(View.GONE);
-                txtA2.setVisibility(View.GONE);
-                txtA3.setVisibility(View.GONE);
-                txtA4.setVisibility(View.GONE);
-                txtA5.setVisibility(View.GONE);
-                txtA6.setVisibility(View.GONE);
-                txtA7.setVisibility(View.GONE);
-                txtA8.setVisibility(View.VISIBLE);
-                txtA9.setVisibility(View.GONE);
-                txtA10.setVisibility(View.GONE);
-            }
+        btnPlus8.setOnClickListener(view -> {
+            txtA1.setVisibility(View.GONE);
+            txtA2.setVisibility(View.GONE);
+            txtA3.setVisibility(View.GONE);
+            txtA4.setVisibility(View.GONE);
+            txtA5.setVisibility(View.GONE);
+            txtA6.setVisibility(View.GONE);
+            txtA7.setVisibility(View.GONE);
+            txtA8.setVisibility(View.VISIBLE);
+            txtA9.setVisibility(View.GONE);
+            txtA10.setVisibility(View.GONE);
         });
 
-        btnPlus9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtA1.setVisibility(View.GONE);
-                txtA2.setVisibility(View.GONE);
-                txtA3.setVisibility(View.GONE);
-                txtA4.setVisibility(View.GONE);
-                txtA5.setVisibility(View.GONE);
-                txtA6.setVisibility(View.GONE);
-                txtA7.setVisibility(View.GONE);
-                txtA8.setVisibility(View.GONE);
-                txtA9.setVisibility(View.VISIBLE);
-                txtA10.setVisibility(View.GONE);
-            }
+        btnPlus9.setOnClickListener(view -> {
+            txtA1.setVisibility(View.GONE);
+            txtA2.setVisibility(View.GONE);
+            txtA3.setVisibility(View.GONE);
+            txtA4.setVisibility(View.GONE);
+            txtA5.setVisibility(View.GONE);
+            txtA6.setVisibility(View.GONE);
+            txtA7.setVisibility(View.GONE);
+            txtA8.setVisibility(View.GONE);
+            txtA9.setVisibility(View.VISIBLE);
+            txtA10.setVisibility(View.GONE);
         });
 
-        btnPlus10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                txtA1.setVisibility(View.GONE);
-                txtA2.setVisibility(View.GONE);
-                txtA3.setVisibility(View.GONE);
-                txtA4.setVisibility(View.GONE);
-                txtA5.setVisibility(View.GONE);
-                txtA6.setVisibility(View.GONE);
-                txtA7.setVisibility(View.GONE);
-                txtA8.setVisibility(View.GONE);
-                txtA9.setVisibility(View.GONE);
-                txtA10.setVisibility(View.VISIBLE);
-            }
+        btnPlus10.setOnClickListener(view -> {
+            txtA1.setVisibility(View.GONE);
+            txtA2.setVisibility(View.GONE);
+            txtA3.setVisibility(View.GONE);
+            txtA4.setVisibility(View.GONE);
+            txtA5.setVisibility(View.GONE);
+            txtA6.setVisibility(View.GONE);
+            txtA7.setVisibility(View.GONE);
+            txtA8.setVisibility(View.GONE);
+            txtA9.setVisibility(View.GONE);
+            txtA10.setVisibility(View.VISIBLE);
         });
 
 
@@ -319,30 +286,7 @@ public class About extends AppCompatActivity {
 
         }
     }
-    private void AmountOfReports(){
-        if (user != null) {
-            CountReports = 0;
-            databaseReference = FirebaseDatabase.getInstance().getReference("reports");
-            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                @SuppressLint("SetTextI18n")
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    Jobs.add("Reports: \n\n");
-                    for (DataSnapshot postsnapshot : snapshot.getChildren()) {
-                        String ReportName = postsnapshot.getValue(String.class);
-                        CountReports++;
-                    }
-                    Jobs.add("Amount of reports: " + CountReports + "\n");
-                    Jobs.add("\n\n");
-                }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-        }
-    }
 
     private void AmountOfJobsLocation(){
         if (user != null) {
@@ -397,7 +341,6 @@ public class About extends AppCompatActivity {
 
     private void AllJobAdminStats() {
         AmountOfUsers();
-        AmountOfReports();
         AmountOfJobsLocation();
     }
 
@@ -561,61 +504,54 @@ public class About extends AppCompatActivity {
 
     }
 
-    void DeleteAccount(){
-        btnDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+    public void deleteAccount(final Context context) {
 
-               if (user != null){
-                   user.delete()
-                           .addOnCompleteListener(new OnCompleteListener<Void>() {
-                               @Override
-                               public void onComplete(@NonNull Task<Void> task) {
-                                   if (task.isSuccessful()) {
-                                       // User account deleted successfully
-                                       Toast.makeText(About.this, R.string.Useraccountdeleted, Toast.LENGTH_SHORT).show();
-                                       FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
-                                       String userId = user.getUid();
-                                       DatabaseReference myRef3 = mDatabase.getReference("AdminStatistics").child(userId);
-                                       if(WhichUser==1){
-                                           DatabaseReference myRef4 = mDatabase.getReference("users").child(userId);
-                                           myRef4.removeValue();
-                                       }
-                                       if(WhichUser==2){
-                                           DatabaseReference myRef6 = mDatabase.getReference("users").child(userId);
-                                           myRef6.removeValue();
-                                           DatabaseReference myRef7 = mDatabase.getReference("usersJobs").child(userId);
-                                           myRef7.removeValue();
-                                       }
-                                       // Remove all comments from the 'comments' node
-                                       myRef3.removeValue();
-                                       // Sign out of the Firebase account
-                                       FirebaseAuth.getInstance().signOut();
-                                       // Sign out of the Google account
-                                       GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(About.this, new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build());
-                                       googleSignInClient.signOut();
-                                       Log.d("User Deleted: ","successfully!");
-                                       Intent intent = new Intent(About.this, SignIn.class);
-                                       startActivity(intent);
-                                       finish();
+        btnDelete.setOnClickListener(view -> {
+            if(user!=null){
+                String userId = user.getUid();
+                new AlertDialog.Builder(context)
+                        .setTitle(R.string.Delete_Account)
+                        .setMessage(R.string.are_you_sure_text_ac)
+                        .setPositiveButton(R.string.yes, (dialog, which) -> {
+                            FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
 
-                                   } else {
-                                       // Error occurred during delete operation
-                                       Toast.makeText(About.this, "Error deleting user account", Toast.LENGTH_SHORT).show();
-                                   }
-                               }
-                           });
+                            DatabaseReference myRef3 = mDatabase.getReference("AdminStatistics").child(userId);
+                            myRef3.removeValue();
+                            if(WhichUser==1){
+                                DatabaseReference myRef4 = mDatabase.getReference("users").child(userId);
+                                myRef4.removeValue();
+                            }
+                            if(WhichUser==2){
+                                DatabaseReference myRef6 = mDatabase.getReference("users").child(userId);
+                                myRef6.removeValue();
+                                DatabaseReference myRef7 = mDatabase.getReference("usersJobs").child(userId);
+                                myRef7.removeValue();
+                            }
 
-
-               }
-
-
-
-
+                            Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).delete();
+                            signOut();
+                        })
+                        .setNegativeButton(R.string.no, null)
+                        .show();
             }
+            else {
+                // Error occurred during delete operation
+                Toast.makeText(About.this, R.string.Error_deleting_user_account, Toast.LENGTH_SHORT).show();
+            }
+
+
         });
+
+    }
+
+    public void signOut() {
+        FirebaseAuth.getInstance().signOut();
+        GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(About.this, new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build());
+        googleSignInClient.signOut();
+        Intent intent = new Intent(About.this, SignIn.class);
+        startActivity(intent);
+        finish();
     }
 
 }
