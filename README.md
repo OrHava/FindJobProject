@@ -1,4 +1,4 @@
-Welcome to FIND JOB, the Android app that helps connect job seekers with potential employers.
+Welcome to FINDJOB, the Android app that helps connect job seekers with potential employers.
 
 This app was built using Android Studio and Java, and utilizes Firebase for its realtime database and cloud storage needs. It also includes authentication for its three types of users: those looking for a job, those looking for workers, and admins.
 
