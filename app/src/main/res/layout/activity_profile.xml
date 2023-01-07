@@ -645,23 +645,25 @@
                         android:id="@+id/txtAmountUsers1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@+id/AdminButtonComments"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:layout_below="@+id/AdminButtonComments"
                         android:fontFamily="sans-serif-light"
                         android:text="@string/amount_of_users"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtAmountUsers2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtAmountUsers1"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:layout_below="@+id/txtAmountUsers1"
                         android:fontFamily="sans-serif-light"
                         android:text="@string/amount_of_users"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
 
                     <!-- Card view for displaying the -->
                     <!-- Pie chart and details of pie chart -->
@@ -959,7 +961,8 @@
                                     android:text="@string/northern_district"
                                     android:textColor="@color/black"
 
-                                    android:textSize="18sp" />
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
 
                                 <!--Text view to display the -->
                                 <!-- percentage of programming language -->
@@ -1001,7 +1004,8 @@
                                     android:text="@string/haifa_district"
                                     android:textColor="@color/black"
 
-                                    android:textSize="18sp" />
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
 
                                 <!--Text view to display the percentage -->
                                 <!-- of programming language used. -->
@@ -1043,7 +1047,8 @@
                                     android:fontFamily="sans-serif-light"
                                     android:text="@string/tel_aviv_district"
                                     android:textColor="@color/black"
-                                    android:textSize="18sp" />
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
 
                                 <!--Text view to display the percentage -->
                                 <!-- of programming language used. -->
@@ -1085,7 +1090,8 @@
                                     android:text="@string/central_district"
 
                                     android:textColor="@color/black"
-                                    android:textSize="18sp" />
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
 
                                 <!--Text view to display the percentage -->
                                 <!-- of programming language used. -->
@@ -1128,7 +1134,8 @@
                                     android:text="@string/jerusalem_district"
                                     android:textColor="@color/black"
 
-                                    android:textSize="18sp" />
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
 
                                 <!--Text view to display the percentage -->
                                 <!-- of programming language used. -->
@@ -1171,7 +1178,8 @@
                                     android:fontFamily="sans-serif-light"
                                     android:text="@string/southern_district"
                                     android:textColor="@color/black"
-                                    android:textSize="18sp" />
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
 
                                 <!--Text view to display the percentage -->
                                 <!-- of programming language used. -->
@@ -1214,7 +1222,8 @@
                                     android:fontFamily="sans-serif-light"
                                     android:text="@string/judea_and_samaria_district"
                                     android:textColor="@color/black"
-                                    android:textSize="18sp" />
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
 
                                 <!--Text view to display the percentage -->
                                 <!-- of programming language used. -->
