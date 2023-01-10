@@ -11,8 +11,9 @@ Admins can manage user accounts, review and approve job postings, and oversee th
 Thank you for using FIND JOB. We hope it helps you find your next career opportunity.
 
 
-
-
-To Connect Your perosnal Android studio hash to Firebase: 
+To Connect this project, you need to dowlownd the lasted version of Android Studio and Java: https://developer.android.com/studio 
+https://www.oracle.com/java/technologies/downloads/
+To make sure the code work with cloud, you need to open your own FireBase account and SDK setup and configuration to the code, download google-services.json, and add it to MyApp - > app -> src, and then modify google id String to the new onces you have in your FireBase Ac and then - >
+Connect Your perosnal Android studio hash to Firebase: 
     To find hash go to Navigate (its on top bar), Write-> search EveryWhere-> write "gradlew" and enter-> then write click on gradlew ->
      open in-> Terminal -> then write in Terminal- > ./gradlew signingReport, then if everything is fine you should see hash 1 code which is what we need.
