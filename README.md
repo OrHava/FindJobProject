@@ -6,7 +6,7 @@ Job seekers can use FINDJOB to search for available positions, create and submit
 
 Employers can use FINDJOB to post job openings, see qualified candidates CV's.
 
-Admins can manage user accounts, review and approve job postings, and oversee the overall operation of the app.
+Admins can manage user accounts, review and delete job postings, and oversee the overall operation of the app.
 
 Thank you for using FIND JOB. We hope it helps you find your next career opportunity.
 
