@@ -1,9 +1,10 @@
 Overview:
 
-FindJob is an Android application that connects job seekers with job recruiters.
-It allows job seekers to upload their resumes, create profiles, search for jobs, and apply for jobs using their resumes. 
+FindJob is an Android application that connects job seekers with job recruiters.  
+FindJob allows job seekers to upload their resumes, create profiles, search for jobs, and apply for jobs using their resumes. 
 Employers can post job listings and view resumes submitted by job seekers.
 The application also includes an admin feature that allows for the deletion of reported posts and posts older than 30 days.
+
 
 Features:
 
