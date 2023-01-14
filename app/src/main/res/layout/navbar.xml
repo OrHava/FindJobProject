@@ -41,7 +41,8 @@
             android:adjustViewBounds="true"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:src="@drawable/home" />
+
+            android:src="@drawable/image_button_selector_home" />
 
         <ImageButton
             android:id="@+id/btnProfile"
@@ -51,9 +52,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="8dp"
             android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
             android:background="@android:color/transparent"
-            android:src="@drawable/user" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/image_button_selector_profile" />
 
         <ImageButton
             android:id="@+id/btnAbout"
@@ -66,7 +67,7 @@
             android:adjustViewBounds="true"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:src="@drawable/about" />
+            android:src="@drawable/image_button_selector_about" />
 
 
     </RelativeLayout>

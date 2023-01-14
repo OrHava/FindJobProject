@@ -37,44 +37,18 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The About class is an activity of the job finding app that displays statistics and information about the app and its users.
- *
- * The class uses Firebase Authentication and Database to manage user accounts and store job listings.
- * It also has features to create reports, delete user profiles and show the statistics of job opportunities in different districts of Israel.
- *
- * The class uses several image buttons and text views to display statistics and information to the user.
- * It also uses a custom class 'pdfClass' to store pdf files.
- *
- * @author  SCE
- * @version 1.0
- * @since   2020-10-01
- */
-
 public class About extends AppCompatActivity {
-
-    // UI elements
     private ImageButton btnProfile,btnHome;
     private Button btnReport,btnDelete;
-    private TextView txtA1,txtA2,txtA3,txtA4,txtA5,txtA6,txtA7,txtA8,txtA9,txtA10;
-    private ImageButton btnPlus1,btnPlus2,btnPlus3,btnPlus4,btnPlus5,btnPlus6,btnPlus7,btnPlus8,btnPlus9,btnPlus10;
-
-    // Firebase elements
+    private int count;
     private FirebaseUser user;
     private DatabaseReference databaseReference;
-
-    // Variables to store statistics
-    private int count;
     private ArrayList<String> Jobs=new ArrayList<>();
     private ArrayList<String> userApplied;
     private int CountJobSeekers;
     private int CountJobRequiter;
     private int CountReports;
     private String JobType;
-
-
-
-    // Variables to store statistics (continued)
     private int count_northern_district;
     private int count_haifa_district;
     private int count_tel_aviv_district;
@@ -82,21 +56,23 @@ public class About extends AppCompatActivity {
     private int count_jerusalem_district;
     private int count_southern_district;
     private int count_judea_and_samaria_district;
+    private ImageButton btnPlus1,btnPlus2,btnPlus3,btnPlus4,btnPlus5,btnPlus6,btnPlus7,btnPlus8,btnPlus9,btnPlus10;
+    private TextView txtA1,txtA2,txtA3,txtA4,txtA5,txtA6,txtA7,txtA8,txtA9,txtA10;
 
-    // List to store pdf files
     List<pdfClass> uploads;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-
-        // Initializing UI elements
         btnProfile=findViewById(R.id.btnProfile);
         btnHome=findViewById(R.id.btnHome);
         btnReport=findViewById(R.id.btnReport);
         btnDelete=findViewById(R.id.btnDelete);
-        // Initializing UI elements (continued)
+        user= FirebaseAuth.getInstance().getCurrentUser();
+        uploads=new ArrayList<>();
+        userApplied= new ArrayList<>();
         txtA1 = findViewById(R.id.txtA1);
         btnPlus1 = findViewById(R.id.btnPlus1);
         txtA2 = findViewById(R.id.txtA2);
@@ -111,26 +87,19 @@ public class About extends AppCompatActivity {
         btnPlus6 = findViewById(R.id.btnPlus6);
         txtA7 = findViewById(R.id.txtA7);
         btnPlus7 = findViewById(R.id.btnPlus7);
-        txtA8 = findViewById(R.id.txtA8);
+        txtA7 = findViewById(R.id.txtA7);
         btnPlus8 = findViewById(R.id.btnPlus8);
-        txtA9 = findViewById(R.id.txtA9);
+        txtA8 = findViewById(R.id.txtA8);
         btnPlus9 = findViewById(R.id.btnPlus9);
+        txtA9= findViewById(R.id.txtA9);
         txtA10 = findViewById(R.id.txtA10);
         btnPlus10 = findViewById(R.id.btnPlus10);
 
-        // Initializing Firebase elements
-        user= FirebaseAuth.getInstance().getCurrentUser();
-        uploads=new ArrayList<>();
-        userApplied= new ArrayList<>();
-
-        // Code to perform tasks such as creating reports, deleting user profiles, and displaying statistics
-        // ...
-
+        FAQ();
+        EnterButtons();
+        CheckWhichUser();
+        DeleteAccount();
     }
-}
-
-
-
 
     private void FAQ() {
         btnPlus1.setOnClickListener(new View.OnClickListener() {

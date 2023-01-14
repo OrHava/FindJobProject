@@ -4,26 +4,32 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/or656/AndroidStudioProjects/FIndJobProject/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject/app/src/main/res/drawable/list_item_text.xml" value="0.1" />
-        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject/app/src/main/res/layout/activity_about.xml" value="0.33" />
-        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject/app/src/main/res/layout/activity_admin_comments.xml" value="0.25" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject/app/src/main/res/layout/activity_about.xml" value="0.22" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject/app/src/main/res/layout/activity_home.xml" value="0.2604166666666667" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject/app/src/main/res/layout/activity_profile.xml" value="0.25" />
-        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject/app/src/main/res/layout/activity_signin.xml" value="0.25" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject/app/src/main/res/layout/activity_profile.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject/app/src/main/res/layout/activity_signin.xml" value="0.19270833333333334" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject/app/src/main/res/layout/activity_signup.xml" value="0.19270833333333334" />
-        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject/app/src/main/res/layout/activity_spinner.xml" value="0.1361111111111111" />
-        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject/app/src/main/res/layout/activity_splash.xml" value="0.2604166666666667" />
-        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject/app/src/main/res/layout/activity_up_load_pdf.xml" value="0.2604166666666667" />
-        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject/app/src/main/res/layout/activity_view_all_files.xml" value="0.2604166666666667" />
-        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject/app/src/main/res/layout/activity_view_cvs_applys.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject/app/src/main/res/layout/contacts_list_item.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject/app/src/main/res/layout/dialog_searchable_spinner.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject/app/src/main/res/layout/navbar.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/layout/activity_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_glow.xml" value="0.1" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_layer_list.xml" value="0.1" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_layer_list_about.xml" value="0.1" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_layer_list_home.xml" value="0.1" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_layer_list_profile.xml" value="0.1" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_normal.xml" value="0.1" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_selector.xml" value="0.113" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_selector_about.xml" value="0.1" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_selector_home.xml" value="0.1" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/drawable/image_button_selector_profile.xml" value="0.1" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/layout/activity_about.xml" value="0.4" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/layout/activity_admin_comments.xml" value="0.25025641025641027" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/layout/activity_home.xml" value="0.264" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/layout/activity_home2.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/layout/navbar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/layout/activity_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/layout/activity_signin.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/layout/activity_up_load_pdf.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/layout/activity_view_all_files.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/or656/AndroidStudioProjects/FindJobProject2/app/src/main/res/layout/navbar.xml" value="0.152" />
       </map>
     </option>
   </component>

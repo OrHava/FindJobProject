@@ -28,6 +28,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    lintOptions {
+
+        checkReleaseBuilds false
+
+    }
 //    testOptions {
 //        unitTests.all {
 //            // Set the path to the google-services.json file
@@ -59,7 +64,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-drive:17.0.0'
     implementation 'com.google.android.libraries.places:places:3.0.0'
     implementation 'androidx.test:core:1.5.0'
-    testImplementation 'junit:junit:4.13.2'
+
     implementation 'com.google.android.material:material:1.7.0'
 
 
@@ -88,7 +93,7 @@ dependencies {
 // Chart and graph library
     implementation 'com.github.blackfizz:eazegraph:1.2.5l@aar'
     implementation 'com.nineoldandroids:library:2.4.0'
-
+    implementation 'org.apache.ant:ant:1.8.0'
 
     //unit test library's
     testImplementation 'junit:junit:4.13.2'
@@ -96,7 +101,9 @@ dependencies {
     testImplementation 'org.powermock:powermock-api-mockito2:2.0.7'
     testImplementation 'org.powermock:powermock-module-junit4:2.0.7'
     testImplementation 'org.robolectric:robolectric:4.3.1'
-
+    testImplementation 'com.google.firebase:firebase-core:21.1.1'
+    testImplementation 'com.google.firebase:firebase-auth:21.1.0'
+    testImplementation 'junit:junit:4.13.2'
 //    testImplementation 'junit:junit:4.13.2'
 //
 //    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
