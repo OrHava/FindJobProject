@@ -18,7 +18,8 @@ FindJob is an Android application that connects job seekers with job recruiters.
 - Job Seeker: can upload their CV, create a profile, search for jobs, and apply for a job with their CV
 - Job Recruiter: can post jobs and view people who submit their CV to them
 ## Getting Started
-1. Download the latest version of Android Studio and Java: (https://developer.android.com/studio 
+1. Download the latest version of Android Studio and Java: 
+(https://developer.android.com/studio 
 and 
 https://www.oracle.com/java/technologies/downloads/)
 2. Clone or download the repository
@@ -32,5 +33,6 @@ Please note that this project was built as a team, and if anyone would like to c
 
 
 ------------
+![image](https://user-images.githubusercontent.com/81467919/212494372-4a65bd46-5d03-41f9-9541-c7aedb676f31.png)
 
 
