@@ -29,7 +29,7 @@ https://www.oracle.com/java/technologies/downloads/)
 6. Run the project on an emulator or physical device.
 
 ## Contact us
-Please note that this project was built as a team, and if anyone would like to contribute or has any questions, please feel free to contact us.  :fa-smile-o:
+Please note that this project was built as a team, and if anyone would like to contribute or has any questions, please feel free to contact us.  🙂
 
 
 ------------
