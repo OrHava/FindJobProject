@@ -33,6 +33,6 @@ Please note that this project was built as a team, and if anyone would like to c
 
 
 ------------
-![image](https://user-images.githubusercontent.com/81467919/212494372-4a65bd46-5d03-41f9-9541-c7aedb676f31.png)
+![image](https://user-images.githubusercontent.com/81467919/212494505-2b2fd625-db0a-4feb-a14b-e3daa5232447.png)
 
 
