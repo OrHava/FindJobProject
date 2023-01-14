@@ -1,4 +1,4 @@
-# FindJob ![Logo](https://user-images.githubusercontent.com/81467919/212495247-9ba58104-4d79-4baf-9ab0-e0da33d140f9.png)
+# FindJob ![Logo](https://user-images.githubusercontent.com/81467919/212495463-f1380a24-a6dc-4471-b3fe-c190b8287852.png)
 ## Overview
 FindJob is an Android application that connects job seekers with job recruiters. The application allows job seekers to upload their resumes, create profiles, search for jobs, and apply for jobs using their resumes. Employers can post job listings and view resumes submitted by job seekers. The application also includes an admin feature that allows for the deletion of reported posts and posts older than 30 days.
 
